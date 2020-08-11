@@ -24,6 +24,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'racer-rust/vim-racer'        
     Plug 'Valloric/YouCompleteMe'
     Plug 'itchyny/lightline.vim'
+    Plug 'daviesjamie/vim-base16-lightline'
+    Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 set hidden
@@ -61,9 +63,9 @@ set undofile
 set incsearch
 set spelllang=en
 set spelllang+=sv
-set spell
+"set spell
 set updatetime=500
-
+set pastetoggle=F3
 set cmdheight=2
 
 set laststatus=2 "For status bar
@@ -71,13 +73,30 @@ set laststatus=2 "For status bar
 set colorcolumn=80
 "highlight ColorColumn ctermbg=1 guibg=lightgrey
 highlight ColorColumn ctermbg=60
+
+"let g:palette.inactive.middle = g:palette.normal.middle
+autocmd VimEnter * call SetupLightlineColors()
+function SetupLightlineColors() abort
+  " transparent background in statusbar
+  let l:palette = lightline#palette()
+
+  let l:palette.inactive.middle = l:palette.normal.middle
+  let l:palette.tabline.middle = l:palette.normal.middle
+
+  call lightline#colorscheme()
+endfunction
+
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
+      \ 'colorscheme': 'nord',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
+      \ 'inactive': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
       \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
@@ -125,6 +144,4 @@ cnoremap <C-c> <Esc>
 onoremap <C-c> <Esc>
 lnoremap <C-c> <Esc>
 tnoremap <C-c> <Esc>
-
-
 
