@@ -77,9 +77,10 @@ highlight ColorColumn ctermbg=60
 "let g:palette.inactive.middle = g:palette.normal.middle
 autocmd VimEnter * call SetupLightlineColors()
 function SetupLightlineColors() abort
-  " transparent background in statusbar
+    
+    " transparent background in statusbar
   let l:palette = lightline#palette()
-
+"[ [ s:nord5, s:nord3 ] ]
   let l:palette.inactive.middle = l:palette.normal.middle
   let l:palette.tabline.middle = l:palette.normal.middle
 

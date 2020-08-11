@@ -1,0 +1,47 @@
+tmux
+======
+
+C-b + Alt-arrow         resize
+C-b + "                 vsplit
+C-b + %                 hsplit
+
+#exit                exit pane
+C-d                 exit pane
+
+C-[hjkl]            change splitpane
+
+C-b !               pane to window
+C-b c               create window
+C-b ,               rename window
+C-b &               close window
+C-b [pn]            prev/next window
+C-b [0-9]           select window
+
+C-b s               Show sessions
+C-b d               Detach session
+C-b $               Rename session
+C-b [()]            prev/next session
+
+C-b ?               help
+C-b :               command mode
+
+
+#tmux kill-server   kills tmux
+#tmux kill-session  kills session
+
+vim/nvim
+==========
+C-[hjkl]            change splitpane        mode: !i
+C-[hjkl]            move in text            mode: i
+C-w                 next pane               mode: n
+:vsp                virtual split           mode: i
+:sp                 hsplit                  mode: i
+
+
+Fish
+========
+C-f                 fill in command
+
+aliases
+alias l='ls -lah'
+alias nv='nvim'
