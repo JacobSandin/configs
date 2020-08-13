@@ -1,0 +1,20 @@
+burk08.imcode.com test-14.imcode.com, kovast
+burk08.imcode.com kotest-01.imcode.com, kovastmtest
+burk08.imcode.com kotest-02.imcode.com, kobltest
+
+burk18.imcode.com kodev-01.imcode.com, mv
+burk17.imcode.com kodev-02.imcode.com, kovast
+burk16.imcode.com kodev-03.imcode.com, komusik
+burk18.imcode.com kodev-04.imcode.com, kokvarnbergs koockero
+burk17.imcode.com kodev-07.imcode.com, kodemo kojacob
+
+burk08.imcode.com koprod-01.imcode.com, helenelund kobrage koedsbergs koeriksbergs kogillbogrondals kohaggsoll kokarrdals korunbacka kosilverdals kosofielunds kosollintschool kotegelhags kovaxmora
+burk08.imcode.com oprod-02.imcode.com, kovast
+burk16.imcode.com koprod-03.imcode.com, komusik
+burk17.imcode.com koprod-04.imcode.com, khhjkarnbergs koockero
+burk17.imcode.com koprod-05.imcode.com, salaskolor
+burk8.imcode.com koprod-06.imcode.com, kodalarna
+burk08.imcode.com koprod-07.imcode.com, kovastsjukhusbibliotek
+burk18.imcode.com koprod-08.imcode.com, kohavovatt konaturvard kosjomans kosodertorn
+burk08.imcode.com koprod-09.imcode.com, kohallstahammar
+burk08.imcode.com koprod-10.imcode.com, kosodertorn
