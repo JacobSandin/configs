@@ -1,8 +1,6 @@
 syntax on
 let mapleader = "\<Space>"
 set shell=/bin/bash
-
-
 if !has('gui_running')
   set t_Co=256
 endif
@@ -33,10 +31,12 @@ call plug#begin('~/.vim/plugged')
 "    Plug 'dense-analysis/ale'
     Plug 'andrewradev/splitjoin.vim'
 call plug#end()
-
 colorscheme base16-darktooth 
 let g:rustfmt_autosave = 1
 
+set timeout ttimeout         " separate mapping and keycode timeouts
+set timeoutlen=250           " mapping timeout 250ms  (adjust for preference)
+set ttimeoutlen=40           " keycode timeout 20ms
 set noerrorbells
 set tabstop=4 softtabstop=4
 set shiftwidth=4
@@ -53,7 +53,7 @@ set undofile
 set incsearch
 set spelllang=en
 set spelllang+=sv
-set updatetime=500
+set updatetime=50
 set cmdheight=2
 set pastetoggle=<leader>v
 set laststatus=2 "For status bar
@@ -110,10 +110,8 @@ let g:splitjoin_join_mapping = ''
 nmap sj :SplitjoinSplit<cr>
 nmap sk :SplitjoinJoin<cr>
 
-nnoremap <leader>q :call QuickfixToggle()<cr>
 " Makes dubble enter  insert aline
 nmap <CR><CR> o<ESC>
-nmap <leader>n :TagbarToggle<CR>
 
 map <C-n> :NERDTreeToggle<CR>
 nmap <A-Enter> o<Esc>
@@ -124,10 +122,17 @@ nnoremap <right> :bn<CR>
 
 " Open hotkeys
 map <C-p> :Files<CR>
+ 
+   
+nmap ä  :
+nmap qä q:
+cmap ä <BS>
 nmap <leader>; :Buffers<CR>
 
+nmap <leader>n :TagbarToggle<CR>
+nnoremap <leader>q :call QuickfixToggle()<cr>
 " Quick-save
-nmap <leader>w :w<CR>
+"nmap <leader>w :w<CR>
 
 " <leader><leader> toggles between buffers
 nnoremap <leader><leader> <c-^>
@@ -139,6 +144,11 @@ nnoremap <leader>f :Files<cr>
 nnoremap <leader><tab> :call ShowWhiteSpaces()<cr>
 nnoremap <leader>p :call ToggleSpell()<cr>
 nnoremap <leader>t :bo terminal<cr>
+
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
 
 let g:show_spaces_set=1

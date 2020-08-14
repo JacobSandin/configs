@@ -1,6 +1,6 @@
 function fish_user_key_bindings
   fish_vi_key_bindings
-  set fish_escape_delay_ms=2
+  set fish_escape_delay_ms 100
   bind -M insert -m default jj backward-char force-repaint
 end
 

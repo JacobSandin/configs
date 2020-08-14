@@ -23,7 +23,7 @@ ssh-add ~/.ssh/jskey.pem
 
 #set fish_key_bindings fish_vi_key_bindings
 set fish_key_bindings fish_user_key_bindings
-set fish_bind_mode insert
+set fish_bind_mode normal
 
 #~/git/configs/fish/functions/fish_user_key_bindings.fish
 
