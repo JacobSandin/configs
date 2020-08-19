@@ -30,6 +30,4 @@ if [ -d "$HOME/.cargo/bin" ] ; then
 	PATH="$HOME/.cargo/bin:$PATH"
 fi
 
-alias l='ls -lah'
-alias nv='nvim'
-
+/bin/fish
