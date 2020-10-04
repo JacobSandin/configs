@@ -58,6 +58,8 @@ alias vim=nvim
 alias vi=nvim
 alias vc="nvim ~/.config/nvim/init.vim"
 alias zc='nvim ~/.zshrc'
+alias ch='cd ~/'
+alias ce='ce /etc'
 
 # Replace sudo too keep variables and go to zsh
 sudo() {
@@ -70,4 +72,4 @@ if type rg &> /dev/null; then
   export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
 
-source /home/jacsan/.oh-my-zsh/oh-my-zsh.sh
+source /home/jacsan/.config/zsh/oh-my-zsh/oh-my-zsh.sh
