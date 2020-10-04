@@ -1,4 +1,6 @@
-/bin/sudo apt install ansible make
+/bin/sudo apt -y update
+/bin/sudo apt -y upgrade
+/bin/sudo apt -y install ansible make build-essential libssl-dev pkg-config
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/development/zshrc -O ~/.zshrc
 

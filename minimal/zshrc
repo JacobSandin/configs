@@ -1,6 +1,6 @@
 ZDOTDIR=$HOME/.config/zsh
 
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/.config/nvim/plugged/fzf/bin:$HOME/bin:$PATH"
 setopt histignorealldups sharehistory
 
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)

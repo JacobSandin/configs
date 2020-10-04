@@ -1,6 +1,5 @@
 #!/bin/zsh
 #
-# /bin/sudo apt -y install zsh neovim  $(check-language-support -l sv)
 #
 # zsh -c "$(curl -fsSL https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/setup.zsh)"
 #
@@ -28,7 +27,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh
 
 nvim -E -s -u "$HOME/.config/nvim/init.vim" +PlugInstall +qall
 
-source /home/jacsan/.zshrc
+source ~/.zshrc
  
 # Set git to use the credential memory cache
 git config --global credential.helper cache
@@ -37,3 +36,4 @@ git config --global credential.helper 'cache --timeout=3600'
 
 git config --global user.email "jacob@js.se"
 git config --global user.name "Jacob Sandin"
+
