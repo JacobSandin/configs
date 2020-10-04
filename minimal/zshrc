@@ -11,7 +11,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.config/zsh/history
 
-PROMPT='%F{green}%n:%B%F{blue}%~%f%b%# '
+PROMPT='%F{green}%n@%m:%B%F{blue}%~%f%b%# '
 
 ZSH_CUSTOM=~/.config/zsh
 
