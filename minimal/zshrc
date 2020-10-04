@@ -61,7 +61,7 @@ alias vc="nvim ~/.config/nvim/init.vim"
 alias zc='nvim ~/.zshrc'
 alias ch='cd ~/'
 alias ce='ce /etc'
-alias svim='sudo vim'
+alias svim='/bin/sudo vim'
 
 # Replace sudo too keep variables and go to zsh
 sudo() {
