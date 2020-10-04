@@ -3,7 +3,7 @@
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/setup.zsh)"
 #
 # Change default shell to zsh
-chsh -s $(which zsh)
+#chsh -s $(which zsh)
 # Create dirs
 mkdir -p ~/.config/nvim
 mkdir -p ~/.config/zsh
