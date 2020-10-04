@@ -1,5 +1,7 @@
 #!/bin/zsh
 #
+# /bin/sudo apt -y install zsh neovim  $(check-language-support -l sv)
+#
 # zsh -c "$(curl -fsSL https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/setup.zsh)"
 #
 # Change default shell to zsh
