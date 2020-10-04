@@ -18,3 +18,5 @@ curl -fsSL https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/
 curl -fsSL https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/zshrc > ~/.zshrc
 
 source ~/.zshrc
+
+nvim -E -s -u "$HOME/.config/nvim/init.vim" +PlugInstall +qall
