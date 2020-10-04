@@ -17,6 +17,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh
 curl -fsSL https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/init.vim > ~/.config/nvim/init.vim
 curl -fsSL https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/zshrc > ~/.zshrc
 
+rm ~/.z*
 source ~/.zshrc
 
 nvim -E -s -u "$HOME/.config/nvim/init.vim" +PlugInstall +qall
+
