@@ -1,6 +1,7 @@
 ZDOTDIR=$HOME/.config/zsh
 export PATH="$HOME/bin:$PATH"
 setopt histignorealldups sharehistory
+
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 # Use emacs keybindings even if our EDITOR is set to vi
@@ -60,6 +61,7 @@ alias vc="nvim ~/.config/nvim/init.vim"
 alias zc='nvim ~/.zshrc'
 alias ch='cd ~/'
 alias ce='ce /etc'
+alias svim='sudo vim'
 
 # Replace sudo too keep variables and go to zsh
 sudo() {
