@@ -73,3 +73,8 @@ if type rg &> /dev/null; then
 fi
 
 source /home/jacsan/.config/zsh/oh-my-zsh/oh-my-zsh.sh
+
+source ~/.config/nvim/plugged/fzf/shell/key-bindings.zsh
+source ~/.config/nvim/plugged/fzf/shell/completion.zsh
+
+
