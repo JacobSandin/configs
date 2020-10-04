@@ -67,7 +67,7 @@ alias ce='ce /etc'
 alias svim='/bin/sudo vim'
 
 # Replace sudo too keep variables and go to zsh
-sudo() {
+esudo() {
     command sudo -E zsh
 }
 
