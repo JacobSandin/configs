@@ -7,10 +7,12 @@
 # Change default shell to zsh
 #chsh -s $(which zsh)
 # Create dirs
+#
 mkdir -p ~/.config/nvim
 mkdir -p ~/.config/zsh
 
-
+/bin/sudo apt -y install zsh neovim  $(check-language-support -l sv)
+/bin/sudo update-locale LC_ALL=en_US.UTF-8
 rm -f ~/.z*
 
 # Using wget to get no-cashe curl did not handle this well.
