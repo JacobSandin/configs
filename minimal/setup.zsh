@@ -9,7 +9,7 @@ mkdir -p ~/.config/nvim
 mkdir -p ~/.config/zsh
 
 
-rm ~/.z*
+rm -f ~/.z*
 curl -H 'Cache-Control: no-cache' -fs https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/zshrc > /home/jacsan/.zshrc
 
 # Oh my zsh setup
