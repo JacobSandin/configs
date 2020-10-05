@@ -3,16 +3,16 @@
 #
 # zsh -c "$(curl -fsSL https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/setup.zsh)"
 #
+sudo apt -y install zsh neovim ripgrep xclip $(check-language-support -l sv)
+zsh
+sudo update-locale LC_ALL=C.UTF-8 LANG=en_US.UTF-8
 # Change default shell to zsh
-#chsh -s $(which zsh)
+chsh -s $(which zsh)
 # Create dirs
 #
 mkdir -p ~/.config/nvim
 mkdir -p ~/.config/zsh
 
-sudo apt -y install zsh neovim ripgrep xclip $(check-language-support -l sv)
-zsh
-sudo update-locale LC_ALL=C.UTF-8 LANG=en_US.UTF-8
 rm -f ~/.z*
 
 # Using wget to get no-cashe curl did not handle this well.
