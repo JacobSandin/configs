@@ -28,7 +28,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh
 
 # Tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
+zsh ~/.tmux/plugins/tpm/scripts/install_plugins.sh
 
 nvim -E -s -u "$HOME/.config/nvim/init.vim" +PlugInstall +qall
 
