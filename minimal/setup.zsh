@@ -10,8 +10,8 @@
 mkdir -p ~/.config/nvim
 mkdir -p ~/.config/zsh
 
-/bin/sudo apt -y install zsh neovim  $(check-language-support -l sv)
-/bin/sudo update-locale LC_ALL=C.UTF-8 LANG=en_US.UTF-8
+sudo apt -y install zsh neovim ripgrep $(check-language-support -l sv)
+sudo update-locale LC_ALL=C.UTF-8 LANG=en_US.UTF-8
 rm -f ~/.z*
 
 # Using wget to get no-cashe curl did not handle this well.
