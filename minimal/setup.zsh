@@ -38,3 +38,4 @@ git config --global credential.helper 'cache --timeout=3600'
 git config --global user.email "jacob@js.se"
 git config --global user.name "Jacob Sandin"
 
+echo "Relog or run 'sudo su $(whoami)"
