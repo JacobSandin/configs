@@ -28,7 +28,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh
 
 nvim -E -s -u "$HOME/.config/nvim/init.vim" +PlugInstall +qall
 
-source ~/.zshrc
+zsh source ~/.zshrc
  
 # Set git to use the credential memory cache
 git config --global credential.helper cache
