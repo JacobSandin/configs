@@ -12,6 +12,7 @@ sudo su $(whoami)
 #
 mkdir -p ~/.config/nvim
 mkdir -p ~/.config/zsh
+mkdir -p ~/.tmux/plugins
 
 rm -f ~/.z*
 
