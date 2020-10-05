@@ -7,7 +7,7 @@ sudo apt -y install zsh neovim ripgrep xclip $(check-language-support -l sv)
 zsh
 sudo update-locale LC_ALL=C.UTF-8 LANG=en_US.UTF-8
 # Change default shell to zsh
-chsh -s $(which zsh)
+chsh -s $(which zsh) $(whoami)
 # Create dirs
 #
 mkdir -p ~/.config/nvim
