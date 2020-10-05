@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 #
 #
 # zsh -c "$(curl -fsSL https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/setup.zsh)"
