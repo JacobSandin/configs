@@ -8,6 +8,7 @@ zsh
 sudo update-locale LC_ALL=C.UTF-8 LANG=en_US.UTF-8
 # Change default shell to zsh
 chsh -s $(which zsh) $(whoami)
+sudo su $(whoami)
 # Create dirs
 #
 mkdir -p ~/.config/nvim
