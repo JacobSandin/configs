@@ -1,5 +1,4 @@
 
-call plug#begin()
     " Syntax files
     "Plug 'cespare/vim-toml'
     "Plug 'stephpy/vim-yaml'
@@ -19,6 +18,5 @@ call plug#begin()
 
     " 
     "Plug 'vimwiki/vimwiki'
-call plug#end()
 
 
