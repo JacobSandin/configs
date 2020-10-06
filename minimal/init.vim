@@ -4,6 +4,11 @@
 syntax on
 let mapleader = "\<Space>"
 
+if !has('gui_running')
+  set t_Co=256
+endif
+
+
 set mouse=a
 set clipboard=unnamedplus
 set fileencoding=utf-8
@@ -144,12 +149,37 @@ if empty(glob('~/.config/nvim/plugged'))
 endif
 
 call plug#begin()
+    " Search with s or S + two chars
     Plug 'justinmk/vim-sneak'
-    Plug 'tpope/vim-repeat'
+
+    "Fuzzy finder mappings needed
+    "Files, GFiles, GFiles?, Buffers, Colors, Rg
+    "^music .mp3$ sbtrkt !inte 'behövs | eller
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    
+    " Powertool for searching f,F,t,T
     Plug 'unblevable/quick-scope'
+    
+    " Chages dir depending on project
+    Plug 'airblade/vim-rooter'
+
+    " Powerline for vim
+    Plug 'itchyny/lightline.vim'
+
+    
+    " Chages dir depending on project
+    Plug 'airblade/vim-rooter'
+
 call plug#end()
+
+" ======================================
+"   LightLine
+" ======================================
+"
+let g:lightline = {
+      \ 'colorscheme': 'jellybeans',
+      \ }
 
 " ======================================
 "   vim.sneak
@@ -226,3 +256,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 " Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
+
+if !empty(glob("~/.config/nvim/dev.vim"))
+    source ~/.config/nvim/dev.vim 
+endif
