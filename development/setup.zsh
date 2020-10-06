@@ -3,6 +3,11 @@
 /bin/sudo apt -y install ansible make build-essential libssl-dev pkg-config
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
+/home/jacsan/.cargo/bin/rustup toolchain add nightly
+/home/jacsan/.cargo/bin/cargo +nightly install racer
+/home/jacsan/.cargo/bin/cargo install rustfmt
+
+
 mkdir -p ~/utv/git
 mkdir -p ~/utv/svn
 cd ~/utv/git
@@ -19,3 +24,4 @@ cd ~/utv/svn
 svn co https://svn.imcode.com/imcode/internal/Ansible Ansible
 
 
+wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/development/dev.vim -O ~/.config/nvim/dev.vim 
