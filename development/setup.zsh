@@ -21,7 +21,8 @@ git clone https://github.com/JacobSandin/marc_21.git
 
 
 cd ~/utv/svn
-svn co https://svn.imcode.com/imcode/internal/Ansible Ansible
+# Login needed
+#svn co https://svn.imcode.com/imcode/internal/Ansible Ansible
 
 
 wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/development/dev.vim -O ~/.config/nvim/dev.vim 
