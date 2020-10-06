@@ -26,3 +26,5 @@ svn co https://svn.imcode.com/imcode/internal/Ansible Ansible
 
 wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/development/dev.vim -O ~/.config/nvim/dev.vim 
 wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/development/dev-plugin.vim -O ~/.config/nvim/dev-plugin.vim 
+
+nvim -E -s -u "$HOME/.config/nvim/init.vim" +PlugInstall +qall
