@@ -1,7 +1,8 @@
 /bin/sudo apt -y update
 /bin/sudo apt -y upgrade
 /bin/sudo apt -y install ansible make build-essential libssl-dev pkg-config
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 /home/jacsan/.cargo/bin/rustup toolchain add nightly
 /home/jacsan/.cargo/bin/cargo +nightly install racer
