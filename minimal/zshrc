@@ -11,6 +11,9 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 #bindkey -e
 # Use vim keybindings
 bindkey -v
+#Home and end key Ctrl-v then key to see what is sent
+bindkey  "^[[1~"   beginning-of-line
+bindkey  "^[[4~"   end-of-line
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=10000
