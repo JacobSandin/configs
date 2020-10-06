@@ -48,14 +48,8 @@ set scrolloff=5
 set sidescrolloff=8
 set backspace=indent,eol,start
 set history=1000
-
+set hidden
 highlight ColorColumn ctermbg=60
-
-" Compleation
-"
-"set completeopt=longest,menuone
-"Enter to select drop menu
-"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 
 " ======================================
