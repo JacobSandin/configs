@@ -51,6 +51,12 @@ set history=1000
 
 highlight ColorColumn ctermbg=60
 
+" Compleation
+"
+"set completeopt=longest,menuone
+"Enter to select drop menu
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 
 " ======================================
 "    Keymappings
@@ -87,8 +93,8 @@ inoremap <C-l> <right>
 "Switching buffer
 nnoremap <left> :bp<CR>
 nnoremap <right> :bn<CR>
-nnoremap <up> :Buffers<CR>
-nnoremap <down> :Buffers<CR>
+"nnoremap <up> :Buffers<CR>
+"nnoremap <down> :Buffers<CR>
 
 inoremap jj <esc><esc>
 
@@ -171,6 +177,12 @@ call plug#begin()
     " Chages dir depending on project
     Plug 'airblade/vim-rooter'
 
+    " Changes to tab when using compleation
+    Plug 'ervandew/supertab'
+
+if !empty(glob("~/.config/nvim/dev-plugin.vim"))
+    source ~/.config/nvim/dev-plugin.vim 
+endif
 call plug#end()
 
 " ======================================

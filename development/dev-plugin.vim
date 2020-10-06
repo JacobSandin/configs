@@ -1,4 +1,3 @@
-
     " Syntax files
     "Plug 'cespare/vim-toml'
     "Plug 'stephpy/vim-yaml'
@@ -18,5 +17,4 @@
 
     " 
     "Plug 'vimwiki/vimwiki'
-
 
