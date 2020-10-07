@@ -10,7 +10,7 @@ if !has('gui_running')
 endif
 
 set completeopt=menu,menuone,preview,noselect,noinsert
-
+set  termguicolors
 set mouse=a
 set clipboard=unnamedplus
 set fileencoding=utf-8
@@ -43,7 +43,6 @@ set laststatus=2 "for status bar
 set colorcolumn=81
 set autoread
 set autochdir
-"set termguicolors
 set lazyredraw
 set scrolloff=5
 set sidescrolloff=8
@@ -150,6 +149,8 @@ if empty(glob('~/.config/nvim/plugged'))
 endif
 
 call plug#begin()
+    Plug 'chriskempson/base16-vim'
+
     " Search with s or S + two chars
     Plug 'justinmk/vim-sneak'
 
@@ -172,14 +173,14 @@ call plug#begin()
     " Chages dir depending on project
     Plug 'airblade/vim-rooter'
 
-    " Changes to tab when using compleation
-    " Dont work with Coc
-    "Plug 'ervandew/supertab'
 
 if !empty(glob("~/.config/nvim/dev-plugin.vim"))
     source ~/.config/nvim/dev-plugin.vim 
 endif
 call plug#end()
+
+let base16colorspace=256
+colorscheme base16-default-dark
 
 " ======================================
 "   LightLine
