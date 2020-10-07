@@ -9,7 +9,7 @@ if !has('gui_running')
   set t_Co=256
 endif
 
-set completeopt=menu,menuone,preview,noselect,noinsert
+"set completeopt=menu,menuone,preview,noselect,noinsert
 set  termguicolors
 set mouse=a
 set clipboard=unnamedplus
@@ -36,7 +36,8 @@ set undofile
 set incsearch
 set spelllang=en
 set spelllang+=sv
-set updatetime=10
+set updatetime=400
+set shortmess+=c
 set cmdheight=2
 set pastetoggle=<leader>v
 set laststatus=2 "for status bar
@@ -173,14 +174,26 @@ call plug#begin()
     " Chages dir depending on project
     Plug 'airblade/vim-rooter'
 
+    Plug 'majutsushi/tagbar'
 
 if !empty(glob("~/.config/nvim/dev-plugin.vim"))
     source ~/.config/nvim/dev-plugin.vim 
 endif
 call plug#end()
 
+" ======================================
+"   Base16 color
+" ======================================
+"
 let base16colorspace=256
 colorscheme base16-default-dark
+
+
+" ======================================
+"   Tagbar
+" ======================================
+"
+nmap <leader>n :TagbarToggle<CR>
 
 " ======================================
 "   LightLine
