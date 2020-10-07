@@ -173,7 +173,8 @@ call plug#begin()
     Plug 'airblade/vim-rooter'
 
     " Changes to tab when using compleation
-    Plug 'ervandew/supertab'
+    " Dont work with Coc
+    "Plug 'ervandew/supertab'
 
 if !empty(glob("~/.config/nvim/dev-plugin.vim"))
     source ~/.config/nvim/dev-plugin.vim 
