@@ -2,12 +2,14 @@
 "    Settings
 " ======================================
 syntax on
+filetype plugin indent on
 let mapleader = "\<Space>"
 
 if !has('gui_running')
   set t_Co=256
 endif
 
+set completeopt=menu,menuone,preview,noselect,noinsert
 
 set mouse=a
 set clipboard=unnamedplus
@@ -15,7 +17,6 @@ set fileencoding=utf-8
 set encoding=utf-8
 set termencoding=utf8
 set cursorline
-filetype plugin on
 set timeout ttimeout         " separate mapping and keycode timeouts
 set timeoutlen=250           " mapping timeout 250ms  (adjust for preference)
 set ttimeoutlen=120           " keycode timeout 20ms
