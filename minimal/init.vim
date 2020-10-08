@@ -11,6 +11,7 @@ endif
 
 "set completeopt=menu,menuone,preview,noselect,noinsert
 set  termguicolors
+set nohlsearch
 set mouse=a
 set clipboard=unnamedplus
 set fileencoding=utf-8
@@ -42,7 +43,6 @@ set cmdheight=2
 set pastetoggle=<leader>v
 set laststatus=2 "for status bar
 set colorcolumn=81
-set autoread
 set autochdir
 set lazyredraw
 set scrolloff=5
@@ -52,6 +52,13 @@ set history=1000
 set hidden
 highlight ColorColumn ctermbg=60
 
+" ======================================
+"    Check if file have changed after 
+"    cursor has moved autoread wont 
+"    work witout checktime
+" ======================================
+set autoread
+au CursorHold,CursorHoldI * checktime
 
 " ======================================
 "    Keymappings

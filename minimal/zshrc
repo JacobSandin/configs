@@ -64,7 +64,7 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # Aliases
-alias ssh='ssh -CY'
+alias ssh='ssh -X'
 alias vim=nvim
 alias vi=nvim
 alias vc="nvim ~/.config/nvim/init.vim"
@@ -80,7 +80,8 @@ esudo() {
 
 # Use ripgrep with fzf
 if type rg &> /dev/null; then
-  export FZF_DEFAULT_COMMAND='rg --files'
+  #export FZF_DEFAULT_COMMAND='find .'
+  export FZF_DEFAULT_COMMAND='rg --hidden --files --glob "!.git/*"'
   export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
 
