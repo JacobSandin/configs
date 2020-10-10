@@ -177,10 +177,6 @@ call plug#begin()
     " Powerline for vim
     Plug 'itchyny/lightline.vim'
 
-    
-    " Chages dir depending on project
-    Plug 'airblade/vim-rooter'
-
     Plug 'majutsushi/tagbar'
 
 if !empty(glob("~/.config/nvim/dev-plugin.vim"))

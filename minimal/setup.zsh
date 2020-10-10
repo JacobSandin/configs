@@ -25,7 +25,7 @@ wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/min
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.config/zsh/oh-my-zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.config/zsh/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/plugins/zsh-syntax-highlighting
-git clone https://github.com/softmoth/zsh-vim-mode.git .config/zsh/plugins/zsh-vim-mode
+#git clone https://github.com/softmoth/zsh-vim-mode.git .config/zsh/plugins/zsh-vim-mode
 
 # Tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
