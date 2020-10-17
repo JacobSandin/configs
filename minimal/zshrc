@@ -1,4 +1,6 @@
 export TERM=screen-256color
+#enable dvorak with alt+shift
+#setxkbmap -layout se,se -variant ,dvorak -option grp:alt_shift_toggle
 
 ZDOTDIR=$HOME/.config/zsh
 

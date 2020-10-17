@@ -32,3 +32,19 @@ endfunction
 
 " Highlight the symbol and its references when holding the cursor.
 " autocmd CursorHold * silent call CocActionAsync('highlight')
+"
+let g:tex_flavor = 'latex'
+let g:vimtex_view_method='mupdf'
+let g:vimtex_quickfix_mode=0
+"let g:vimtex_compiler_method = "latexmk"
+"
+"let g:vimtex_compiler_latexmk = { 
+"        \ 'executable' : 'latexmk',
+"        \ 'options' : [ 
+"        \   '-xelatex',
+"        \   '-file-line-error',
+"        \   '-synctex=1',
+"        \   '-interaction=nonstopmode',
+"        \ ],
+"        \}
+"

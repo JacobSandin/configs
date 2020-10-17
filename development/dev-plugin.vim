@@ -1,4 +1,4 @@
-    " Syntax files
+    " SyntaX files
     "Plug 'cespare/vim-toml'
     "Plug 'stephpy/vim-yaml'
     
@@ -22,4 +22,6 @@
 
     " 
     "Plug 'vimwiki/vimwiki'
-
+    "
+    " To help write latex in vim
+    Plug 'lervag/vimtex'

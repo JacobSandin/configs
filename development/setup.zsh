@@ -1,6 +1,6 @@
 /bin/sudo apt -y update
 /bin/sudo apt -y upgrade
-/bin/sudo apt -y install ansible make build-essential libssl-dev pkg-config nodejs
+/bin/sudo apt -y install ansible make build-essential libssl-dev pkg-config nodejs mupdf ctags texlive-full
 
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 

@@ -107,6 +107,7 @@ inoremap jj <esc><esc>
 
 " <leader><leader> toggles between buffers
 nnoremap <leader><leader> <c-^>
+nnoremap <leader>b :Buffers<cr>
 
 nnoremap <leader>f :Files<cr>
 nnoremap <leader>g :Rg<cr>
