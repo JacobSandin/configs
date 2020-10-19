@@ -1,6 +1,7 @@
 export TERM=screen-256color
 #enable dvorak with alt+shift
 #setxkbmap -layout se,se -variant ,dvorak -option grp:alt_shift_toggle
+#setxkbmap -layout se,se -variant ,dvorak_a5 -option grp:alt_shift_toggle
 
 ZDOTDIR=$HOME/.config/zsh
 
@@ -97,7 +98,7 @@ if type rg &> /dev/null; then
   export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
 
-source /home/jacsan/.config/zsh/oh-my-zsh/oh-my-zsh.sh
+source ~/.config/zsh/oh-my-zsh/oh-my-zsh.sh
 
 source ~/.config/nvim/plugged/fzf/shell/key-bindings.zsh
 source ~/.config/nvim/plugged/fzf/shell/completion.zsh

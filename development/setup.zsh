@@ -2,12 +2,25 @@
 /bin/sudo apt -y upgrade
 /bin/sudo apt -y install ansible make build-essential libssl-dev pkg-config nodejs mupdf ctags texlive-full
 
+
+for i in ansible make build-essential libssl-dev pkg-config nodejs mupdf ctags texlive-full; do
+  sudo apt-get install $i
+done
+
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 
 mkdir -p ~/utv/git
 mkdir -p ~/utv/svn
 cd ~/utv/git
+
+# Set git to use the credential memory cache
+git config --global credential.helper cache
+# Set the cache to timeout after 1 hour (setting is in seconds)
+git config --global credential.helper 'cache --timeout=3600'
+
+git config --global user.email "jacob@js.se"
+git config --global user.name "Jacob Sandin"
 
 git clone https://github.com/JacobSandin/configs.git
 git clone https://github.com/JacobSandin/sip_tester.git

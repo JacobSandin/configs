@@ -3,7 +3,12 @@
 #
 # zsh -c "$(curl -fsSL https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/setup.zsh)"
 #
-sudo apt -y install zsh neovim ripgrep xclip $(check-language-support -l sv)
+
+for i in zsh neovim ripgrep xclip $(check-language-support -l sv); do
+  sudo apt-get install -y $i
+done
+
+
 sudo update-locale LC_ALL=C.UTF-8 LANG=en_US.UTF-8
 # Change default shell to zsh
 sudo chsh -s $(which zsh) $(whoami)
@@ -29,11 +34,3 @@ nvim -E -s -u "$HOME/.config/nvim/init.vim" +PlugInstall +qall
 
 zsh source ~/.zshrc
  
-# Set git to use the credential memory cache
-git config --global credential.helper cache
-# Set the cache to timeout after 1 hour (setting is in seconds)
-git config --global credential.helper 'cache --timeout=3600'
-
-git config --global user.email "jacob@js.se"
-git config --global user.name "Jacob Sandin"
-
