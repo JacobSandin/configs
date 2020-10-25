@@ -3,10 +3,10 @@
 #/bin/sudo apt -y install ansible make build-essential libssl-dev pkg-config nodejs mupdf ctags texlive-full
 
 
-sudo apt-get install --ignore-missing python3-pip ansible make build-essential libssl-dev pkg-config mupdf ctags nodejs python-yaml
+for i in python3-pip ansible make build-essential libssl-dev pkg-config mupdf ctags nodejs python-yaml; do
 #for i in python3-pip ansible make build-essential libssl-dev pkg-config nodejs mupdf ctags texlive-full; do
-#  sudo apt-get install $i
-#done
+  sudo apt-get install $i
+done
 
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 
