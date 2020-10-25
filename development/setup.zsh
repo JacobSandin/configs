@@ -3,7 +3,7 @@
 #/bin/sudo apt -y install ansible make build-essential libssl-dev pkg-config nodejs mupdf ctags texlive-full
 
 
-for i in python3-pip ansible make build-essential libssl-dev pkg-config mupdf ctags nodejs python-yaml; do
+for i in python3-pip ansible make build-essential libssl-dev pkg-config mupdf ctags nodejs npm python-yaml; do
 #for i in python3-pip ansible make build-essential libssl-dev pkg-config nodejs mupdf ctags texlive-full; do
   sudo apt-get install $i
 done
