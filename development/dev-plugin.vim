@@ -25,3 +25,10 @@
     "
     " To help write latex in vim
     Plug 'lervag/vimtex'
+
+    Plug 'pearofducks/ansible-vim'
+
+    Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': './install.sh'
+    \ }

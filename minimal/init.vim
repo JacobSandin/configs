@@ -93,8 +93,8 @@ inoremap <C-h> <left>
 inoremap <C-l> <right>
 
 "Switching buffer
-nnoremap <left> :bp<CR>
-nnoremap <right> :bn<CR>
+nnoremap <M-h> :bp<CR>
+nnoremap <M-l> :bn<CR>
 "nnoremap <up> :Buffers<CR>
 "nnoremap <down> :Buffers<CR>
 
@@ -205,8 +205,14 @@ nmap <leader>n :TagbarToggle<CR>
 "
 let g:lightline = {
       \ 'colorscheme': 'jellybeans',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified', 'helloworld' ] ]
+      \ },
+      \ 'component': {
+      \   'helloworld': coc#status()
+      \ },
       \ }
-
 " ======================================
 "   vim.sneak
 " ======================================

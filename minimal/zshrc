@@ -5,7 +5,7 @@ export TERM=screen-256color
 
 ZDOTDIR=$HOME/.config/zsh
 
-export PATH="$HOME/.cargo/bin:$HOME/.config/nvim/plugged/fzf/bin:$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.config/nvim/plugged/fzf/bin:$HOME/bin:$PATH"
 setopt histignorealldups sharehistory
 
 
@@ -32,7 +32,10 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.config/zsh/history
 
-PROMPT='%F{green}%n@%m:%B%F{blue}%~%f%b%# '
+#PROMPT='%F{green}%n@%m:%B%F{blue}%~%f%b%# '
+
+PROMPT='%F{green}%n%f@%F{magenta}%m%f %F{blue}%B%~%b%f %# '
+RPROMPT='[%F{yellow}%?%f]'
 
 ZSH_CUSTOM=~/.config/zsh
 
