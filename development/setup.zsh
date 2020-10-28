@@ -46,7 +46,7 @@ mkdir -p ~/.local/bin
 
 ~/.cargo/bin/rustup toolchain add nightly
 ~/.cargo/bin/cargo +nightly install racer
-~/.cargo/bin/cargo install rustfmt
+#~/.cargo/bin/cargo install rustfmt
 ~/.cargo/bin/rustup component add rust-src
 
 
