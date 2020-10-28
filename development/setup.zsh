@@ -49,8 +49,8 @@ mkdir -p ~/.local/bin
 /home/jacsan/.cargo/bin/rustup toolchain add nightly
 /home/jacsan/.cargo/bin/cargo +nightly install racer
 /home/jacsan/.cargo/bin/cargo install rustfmt
-/home/jacsan/.cargo/bin/rustup component add rust-src                                                                                                              │Oct 06, 2020 9:45:42 PM org.apache.coyote.AbstractProtocol start
-/home/jacsan/.cargo/bin/cargo xtask install --server                                                                                                               │INFO: Starting ProtocolHandler ["ajp-bio-192.168.96.71-9276"]
+/home/jacsan/.cargo/bin/rustup component add rust-src
+/home/jacsan/.cargo/bin/cargo xtask install --server
 
 nvim +'CocInstall -sync coc-rust-analyzer' +qall
 nvim +CocUpdateSync +qall
