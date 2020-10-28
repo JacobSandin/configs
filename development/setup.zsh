@@ -48,7 +48,7 @@ mkdir -p ~/.local/bin
 ~/.cargo/bin/cargo +nightly install racer
 ~/.cargo/bin/cargo install rustfmt
 ~/.cargo/bin/rustup component add rust-src
-~/.cargo/bin/cargo xtask install --server
+
 
 nvim +'CocInstall -sync coc-rust-analyzer' +qall
 nvim +CocUpdateSync +qall
