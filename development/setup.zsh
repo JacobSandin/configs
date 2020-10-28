@@ -21,8 +21,6 @@ git config --global credential.helper cache
 # Set the cache to timeout after 1 hour (setting is in seconds)
 git config --global credential.helper 'cache --timeout=3600'
 
-git config --global user.email "jacob@js.se"
-git config --global user.name "Jacob Sandin"
 
 git clone https://github.com/JacobSandin/configs.git
 git clone https://github.com/JacobSandin/sip_tester.git
@@ -46,11 +44,11 @@ mkdir -p ~/.local/bin
 #curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-linux -o ~/.local/bin/rust-analyzer
 #chmod +x ~/.local/bin/rust-analyzer
 
-/home/jacsan/.cargo/bin/rustup toolchain add nightly
-/home/jacsan/.cargo/bin/cargo +nightly install racer
-/home/jacsan/.cargo/bin/cargo install rustfmt
-/home/jacsan/.cargo/bin/rustup component add rust-src
-/home/jacsan/.cargo/bin/cargo xtask install --server
+~/.cargo/bin/rustup toolchain add nightly
+~/.cargo/bin/cargo +nightly install racer
+~/.cargo/bin/cargo install rustfmt
+~/.cargo/bin/rustup component add rust-src
+~/.cargo/bin/cargo xtask install --server
 
 nvim +'CocInstall -sync coc-rust-analyzer' +qall
 nvim +CocUpdateSync +qall
