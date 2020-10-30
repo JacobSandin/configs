@@ -1,0 +1,55 @@
+Base
+===========
+mkdir -p ~/utv/haskell
+cd ~/utv/haskell
+
+sudo apt install libicu-dev libncurses-dev libgmp-dev zlib1g-dev libffi-dev
+
+wget -qO- https://get.haskellstack.org/ | sh
+stack update
+
+stack install cabal-install
+stack install hie-bios --resolver lts-16
+stack install implicit-hie --resolver lts-16
+
+
+git clone https://github.com/haskell/haskell-language-server.git
+git clone https://github.com/haskell/ghcide.git ghcide
+cd haskell-language-server
+rm -fR ghcide
+ln -s ~/utv/haskell/ghcide ghcide
+
+
+stack ./install.hs  hls-8.8.4
+stack ./install.hs  hls-8.6.5
+
+cd ~/utv/haskell
+stack new test
+cd ~/utv/haskell/test
+
+echo "cradle: 
+    stack:
+" > hie.yaml
+
+
+Vim
+============
+echo "Plug 'neovimhaskell/haskell-vim'" >> ~/.config/nvim/dev-plugin.vim
+nvim -E -s -u "$HOME/.config/nvim/init.vim" +PlugInstall +qall
+
+
+CocConfig
+============
+{
+  "languageserver": {
+    "haskell": {
+      "command": "haskell-language-server-wrapper",
+      "args": ["--lsp"],
+      "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+      "filetypes": ["haskell", "lhaskell"]
+    }
+  }
+}
+
+
+
