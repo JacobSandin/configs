@@ -3,3 +3,4 @@
   cp -av ~/.config/nvim/dev-plugin.vim ~/utv/git/configs/development/dev-plugin.vim
   cp -av ~/.tmux.conf ~/utv/git/configs/tmux/tmux.conf
   cp -av ~/.zshrc ~/utv/git/configs/minimal/zshrc
+  cp -av ~/.tmux_reload_clipboard.sh ~/utv/git/configs/tmux/.tmux_reload_clipboard.sh

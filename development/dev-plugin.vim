@@ -2,6 +2,7 @@
     "Plug 'cespare/vim-toml'
     "Plug 'stephpy/vim-yaml'
     
+    Plug 'ryuta69/coc-perl', {'do': 'yarn install && yarn build'}
     " Rust language works with syntastic,tagbar and (external) rustfmt
     Plug 'rust-lang/rust.vim'
 

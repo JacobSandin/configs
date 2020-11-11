@@ -159,7 +159,6 @@ endif
 
 call plug#begin()
     Plug 'chriskempson/base16-vim'
-
     " Search with s or S + two chars
     Plug 'justinmk/vim-sneak'
 
@@ -209,9 +208,9 @@ let g:lightline = {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'readonly', 'filename', 'modified', 'helloworld' ] ]
       \ },
-      "\ 'component': {
-      "\   'helloworld': coc#status()
-      "\ },
+      \ 'component': {
+      \   'helloworld': coc#status()
+      \ },
       \ }
 " ======================================
 "   vim.sneak
