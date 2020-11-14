@@ -2,10 +2,9 @@
     "Plug 'cespare/vim-toml'
     "Plug 'stephpy/vim-yaml'
     
-    Plug 'ryuta69/coc-perl', {'do': 'yarn install && yarn build'}
     " Rust language works with syntastic,tagbar and (external) rustfmt
     Plug 'rust-lang/rust.vim'
-
+    Plug 'josa42/vim-lightline-coc'
     " Suports languages with clang format (java,c, etc) dont know what it is
     " http://clang.llvm.org/docs/ClangFormat.html
     "Plug 'rhysd/vim-clang-format'     
@@ -21,6 +20,7 @@
     "Plug 'dense-analysis/ale'
 
 
+    Plug 'ryuta69/coc-perl', {'do': 'yarn install && yarn build'}
     " 
     "Plug 'vimwiki/vimwiki'
     "

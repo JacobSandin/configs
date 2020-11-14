@@ -52,3 +52,13 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['rls'],
     \ 'haskell': ['ghcide', '--lsp'],
     \ }
+
+let g:lightline = {
+      \ 'colorscheme': 'jellybeans',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified' ], [ 'coc_errors', 'coc_warnings', 'coc_ok' ], [ 'coc_status'  ] ]
+      \ },
+\ }
+" register compoments:
+call lightline#coc#register()
