@@ -208,9 +208,6 @@ let g:lightline = {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'readonly', 'filename', 'modified', 'helloworld' ] ]
       \ },
-      \ 'component': {
-      \   'helloworld': coc#status()
-      \ },
       \ }
 " ======================================
 "   vim.sneak
