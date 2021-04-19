@@ -88,8 +88,12 @@ alias ch='cd ~/'
 alias ce='ce /etc'
 alias svim='/bin/sudo vim'
 alias hz='history|fzf'
+alias x='exit'
 
 # Replace sudo too keep variables and go to zsh
+e() {
+    command sudo -E zsh
+}
 esudo() {
     command sudo -E zsh
 }
