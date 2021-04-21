@@ -80,21 +80,26 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # Aliases
 alias ssh='ssh -CY'
-alias vim=nvim
-alias vi=nvim
-alias vc="nvim ~/.config/nvim/init.vim"
-alias zc='nvim ~/.zshrc'
 alias ch='cd ~/'
 alias ce='ce /etc'
 alias svim='/bin/sudo vim'
 alias hz='history|fzf'
-alias x='exit'
-
+alias n='exit'
+if [ ! -f /usr/bin/nvim ]; then
+    alias vim=nvim
+    alias vi=nvim
+    alias vc="nvim ~/.config/nvim/init.vim"
+    alias zc='nvim ~/.zshrc'
+    source ~/.config/nvim/plugged/fzf/shell/key-bindings.zsh
+    source ~/.config/nvim/plugged/fzf/shell/completion.zsh
+else
+    alias nvim=vim
+    alias vi=vim
+    alias vc="vim ~/.config/nvim/init.vim"
+    alias zc='vim ~/.zshrc'
+fi
 # Replace sudo too keep variables and go to zsh
-e() {
-    command sudo -E zsh
-}
-esudo() {
+s() {
     command sudo -E zsh
 }
 
@@ -107,8 +112,6 @@ fi
 
 source ~/.config/zsh/oh-my-zsh/oh-my-zsh.sh
 
-source ~/.config/nvim/plugged/fzf/shell/key-bindings.zsh
-source ~/.config/nvim/plugged/fzf/shell/completion.zsh
 
 if [ -f ~/.aliases ]; then
     source ~/.aliases
