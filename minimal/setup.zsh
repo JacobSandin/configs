@@ -21,6 +21,7 @@ mkdir -p ~/.config/zsh
 rm -f ~/.z*
 
 # Using wget to get no-cashe curl did not handle this well.
+wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/zshenv -O ~/.zshenv  
 wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/zshrc -O ~/.zshrc  
 wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/init.vim -O ~/.config/nvim/init.vim 
 
