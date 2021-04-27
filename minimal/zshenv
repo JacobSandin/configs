@@ -1,11 +1,15 @@
-/usr/bin/wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/zshrc -O ~/.zshrc
-/usr/bin/wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/zshenv -O ~/.zshenv
 
+if [[ $UID != 0 && $EUID != 0 ]]; then
+	/usr/bin/wget --quiet --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/zshrc -O ~/.zshrc >/dev/null 2>/dev/null
+	/usr/bin/wget --quiet --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/zshenv -O ~/.zshenv >/dev/null 2>/dev/null
+	
+	
+	cd ~/.config/zsh/oh-my-zsh
+	git pull --quiet >/dev/null 2>/dev/null
+	cd ~/.config/zsh/plugins/zsh-autosuggestions
+	git pull --quiet >/dev/null 2>/dev/null
+	cd ~/.config/zsh/plugins/zsh-syntax-highlighting
+	git pull --quiet >/dev/null 2>/dev/null
+	cd ~/
+fi	
 
-cd ~/.config/zsh/oh-my-zsh
-git pull
-cd ~/.config/zsh/plugins/zsh-autosuggestions
-git pull
-cd ~/.config/zsh/plugins/zsh-syntax-highlighting
-git pull
-cd ~/
