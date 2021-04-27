@@ -125,7 +125,6 @@ tnoremap <Esc> <C-\><C-n>
 " Making W and Q work as w and q in command.
 cnoremap W w
 cnoremap Q q
-
 "cnoremap sv :w<cr>:source ~/.config/nvim/init.vim<cr>
 command! SV execute "source ~/.config/nvim/init.vim"
 
