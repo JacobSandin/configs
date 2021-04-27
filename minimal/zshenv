@@ -1,0 +1,11 @@
+/usr/bin/wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/zshrc -O ~/.zshrc
+/usr/bin/wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/zshenv -O ~/.zshenv
+
+
+cd ~/.config/zsh/oh-my-zsh
+git pull
+cd ~/.config/zsh/plugins/zsh-autosuggestions
+git pull
+cd ~/.config/zsh/plugins/zsh-syntax-highlighting
+git pull
+cd ~/
