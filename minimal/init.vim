@@ -178,6 +178,9 @@ call plug#begin()
 
     Plug 'majutsushi/tagbar'
 
+if !empty(glob("~/.config/nvim/local-plugin.vim"))
+    source ~/.config/nvim/local-plugin.vim 
+endif
 if !empty(glob("~/.config/nvim/dev-plugin.vim"))
     source ~/.config/nvim/dev-plugin.vim 
 endif
@@ -284,6 +287,9 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 
+if !empty(glob("~/.config/nvim/local.vim"))
+    source ~/.config/nvim/local.vim 
+endif
 if !empty(glob("~/.config/nvim/dev.vim"))
     source ~/.config/nvim/dev.vim 
 endif
