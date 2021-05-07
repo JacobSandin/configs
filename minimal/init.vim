@@ -10,11 +10,11 @@ if !has('gui_running')
 endif
 
 "set completeopt=menu,menuone,preview,noselect,noinsert
-set  termguicolors
+"set  termguicolors
 set nohlsearch
 set mouse=a
 set clipboard=unnamedplus
-set fileencoding=utf-8
+"set fileencoding=utf-8
 set encoding=utf-8
 set termencoding=utf8
 set cursorline
@@ -120,7 +120,7 @@ noremap x "_x"
 noremap X "_X"
 
 " Exit terminal with Escape
-tnoremap <Esc> <C-\><C-n>
+"tnoremap <Esc> <C-\><C-n>
 
 " Making W and Q work as w and q in command.
 cnoremap W w
@@ -151,9 +151,16 @@ endfunction
 " ======================================
 "
 
-if empty(glob('~/.config/nvim/plugged'))
+if has('nvim')
+set  termguicolors
+set fileencoding=utf-8
+" Exit terminal with Escape
+tnoremap <Esc> <C-\><C-n>
+
+ if empty(glob('~/.config/nvim/plugged'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+ endif
 endif
 
 call plug#begin()
