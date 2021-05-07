@@ -171,7 +171,7 @@ call plug#begin()
     "Fuzzy finder mappings needed
     "Files, GFiles, GFiles?, Buffers, Colors, Rg
     "^music .mp3$ sbtrkt !inte 'behövs | eller
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
     
     " Powertool for searching f,F,t,T
