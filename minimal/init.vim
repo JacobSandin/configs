@@ -193,13 +193,14 @@ if !empty(glob("~/.config/nvim/dev-plugin.vim"))
 endif
 call plug#end()
 
+if has('nvim')
 " ======================================
 "   Base16 color
 " ======================================
 "
 let base16colorspace=256
 colorscheme base16-default-dark
-
+endif
 
 " ======================================
 "   Tagbar
