@@ -13,7 +13,7 @@ endif
 "set  termguicolors
 set nohlsearch
 set mouse=a
-set clipboard=unnamedplus
+"set clipboard=unnamedplus
 "set fileencoding=utf-8
 set encoding=utf-8
 set termencoding=utf8
