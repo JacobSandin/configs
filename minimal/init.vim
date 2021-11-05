@@ -123,8 +123,10 @@ noremap X "_X"
 "tnoremap <Esc> <C-\><C-n>
 
 " Making W and Q work as w and q in command.
-cnoremap W w
-cnoremap Q q
+"cnoremap W w
+"cnoremap Q q
+command! -bang -range=% -complete=file -nargs=* W <line1>,<line2>write<bang> <args>
+command! -bang Q quit<bang>                                                        
 "cnoremap sv :w<cr>:source ~/.config/nvim/init.vim<cr>
 command! SV execute "source ~/.config/nvim/init.vim"
 
