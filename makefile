@@ -5,7 +5,7 @@ all:
 	@echo ""
 	@echo "========================================================"
 	@echo "Inloggning:"
-	@echo "JacobSandin / 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"
+	@echo "JacobSandin / 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  "
 	@echo "========================================================"
 	@echo ""
 	@echo ""
