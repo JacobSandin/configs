@@ -122,12 +122,36 @@ noremap X "_X"
 " Exit terminal with Escape
 "tnoremap <Esc> <C-\><C-n>
 
+"command! -bang -range=% -complete=file -nargs=* W <line1>,<line2>write<bang> <args>
+"command! -bang Q quit<bang>
 " Making W and Q work as w and q in command.
 "cnoremap W w
 "cnoremap Q q
-command! -bang -range=% -complete=file -nargs=* W <line1>,<line2>write<bang> <args>
-command! -bang Q quit<bang>                                                        
 "cnoremap sv :w<cr>:source ~/.config/nvim/init.vim<cr>
+"
+" "Aliase" for commonly used commands+lazy shift finger:
+command! -bar -nargs=* -complete=file -range=% -bang W         <line1>,<line2>write<bang> <args>
+command! -bar -nargs=* -complete=file -range=% -bang Write     <line1>,<line2>write<bang> <args>
+command! -bar -nargs=* -complete=file -range=% -bang Wq        <line1>,<line2>wq<bang> <args>
+command! -bar                                  -bang Wqall     wqa<bang>
+command! -bar -nargs=* -complete=file -range=% -bang We        <line1>,<line2>w<bang> | e <args>
+command! -bar -nargs=* -complete=file -count   -bang Wnext     <count>wnext<bang> <args>
+command! -bar -nargs=* -complete=file -count   -bang Wprevious <count>wprevious<bang> <args>
+command! -bar -nargs=* -complete=file          -bang E         edit<bang> <args>
+command! -bar -nargs=* -complete=file          -bang Edit      edit<bang> <args>
+command! -bar                                  -bang Q         quit<bang>
+command! -bar                                  -bang Quit      quit<bang>
+command! -bar                                  -bang Qall      qall<bang>
+command! -bar -nargs=? -complete=option              Set       set <args>
+command! -bar -nargs=? -complete=help                Help      help <args>
+command! -bar -nargs=* -complete=file          -bang Make      make<bang> <args>
+command! -bar -nargs=* -complete=buffer        -bang Bdel      bdel<bang> <args>
+command! -bar -nargs=* -complete=buffer        -bang Bwipe     bwipe<bang> <args>
+command! -bar -nargs=* -complete=file          -bang Mksession mksession<bang> <args>
+command! -bar -nargs=* -complete=dir           -bang Cd        cd<bang> <args>
+command! -bar                                        Messages  messages
+command! -bar -nargs=+ -complete=file          -bang Source    source<bang> <args>s
+"
 command! SV execute "source ~/.config/nvim/init.vim"
 
 " ======================================
