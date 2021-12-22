@@ -220,6 +220,8 @@ if !empty(glob("~/.config/nvim/dev-plugin.vim"))
 endif
 call plug#end()
 
+let g:rainbow_active = 1
+
 if has('nvim')
 " ======================================
 "   Base16 color
