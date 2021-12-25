@@ -3,7 +3,8 @@
 " ======================================
 syntax on
 filetype plugin indent on
-let mapleader = "\<Space>"
+let maplocalleader = "\<Space>"
+let mapleader = ","
 
 if !has('gui_running')
   set t_Co=256
@@ -19,7 +20,7 @@ set encoding=utf-8
 set termencoding=utf8
 set cursorline
 set timeout ttimeout         " separate mapping and keycode timeouts
-set timeoutlen=250           " mapping timeout 250ms  (adjust for preference)
+set timeoutlen=500             " mapping timeout 250ms  (adjust for preference)
 set ttimeoutlen=120           " keycode timeout 20ms
 set noerrorbells
 set tabstop=4 softtabstop=4
@@ -115,11 +116,14 @@ nnoremap <leader><leader> <c-^>
 nnoremap <leader>b :Buffers<cr>
 
 nnoremap <leader>f :FloatermNew --autoclose=2 ranger<cr>
-nnoremap <leader>z :Files<cr>
+nnoremap <leader>z :FZF<cr>
+nnoremap <leader>Z :FZF /<cr>
+nnoremap <localleader>z :FZF ~<cr>
 nnoremap <leader>g :Rg<cr>
 nnoremap <leader>c :e ~/.config/nvim/init.vim<cr>
 nnoremap <leader><tab> :call ShowWhiteSpaces()<cr>
 "nnoremap <leader>t :bo terminal<cr>
+command! SV execute "source ~/.config/nvim/init.vim"
 
 " ======================================
 "   Tagbar
@@ -128,7 +132,8 @@ nnoremap <leader><tab> :call ShowWhiteSpaces()<cr>
 nmap <leader>n :TagbarToggle<CR>
 
 
-nmap <leader>t :FloatermToggle!<CR>
+"nmap <leader>t :FloatermToggle!<CR>
+"nmap <F11> :FloatermNew! cd %:p:h&clear<CR>
 nmap <F12> :FloatermToggle!<CR>
 let g:floaterm_keymap_toggle = '<F12>'
 let g:floaterm_opener = 'edit'
@@ -155,7 +160,12 @@ command! -bar -nargs=* -complete=file -range=% -bang WQ        <line1>,<line2>wq
 command! -bar -nargs=* -complete=file -range=% -bang Wq        <line1>,<line2>wq<bang> <args>
 command! -bar                                  -bang Q         quit<bang>
 "
-command! SV execute "source ~/.config/nvim/init.vim"
+
+
+let g:mapleader = "\<Space>"
+let g:maplocalleader = ','
+nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 
 " ======================================
 "    My functions
@@ -215,6 +225,7 @@ call plug#begin()
     Plug 'majutsushi/tagbar'
     Plug 'frazrepo/vim-rainbow'
     Plug 'voldikss/vim-floaterm'
+    Plug 'liuchengxu/vim-which-key'
 
 if !empty(glob("~/.config/nvim/local-plugin.vim"))
     source ~/.config/nvim/local-plugin.vim 
