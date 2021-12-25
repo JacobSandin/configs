@@ -1,6 +1,4 @@
-export TERM="gnome-256color"
-#export TERM="screen-256color"
-#
+export TERM=screen-256color
 #enable dvorak with alt+shift
 #setxkbmap -layout se,se -variant ,dvorak -option grp:alt_shift_toggle
 #setxkbmap -layout se,se -variant ,dvorak_a5 -option grp:alt_shift_toggle
@@ -80,10 +78,6 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-# set options
-setopt rmstarsilent
-
-
 # Aliases
 alias ssh='ssh -CY'
 alias ch='cd ~/'
@@ -97,15 +91,13 @@ if [ -f /usr/bin/nvim ]; then
     alias vi=nvim
     alias vc="nvim ~/.config/nvim/init.vim"
     alias zc='nvim ~/.zshrc'
+    source ~/.config/nvim/plugged/fzf/shell/key-bindings.zsh
+    source ~/.config/nvim/plugged/fzf/shell/completion.zsh
 else
     export EDITOR='vim'
     alias vi=vim
     alias vc="vim ~/.config/nvim/init.vim"
     alias zc='vim ~/.zshrc'
-fi
-if [ -f ~/.config/nvim/plugged/fzf/shell/key-bindings.zsh ]; then
-    source ~/.config/nvim/plugged/fzf/shell/key-bindings.zsh
-    source ~/.config/nvim/plugged/fzf/shell/completion.zsh
 fi
 # Replace sudo too keep variables and go to zsh
 u() {
@@ -132,5 +124,4 @@ PERL5LIB="/home/jacsan/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LI
 PERL_LOCAL_LIB_ROOT="/home/jacsan/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/jacsan/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/jacsan/perl5"; export PERL_MM_OPT;
-
 

@@ -87,10 +87,15 @@ vnoremap <Left> <Nop>
 vnoremap <Right> <Nop>
 vnoremap <Up> <Nop>
 
-inoremap <C-k> <up>
-inoremap <C-j> <down>
-inoremap <C-h> <left>
-inoremap <C-l> <right>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"inoremap <C-k> <up>
+"inoremap <C-j> <down>
+"inoremap <C-h> <left>
+"inoremap <C-l> <right>
 
 "Switching buffer
 nnoremap <M-h> :bp<CR>
@@ -109,11 +114,26 @@ inoremap jj <esc><esc>
 nnoremap <leader><leader> <c-^>
 nnoremap <leader>b :Buffers<cr>
 
-nnoremap <leader>f :Files<cr>
+nnoremap <leader>f :FloatermNew --autoclose=2 ranger<cr>
+nnoremap <leader>z :Files<cr>
 nnoremap <leader>g :Rg<cr>
 nnoremap <leader>c :e ~/.config/nvim/init.vim<cr>
 nnoremap <leader><tab> :call ShowWhiteSpaces()<cr>
-nnoremap <leader>t :bo terminal<cr>
+"nnoremap <leader>t :bo terminal<cr>
+
+" ======================================
+"   Tagbar
+" ======================================
+"
+nmap <leader>n :TagbarToggle<CR>
+
+
+nmap <leader>t :FloatermToggle!<CR>
+nmap <F12> :FloatermToggle!<CR>
+let g:floaterm_keymap_toggle = '<F12>'
+let g:floaterm_opener = 'edit'
+let g:floaterm_width = 0.9
+let g:floaterm_height = 0.9
 
 " Rebind so to not have x and X interfere with clipboard
 noremap x "_x"
@@ -131,26 +151,9 @@ noremap X "_X"
 "
 " "Aliase" for commonly used commands+lazy shift finger:
 command! -bar -nargs=* -complete=file -range=% -bang W         <line1>,<line2>write<bang> <args>
-command! -bar -nargs=* -complete=file -range=% -bang Write     <line1>,<line2>write<bang> <args>
+command! -bar -nargs=* -complete=file -range=% -bang WQ        <line1>,<line2>wq<bang> <args>
 command! -bar -nargs=* -complete=file -range=% -bang Wq        <line1>,<line2>wq<bang> <args>
-command! -bar                                  -bang Wqall     wqa<bang>
-command! -bar -nargs=* -complete=file -range=% -bang We        <line1>,<line2>w<bang> | e <args>
-command! -bar -nargs=* -complete=file -count   -bang Wnext     <count>wnext<bang> <args>
-command! -bar -nargs=* -complete=file -count   -bang Wprevious <count>wprevious<bang> <args>
-command! -bar -nargs=* -complete=file          -bang E         edit<bang> <args>
-command! -bar -nargs=* -complete=file          -bang Edit      edit<bang> <args>
 command! -bar                                  -bang Q         quit<bang>
-command! -bar                                  -bang Quit      quit<bang>
-command! -bar                                  -bang Qall      qall<bang>
-command! -bar -nargs=? -complete=option              Set       set <args>
-command! -bar -nargs=? -complete=help                Help      help <args>
-command! -bar -nargs=* -complete=file          -bang Make      make<bang> <args>
-command! -bar -nargs=* -complete=buffer        -bang Bdel      bdel<bang> <args>
-command! -bar -nargs=* -complete=buffer        -bang Bwipe     bwipe<bang> <args>
-command! -bar -nargs=* -complete=file          -bang Mksession mksession<bang> <args>
-command! -bar -nargs=* -complete=dir           -bang Cd        cd<bang> <args>
-command! -bar                                        Messages  messages
-command! -bar -nargs=+ -complete=file          -bang Source    source<bang> <args>s
 "
 command! SV execute "source ~/.config/nvim/init.vim"
 
@@ -192,7 +195,7 @@ endif
 call plug#begin()
     Plug 'chriskempson/base16-vim'
     " Search with s or S + two chars
-    Plug 'justinmk/vim-sneak'
+    "Plug 'justinmk/vim-sneak'
 
     "Fuzzy finder mappings needed
     "Files, GFiles, GFiles?, Buffers, Colors, Rg
@@ -211,6 +214,7 @@ call plug#begin()
 
     Plug 'majutsushi/tagbar'
     Plug 'frazrepo/vim-rainbow'
+    Plug 'voldikss/vim-floaterm'
 
 if !empty(glob("~/.config/nvim/local-plugin.vim"))
     source ~/.config/nvim/local-plugin.vim 
@@ -223,6 +227,7 @@ call plug#end()
 let g:rainbow_active = 1
 
 if has('nvim')
+
 " ======================================
 "   Base16 color
 " ======================================
@@ -230,12 +235,6 @@ if has('nvim')
 let base16colorspace=256
 colorscheme base16-default-dark
 endif
-
-" ======================================
-"   Tagbar
-" ======================================
-"
-nmap <leader>n :TagbarToggle<CR>
 
 " ======================================
 "   LightLine
@@ -277,6 +276,8 @@ function! s:build_quickfix_list(lines)
   cc
 endfunction
 
+autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>  "I want escape to close FZF
+
 let g:fzf_action = {
   \ 'ctrl-q': function('s:build_quickfix_list'),
   \ 'ctrl-t': 'tab split',
@@ -285,8 +286,8 @@ let g:fzf_action = {
 
 " Default fzf layout
 " - down / up / left / right / window
-"let g:fzf_layout = { 'down': '40%' }
-"let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+let g:fzf_layout = { 'down': '60%' }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 "
 "" You can set up fzf window using a Vim command (Neovim or latest Vim 8 required)
 "let g:fzf_layout = { 'window': 'enew' }
@@ -295,21 +296,21 @@ let g:fzf_action = {
 "
 "" Customize fzf colors to match your color scheme
 "" - fzf#wrap translates this to a set of `--color` options
-"let g:fzf_colors =
-"\ { 'fg':      ['fg', 'Normal'],
-"  \ 'bg':      ['bg', 'Normal'],
-"  \ 'hl':      ['fg', 'Comment'],
-"  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-"  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-"  \ 'hl+':     ['fg', 'Statement'],
-"  \ 'info':    ['fg', 'PreProc'],
-"  \ 'border':  ['fg', 'Ignore'],
-"  \ 'prompt':  ['fg', 'Conditional'],
-"  \ 'pointer': ['fg', 'Exception'],
-"  \ 'marker':  ['fg', 'Keyword'],
-"  \ 'spinner': ['fg', 'Label'],
-"  \ 'header':  ['fg', 'Comment'] }
-"
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
 " Enable per-command history
 " - History files will be stored in the specified directory
 " - When set, CTRL-N and CTRL-P will be bound to 'next-history' and

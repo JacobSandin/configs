@@ -17,6 +17,7 @@ sudo su $(whoami)
 #
 mkdir -p ~/.config/nvim
 mkdir -p ~/.config/zsh
+mkdir -p ~/.config/ranger
 
 rm -f ~/.z*
 
@@ -24,6 +25,7 @@ rm -f ~/.z*
 wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/zshenv -O ~/.zshenv  
 wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/zshrc -O ~/.zshrc  
 wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/init.vim -O ~/.config/nvim/init.vim 
+wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/ranger_rc.conf -O ~/.config/ranger/rc.conf
 
 # Oh my zsh setup
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.config/zsh/oh-my-zsh
