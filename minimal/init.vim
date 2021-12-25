@@ -134,6 +134,7 @@ nmap <leader>n :TagbarToggle<CR>
 
 "nmap <leader>t :FloatermToggle!<CR>
 "nmap <F11> :FloatermNew! cd %:p:h&clear<CR>
+nmap <leader>t :FloatermToggle!<CR>
 nmap <F12> :FloatermToggle!<CR>
 let g:floaterm_keymap_toggle = '<F12>'
 let g:floaterm_opener = 'edit'
@@ -244,7 +245,19 @@ if has('nvim')
 " ======================================
 "
 let base16colorspace=256
-colorscheme base16-default-dark
+"colorscheme base16-default-dark
+"colorscheme base16-classic-dark
+"colorscheme base16-eighties
+"colorscheme base16-circus  " Good, not so much wite
+"colorscheme base16-chalk
+colorscheme base16-atelier-savanna     "A little bright but else good
+"colorscheme base16-atelier-plateau  "This one I like
+"colorscheme base16-atelier-heath   "good
+"colorscheme base16-atelier-forest   "good
+"colorscheme base16-atelier-dune     "good
+"colorscheme base16-woodland         "good
+"colorscheme base16-twilight         "good
+"colorscheme base16-tomorrow-night
 endif
 
 " ======================================
