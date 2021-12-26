@@ -106,14 +106,15 @@ nnoremap <M-l> :bn<CR>
 
 inoremap jj <esc><esc>
 
-"nmap <leader>l $
-"nmap <leader>h 0
+nmap <localleader>l $
+nmap <localleader>h 0
 "nnoremap <S-h> 30<C-w><
 "nnoremap <S-l> 30<C-w>>
 
 " <leader><leader> toggles between buffers
 nnoremap <leader><leader> <c-^>
 nnoremap <leader>b :Buffers<cr>
+nnoremap ¤ $
 
 nnoremap <leader>f :FloatermNew --autoclose=2 ranger<cr>
 nnoremap <leader>z :FZF<cr>
@@ -144,16 +145,6 @@ let g:floaterm_height = 0.9
 " Rebind so to not have x and X interfere with clipboard
 noremap x "_x"
 noremap X "_X"
-
-" Exit terminal with Escape
-"tnoremap <Esc> <C-\><C-n>
-
-"command! -bang -range=% -complete=file -nargs=* W <line1>,<line2>write<bang> <args>
-"command! -bang Q quit<bang>
-" Making W and Q work as w and q in command.
-"cnoremap W w
-"cnoremap Q q
-"cnoremap sv :w<cr>:source ~/.config/nvim/init.vim<cr>
 "
 " "Aliase" for commonly used commands+lazy shift finger:
 command! -bar -nargs=* -complete=file -range=% -bang W         <line1>,<line2>write<bang> <args>
@@ -223,7 +214,7 @@ call plug#begin()
     " Powerline for vim
     Plug 'itchyny/lightline.vim'
 
-    Plug 'majutsushi/tagbar'
+    Plug 'majutsushi/tagbar' " Not working with rust without https://github.com/universal-ctags/ctags first remove ctags and etags (exuberant-ctags)
     Plug 'frazrepo/vim-rainbow'
     Plug 'voldikss/vim-floaterm'
     Plug 'liuchengxu/vim-which-key'
@@ -239,7 +230,7 @@ call plug#end()
 let g:rainbow_active = 1
 
 if has('nvim')
-
+autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/
 " ======================================
 "   Base16 color
 " ======================================
