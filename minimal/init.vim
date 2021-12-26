@@ -112,17 +112,17 @@ nmap <localleader>h 0
 "nnoremap <S-l> 30<C-w>>
 
 " <leader><leader> toggles between buffers
-nnoremap <leader><leader> <c-^>
-nnoremap <leader>b :Buffers<cr>
-nnoremap ¤ $
+nnoremap <silent> <leader><leader> <c-^>
+nnoremap <silent> <leader>b :Buffers<cr>
+nnoremap <silent> ¤ $
 
-nnoremap <leader>f :FloatermNew --autoclose=2 ranger<cr>
-nnoremap <leader>z :FZF<cr>
-nnoremap <leader>Z :FZF /<cr>
-nnoremap <localleader>z :FZF ~<cr>
-nnoremap <leader>g :Rg<cr>
-nnoremap <leader>c :e ~/.config/nvim/init.vim<cr>
-nnoremap <leader><tab> :call ShowWhiteSpaces()<cr>
+nnoremap <silent> <leader>f :FloatermNew --autoclose=2 ranger<cr>
+nnoremap <silent> <leader>z :FZF<cr>
+nnoremap <silent> <leader>Z :FZF /<cr>
+nnoremap <silent> <localleader>z :FZF ~<cr>
+nnoremap <silent> <leader>g :Rg<cr>
+nnoremap <silent> <leader>c :e ~/.config/nvim/init.vim<cr>
+nnoremap <silent> <leader><tab> :call ShowWhiteSpaces()<cr>
 "nnoremap <leader>t :bo terminal<cr>
 command! SV execute "source ~/.config/nvim/init.vim"
 
@@ -130,13 +130,13 @@ command! SV execute "source ~/.config/nvim/init.vim"
 "   Tagbar
 " ======================================
 "
-nmap <leader>n :TagbarToggle<CR>
+nmap <silent> <leader>n :TagbarToggle<CR>
 
 
 "nmap <leader>t :FloatermToggle!<CR>
 "nmap <F11> :FloatermNew! cd %:p:h&clear<CR>
-nmap <leader>t :FloatermToggle!<CR>
-nmap <F12> :FloatermToggle!<CR>
+nmap <silent> <leader>t :FloatermToggle!<CR>
+nmap <silent> <F12> :FloatermToggle!<CR>
 let g:floaterm_keymap_toggle = '<F12>'
 let g:floaterm_opener = 'edit'
 let g:floaterm_width = 0.9
@@ -228,7 +228,7 @@ endif
 call plug#end()
 
 let g:rainbow_active = 1
-
+let g:tagbar_width = 30
 if has('nvim')
 autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/
 " ======================================
