@@ -267,7 +267,7 @@ let g:lightline = {
       \ }
 
 function! FullFileName()
-    return expand('%:p:h')
+    return expand('%:p')
 endfunction
 " ======================================
 "   vim.sneak
