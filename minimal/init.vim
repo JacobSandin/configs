@@ -241,7 +241,7 @@ let base16colorspace=256
 "colorscheme base16-eighties
 "colorscheme base16-circus  " Good, not so much wite
 "colorscheme base16-chalk
-colorscheme base16-atelier-savanna     "A little bright but else good 
+colorscheme base16-atelier-savanna     "A little bright but else good
 "colorscheme base16-atelier-plateau  "This one I like
 "colorscheme base16-atelier-heath   "good
 "colorscheme base16-atelier-forest   "good
