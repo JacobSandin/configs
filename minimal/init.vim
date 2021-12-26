@@ -257,11 +257,18 @@ endif
 "
 let g:lightline = {
       \ 'colorscheme': 'jellybeans',
+      \ 'component_function': {
+      \   'filename': 'FullFileName',
+      \ },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'readonly', 'filename', 'modified', 'helloworld' ] ]
       \ },
       \ }
+
+function! FullFileName()
+    return expand('%:p:h')
+endfunction
 " ======================================
 "   vim.sneak
 " ======================================
@@ -292,6 +299,7 @@ function! s:build_quickfix_list(lines)
 endfunction
 
 autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>  "I want escape to close FZF
+"command! Rg FloatermNew --width=0.8 --height=0.8 rg
 
 let g:fzf_action = {
   \ 'ctrl-q': function('s:build_quickfix_list'),
