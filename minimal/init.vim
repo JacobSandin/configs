@@ -38,7 +38,7 @@ set undofile
 set incsearch
 set spelllang=en
 set spelllang+=sv
-set updatetime=400
+set updatetime=300
 set shortmess+=c
 set cmdheight=2
 set pastetoggle=<leader>v
@@ -97,6 +97,11 @@ nnoremap <C-H> <C-W><C-H>
 "inoremap <C-j> <down>
 "inoremap <C-h> <left>
 "inoremap <C-l> <right>
+" goto code navigation.
+nnoremap <silent> gi <plug>(coc-implementation)
+nnoremap <silent> gr <plug>(coc-references)
+nmap <silent> gy <plug>(coc-type-definition)
+nmap <silent> gr <plug>(coc-references)
 
 "Switching buffer
 nnoremap <M-h> :bp<CR>
@@ -126,6 +131,13 @@ nnoremap <silent> <leader><tab> :call ShowWhiteSpaces()<cr>
 "nnoremap <leader>t :bo terminal<cr>
 command! SV execute "source ~/.config/nvim/init.vim"
 
+let g:vimspector_enable_mappings = 'HUMAN'
+nmap <leader>dd :call vimspector#Launch()<CR>
+nmap <leader>dx :VimspectorReset<CR>
+nmap <leader>de :VimspectorEval
+nmap <leader>dw :VimspectorWatch
+nmap <leader>do :VimspectorShowOutput
+let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-go', 'CodeLLDB' ]
 " ======================================
 "   Tagbar
 " ======================================
@@ -209,7 +221,7 @@ call plug#begin()
     Plug 'unblevable/quick-scope'
     
     " Chages dir depending on project
-    Plug 'airblade/vim-rooter'
+    "Plug 'airblade/vim-rooter'
 
     " Powerline for vim
     Plug 'itchyny/lightline.vim'
@@ -230,7 +242,7 @@ call plug#end()
 let g:rainbow_active = 1
 let g:tagbar_width = 30
 if has('nvim')
-autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/
+"autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/
 " ======================================
 "   Base16 color
 " ======================================

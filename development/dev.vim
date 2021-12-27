@@ -47,11 +47,12 @@ let g:vimtex_quickfix_mode=0
 "        \   '-interaction=nonstopmode',
 "        \ ],
 "        \}
-let g:LanguageClient_rootMarkers = ['*.cabal', 'stack.yaml']
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rls'],
-    \ 'haskell': ['ghcide', '--lsp'],
-    \ }
+"let g:LanguageClient_rootMarkers = ['*.cabal', 'stack.yaml']
+"let g:LanguageClient_serverCommands = {
+"    \ 'rust': ['rls'],
+"    \ 'haskell': ['ghcide', '--lsp'],
+"    \ }
+"
 
 "let g:lightline = {
 "      \ 'colorscheme': 'jellybeans',

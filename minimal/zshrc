@@ -3,6 +3,7 @@ export TERM=screen-256color
 #setxkbmap -layout se,se -variant ,dvorak -option grp:alt_shift_toggle
 #setxkbmap -layout se,se -variant ,dvorak_a5 -option grp:alt_shift_toggle
 setopt rmstarsilent #Set so that rm -f do not ask confirmation
+
 ZDOTDIR=$HOME/.config/zsh
 
 export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.config/nvim/plugged/fzf/bin:$HOME/bin:$PATH"
