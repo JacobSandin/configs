@@ -22,15 +22,14 @@
 
     Plug 'ryuta69/coc-perl', {'do': 'yarn install && yarn build'}
     " 
-    "Plug 'vimwiki/vimwiki'
+    Plug 'vimwiki/vimwiki'
     "
     " To help write latex in vim
     Plug 'lervag/vimtex'
 
     Plug 'pearofducks/ansible-vim'
     
-    "Plug 'universal-ctags/ctags' "Hope to jump/goto in coc from file to file
-    Plug 'ludovicchabant/vim-gutentags'
+    Plug 'ludovicchabant/vim-gutentags' "To build ctags so that I can use goto in coc
 
     Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',

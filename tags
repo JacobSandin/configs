@@ -1,0 +1,284 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/jacsan/utv/git/configs/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20211226.0/
+82.115.149.1	index.html	/^<h2>82.115.149.1<\/h2>$/;"	i
+<C-H>	minimal/init.vim	/^nnoremap <C-H> <C-W><C-H>$/;"	m
+<C-J>	minimal/init.vim	/^nnoremap <C-J> <C-W><C-J>$/;"	m
+<C-K>	minimal/init.vim	/^nnoremap <C-K> <C-W><C-K>$/;"	m
+<C-L>	minimal/init.vim	/^nnoremap <C-L> <C-W><C-L>$/;"	m
+<Down>	minimal/init.vim	/^cnoremap <Down> <Nop>$/;"	m
+<Down>	minimal/init.vim	/^inoremap <Down> <Nop>$/;"	m
+<Down>	minimal/init.vim	/^nnoremap <Down> <Nop>$/;"	m
+<Down>	minimal/init.vim	/^vnoremap <Down> <Nop>$/;"	m
+<F12>	minimal/init.vim	/^nmap <silent> <F12> :FloatermToggle!<CR>$/;"	m
+<Left>	minimal/init.vim	/^cnoremap <Left> <Nop>$/;"	m
+<Left>	minimal/init.vim	/^inoremap <Left> <Nop>$/;"	m
+<Left>	minimal/init.vim	/^nnoremap <Left> <Nop>$/;"	m
+<Left>	minimal/init.vim	/^vnoremap <Left> <Nop>$/;"	m
+<M-h>	minimal/init.vim	/^nnoremap <M-h> :bp<CR>$/;"	m
+<M-l>	minimal/init.vim	/^nnoremap <M-l> :bn<CR>$/;"	m
+<Right>	minimal/init.vim	/^cnoremap <Right> <Nop>$/;"	m
+<Right>	minimal/init.vim	/^inoremap <Right> <Nop>$/;"	m
+<Right>	minimal/init.vim	/^nnoremap <Right> <Nop>$/;"	m
+<Right>	minimal/init.vim	/^vnoremap <Right> <Nop>$/;"	m
+<S-Tab>	development/dev.vim	/^inoremap <expr> <S-Tab> pumvisible() ? "\\<C-p>" : "\\<S-Tab>"$/;"	m
+<Tab>	development/dev.vim	/^inoremap <expr> <Tab> pumvisible() ? "\\<C-n>" : "\\<Tab>"$/;"	m
+<Up>	minimal/init.vim	/^cnoremap <Up> <Nop>$/;"	m
+<Up>	minimal/init.vim	/^inoremap <Up> <Nop>$/;"	m
+<Up>	minimal/init.vim	/^nnoremap <Up> <Nop>$/;"	m
+<Up>	minimal/init.vim	/^vnoremap <Up> <Nop>$/;"	m
+<cr>	development/dev.vim	/^inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\\<C-g>u\\<CR>"$/;"	m
+<leader>	minimal/init.vim	/^nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>$/;"	m
+<leader><leader>	minimal/init.vim	/^nnoremap <silent> <leader><leader> <c-^>$/;"	m
+<leader><tab>	minimal/init.vim	/^nnoremap <silent> <leader><tab> :call ShowWhiteSpaces()<cr>$/;"	m
+<leader>Z	minimal/init.vim	/^nnoremap <silent> <leader>Z :FZF \/<cr>$/;"	m
+<leader>b	minimal/init.vim	/^nnoremap <silent> <leader>b :Buffers<cr>$/;"	m
+<leader>c	minimal/init.vim	/^nnoremap <silent> <leader>c :e ~\/.config\/nvim\/init.vim<cr>$/;"	m
+<leader>dd	minimal/init.vim	/^nmap <leader>dd :call vimspector#Launch()<CR>$/;"	m
+<leader>de	minimal/init.vim	/^nmap <leader>de :VimspectorEval$/;"	m
+<leader>do	minimal/init.vim	/^nmap <leader>do :VimspectorShowOutput$/;"	m
+<leader>dw	minimal/init.vim	/^nmap <leader>dw :VimspectorWatch$/;"	m
+<leader>dx	minimal/init.vim	/^nmap <leader>dx :VimspectorReset<CR>$/;"	m
+<leader>f	minimal/init.vim	/^nnoremap <silent> <leader>f :FloatermNew --autoclose=2 ranger<cr>$/;"	m
+<leader>g	minimal/init.vim	/^nnoremap <silent> <leader>g :Rg<cr>$/;"	m
+<leader>n	minimal/init.vim	/^nmap <silent> <leader>n :TagbarToggle<CR>$/;"	m
+<leader>t	minimal/init.vim	/^nmap <silent> <leader>t :FloatermToggle!<CR>$/;"	m
+<leader>z	minimal/init.vim	/^nnoremap <silent> <leader>z :FZF<cr>$/;"	m
+<localleader>	minimal/init.vim	/^nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>$/;"	m
+<localleader>h	minimal/init.vim	/^nmap <localleader>h 0$/;"	m
+<localleader>l	minimal/init.vim	/^nmap <localleader>l \$$/;"	m
+<localleader>z	minimal/init.vim	/^nnoremap <silent> <localleader>z :FZF ~<cr>$/;"	m
+Content	index.html	/^<div id="Content">$/;"	I
+Dölj din IP-adress (IP-nummer)	index.html	/^<h2>Dölj din IP-adress (IP-nummer)<\/h2>$/;"	i
+Footer	index.html	/^<footer id="Footer" class="clearfix">$/;"	I
+FullFileName	minimal/init.vim	/^function! FullFileName()$/;"	f
+Header	index.html	/^			<header id="Header">$/;"	I
+Header_wrapper	index.html	/^		<div id="Header_wrapper" >$/;"	I
+K	development/dev.vim	/^nnoremap <silent> K :call <SID>show_documentation()<CR>$/;"	m
+Med hjälp av IP.nu blev det enkelt att surfa anonymt	index.html	/^<\/div><\/div><\/div><\/div><\/div><\/div><\/div><div class="section mcb-section dark  " id="tes/;"	i
+Min IP-adress	index.html	/^<h2>Min IP-adress<\/h2>$/;"	i
+Open+Sans-css	index.html	/^<link rel='stylesheet' id='Open+Sans-css'  href='https:\/\/fonts.googleapis.com\/css?family=Open/;"	I
+Patua+One-css	index.html	/^<link rel='stylesheet' id='Patua+One-css'  href='https:\/\/fonts.googleapis.com\/css?family=Patu/;"	I
+Q	minimal/init.vim	/^command! -bar                                  -bang Q         quit<bang>$/;"	c
+Roboto-css	index.html	/^<link rel='stylesheet' id='Roboto-css'  href='https:\/\/fonts.googleapis.com\/css?family=Roboto%/;"	I
+SV	minimal/init.vim	/^command! SV execute "source ~\/.config\/nvim\/init.vim"$/;"	c
+ShowWhiteSpaces	minimal/init.vim	/^function! ShowWhiteSpaces()$/;"	f
+Spåra IP nummer	index.html	/^<h2>Spåra IP nummer<\/h2>$/;"	i
+Top_bar	index.html	/^<div id="Top_bar" class="loading">$/;"	I
+W	minimal/init.vim	/^command! -bar -nargs=* -complete=file -range=% -bang W         <line1>,<line2>write<bang> <args>$/;"	c
+WQ	minimal/init.vim	/^command! -bar -nargs=* -complete=file -range=% -bang WQ        <line1>,<line2>wq<bang> <args>$/;"	c
+Wq	minimal/init.vim	/^command! -bar -nargs=* -complete=file -range=% -bang Wq        <line1>,<line2>wq<bang> <args>$/;"	c
+Wrapper	index.html	/^	<div id="Wrapper">$/;"	I
+X	minimal/init.vim	/^noremap X "_X"$/;"	m
+\x20       pager_move  up	minimal/ranger_rc.conf	/^pmap  <up>        pager_move  up=1$/;"	k
+\x20       taskview_move up	minimal/ranger_rc.conf	/^tmap <up>        taskview_move up=1$/;"	k
+\x20      move right	minimal/ranger_rc.conf	/^map <CR>       move right=1$/;"	k
+\x20      move up	minimal/ranger_rc.conf	/^map <UP>       move up=1$/;"	k
+\x20      pager_move  down	minimal/ranger_rc.conf	/^pmap  <C-d>       pager_move  down=0.5  pages=True$/;"	k
+\x20      pager_move  to	minimal/ranger_rc.conf	/^pmap  <end>       pager_move  to=-1$/;"	k
+\x20      pager_move  up	minimal/ranger_rc.conf	/^pmap  <C-u>       pager_move  up=0.5    pages=True$/;"	k
+\x20      taskview_move down	minimal/ranger_rc.conf	/^tmap <C-d>       taskview_move down=0.5  pages=True$/;"	k
+\x20      taskview_move to	minimal/ranger_rc.conf	/^tmap <end>       taskview_move to=-1$/;"	k
+\x20      taskview_move up	minimal/ranger_rc.conf	/^tmap <C-u>       taskview_move up=0.5    pages=True$/;"	k
+\x20     move to	minimal/ranger_rc.conf	/^map <END>      move to=-1$/;"	k
+\x20     pager_move  down	minimal/ranger_rc.conf	/^pmap  <down>      pager_move  down=1$/;"	k
+\x20     pager_move  left	minimal/ranger_rc.conf	/^pmap  <left>      pager_move  left=4$/;"	k
+\x20     pager_move  to	minimal/ranger_rc.conf	/^pmap  <home>      pager_move  to=0$/;"	k
+\x20     taskview_move down	minimal/ranger_rc.conf	/^tmap <down>      taskview_move down=1$/;"	k
+\x20     taskview_move to	minimal/ranger_rc.conf	/^tmap <home>      taskview_move to=0$/;"	k
+\x20    move down	minimal/ranger_rc.conf	/^map <DOWN>     move down=1$/;"	k
+\x20    move left	minimal/ranger_rc.conf	/^map <LEFT>     move left=1$/;"	k
+\x20    move to	minimal/ranger_rc.conf	/^map <HOME>     move to=0$/;"	k
+\x20    pager_move  right	minimal/ranger_rc.conf	/^pmap  <right>     pager_move  right=4$/;"	k
+\x20   move right	minimal/ranger_rc.conf	/^map <RIGHT>    move right=1$/;"	k
+\x20   pager_move  up	minimal/ranger_rc.conf	/^pmap  <pageup>    pager_move  up=1.0    pages=True$/;"	k
+\x20   taskview_move up	minimal/ranger_rc.conf	/^tmap <pageup>    taskview_move up=1.0    pages=True$/;"	k
+\x20  move up	minimal/ranger_rc.conf	/^map <PAGEUP>   move up=1     pages=True$/;"	k
+\x20 pager_move  down	minimal/ranger_rc.conf	/^pmap  <pagedown>  pager_move  down=1.0  pages=True$/;"	k
+\x20 taskview_move down	minimal/ranger_rc.conf	/^tmap <pagedown>  taskview_move down=1.0  pages=True$/;"	k
+\x20mark_files toggle	minimal/ranger_rc.conf	/^map <Space> mark_files toggle=True$/;"	k
+\x20move down	minimal/ranger_rc.conf	/^map <PAGEDOWN> move down=1   pages=True$/;"	k
+\x20tag_toggle tag	minimal/ranger_rc.conf	/^map "<any>  tag_toggle tag=%any$/;"	k
+all	makefile	/^all:$/;"	t
+back_to_top	index.html	/^					<a id="back_to_top" class="button button_left button_js" href=""><span class="button_icon">/;"	I
+backward	minimal/ranger_rc.conf	/^cmap <A-d>        eval fm.ui.console.delete_word(backward=False)$/;"	k
+base16colorspace	minimal/init.vim	/^let base16colorspace=256$/;"	v
+comment-reply-js	index.html	/^<script type='text\/javascript' src='https:\/\/ip.nu\/wp-includes\/js\/comment-reply.min.js?ver=/;"	I
+configs	README.md	/^# configs$/;"	c
+dirarg	minimal/ranger_rc.conf	/^map dG  eval fm.cut(dirarg=dict(to=-1), narg=quantifier)$/;"	k
+dirarg	minimal/ranger_rc.conf	/^map dgg eval fm.cut(dirarg=dict(to=0), narg=quantifier)$/;"	k
+dirarg	minimal/ranger_rc.conf	/^map dj  eval fm.cut(dirarg=dict(down=1), narg=quantifier)$/;"	k
+dirarg	minimal/ranger_rc.conf	/^map dk  eval fm.cut(dirarg=dict(up=1), narg=quantifier)$/;"	k
+dirarg	minimal/ranger_rc.conf	/^map yG  eval fm.copy(dirarg=dict(to=-1), narg=quantifier)$/;"	k
+dirarg	minimal/ranger_rc.conf	/^map ygg eval fm.copy(dirarg=dict(to=0), narg=quantifier)$/;"	k
+dirarg	minimal/ranger_rc.conf	/^map yj  eval fm.copy(dirarg=dict(down=1), narg=quantifier)$/;"	k
+dirarg	minimal/ranger_rc.conf	/^map yk  eval fm.copy(dirarg=dict(up=1), narg=quantifier)$/;"	k
+g:floaterm_height	minimal/init.vim	/^let g:floaterm_height = 0.9$/;"	v
+g:floaterm_keymap_toggle	minimal/init.vim	/^let g:floaterm_keymap_toggle = '<F12>'$/;"	v
+g:floaterm_opener	minimal/init.vim	/^let g:floaterm_opener = 'edit'$/;"	v
+g:floaterm_width	minimal/init.vim	/^let g:floaterm_width = 0.9$/;"	v
+g:fzf_action	minimal/init.vim	/^let g:fzf_action = {$/;"	v
+g:fzf_colors	minimal/init.vim	/^let g:fzf_colors =$/;"	v
+g:fzf_history_dir	minimal/init.vim	/^let g:fzf_history_dir = '~\/.local\/share\/fzf-history'$/;"	v
+g:fzf_layout	minimal/init.vim	/^let g:fzf_layout = { 'down': '60%' }$/;"	v
+g:fzf_layout	minimal/init.vim	/^let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }$/;"	v
+g:lightline	minimal/init.vim	/^let g:lightline = {$/;"	v
+g:mapleader	minimal/init.vim	/^let g:mapleader = "\\<Space>"$/;"	v
+g:maplocalleader	minimal/init.vim	/^let g:maplocalleader = ','$/;"	v
+g:qs_highlight_on_keys	minimal/init.vim	/^let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']$/;"	v
+g:rainbow_active	minimal/init.vim	/^let g:rainbow_active = 1$/;"	v
+g:show_spaces_set	minimal/init.vim	/^        let g:show_spaces_set=0$/;"	v
+g:show_spaces_set	minimal/init.vim	/^        let g:show_spaces_set=1$/;"	v
+g:show_spaces_set	minimal/init.vim	/^let g:show_spaces_set=1$/;"	v
+g:sneak#label	minimal/init.vim	/^let g:sneak#label = 1$/;"	v
+g:tagbar_width	minimal/init.vim	/^let g:tagbar_width = 30$/;"	v
+g:tex_flavor	development/dev.vim	/^let g:tex_flavor = 'latex'$/;"	v
+g:vimspector_enable_mappings	minimal/init.vim	/^let g:vimspector_enable_mappings = 'HUMAN'$/;"	v
+g:vimspector_install_gadgets	minimal/init.vim	/^let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-go', 'CodeLLDB' ]$/;"	v
+g:vimtex_quickfix_mode	development/dev.vim	/^let g:vimtex_quickfix_mode=0$/;"	v
+g:vimtex_view_method	development/dev.vim	/^let g:vimtex_view_method='mupdf'$/;"	v
+gd	development/dev.vim	/^nmap <silent> gd <Plug>(coc-definition)$/;"	m
+gi	development/dev.vim	/^nmap <silent> gi <Plug>(coc-implementation)$/;"	m
+gi	minimal/init.vim	/^nnoremap <silent> gi <plug>(coc-implementation)$/;"	m
+git	development/makefile	/^git:$/;"	t
+git	minimal/makefile	/^git:$/;"	t
+git	tmux/makefile	/^git:$/;"	t
+googlemaps-js	index.html	/^<script type='text\/javascript' src='https:\/\/maps.googleapis.com\/maps\/api\/js?key=AIzaSyCqVr/;"	I
+googlemapsscript-js	index.html	/^<script type='text\/javascript' src='https:\/\/ip.nu\/wp-content\/themes\/betheme-child\/js\/goo/;"	I
+gr	development/dev.vim	/^nmap <silent> gr <Plug>(coc-references)$/;"	m
+gr	minimal/init.vim	/^nmap <silent> gr <plug>(coc-references)$/;"	m
+gr	minimal/init.vim	/^nnoremap <silent> gr <plug>(coc-references)$/;"	m
+gy	development/dev.vim	/^nmap <silent> gy <Plug>(coc-type-definition)$/;"	m
+gy	minimal/init.vim	/^nmap <silent> gy <plug>(coc-type-definition)$/;"	m
+herosearch	index.html	/^		<input type="text" name="search" id="herosearch" placeholder="Ange IP-adress" autocomplete="of/;"	I
+herosearchbutton	index.html	/^		<button type="button" id="herosearchbutton" style="background-color:#37ac50 !important;color:w/;"	I
+jj	minimal/init.vim	/^inoremap jj <esc><esc>$/;"	m
+jquery-animations-js	index.html	/^<script type='text\/javascript' src='https:\/\/ip.nu\/wp-content\/themes\/betheme\/assets\/anima/;"	I
+jquery-core-js	index.html	/^<script>if (document.location.protocol != "https:") {document.location = document.URL.replace(\//;"	I
+jquery-jplayer-js	index.html	/^<script type='text\/javascript' src='https:\/\/ip.nu\/wp-content\/themes\/betheme\/assets\/jplay/;"	I
+jquery-mfn-menu-js	index.html	/^<script type='text\/javascript' src='https:\/\/ip.nu\/wp-content\/themes\/betheme\/js\/menu.js?v/;"	I
+jquery-plugins-js	index.html	/^<script type='text\/javascript' src='https:\/\/ip.nu\/wp-content\/themes\/betheme\/js\/plugins.j/;"	I
+jquery-scripts-js	index.html	/^<script type='text\/javascript' src='https:\/\/ip.nu\/wp-content\/themes\/betheme\/js\/scripts.j/;"	I
+jquery-ui-accordion-js	index.html	/^<script type='text\/javascript' src='https:\/\/ip.nu\/wp-includes\/js\/jquery\/ui\/accordion.min/;"	I
+jquery-ui-core-js	index.html	/^<script type='text\/javascript' src='https:\/\/ip.nu\/wp-includes\/js\/jquery\/ui\/core.min.js?v/;"	I
+jquery-ui-js	index.html	/^<script type='text\/javascript' src='https:\/\/ajax.googleapis.com\/ajax\/libs\/jqueryui\/1.10.4/;"	I
+jquery-ui-mouse-js	index.html	/^<script type='text\/javascript' src='https:\/\/ip.nu\/wp-includes\/js\/jquery\/ui\/mouse.min.js?/;"	I
+jquery-ui-sortable-js	index.html	/^<script type='text\/javascript' src='https:\/\/ip.nu\/wp-includes\/js\/jquery\/ui\/sortable.min./;"	I
+jquery-ui-tabs-js	index.html	/^<script type='text\/javascript' src='https:\/\/ip.nu\/wp-includes\/js\/jquery\/ui\/tabs.min.js?v/;"	I
+jquery-ui-widget-js	index.html	/^<script type='text\/javascript' src='https:\/\/ip.nu\/wp-includes\/js\/jquery\/ui\/widget.min.js/;"	I
+left	minimal/ranger_rc.conf	/^cmap <a-b> eval fm.ui.console.move_word(left=1)$/;"	k
+left	minimal/ranger_rc.conf	/^cmap <left>  eval fm.ui.console.move(left=1)$/;"	k
+linkcat-4	index.html	/^	<div class="widgets_wrapper" style=""><div class="container"><div class="column one-third"><asi/;"	I
+logo	index.html	/^					<span id="logo"><img class="logo-main scale-with-grid" src="https:\/\/ip.nu\/wp-content\/up/;"	I
+map	minimal/ranger_rc.conf	/^map :  console$/;"	k
+map	minimal/ranger_rc.conf	/^map =  chmod$/;"	k
+map J  move down	minimal/ranger_rc.conf	/^map J  move down=0.5  pages=True$/;"	k
+map K  move up	minimal/ranger_rc.conf	/^map K  move up=0.5    pages=True$/;"	k
+map N  search_next forward	minimal/ranger_rc.conf	/^map N  search_next forward=False$/;"	k
+map ca search_next order	minimal/ranger_rc.conf	/^map ca search_next order=atime$/;"	k
+map cc search_next order	minimal/ranger_rc.conf	/^map cc search_next order=ctime$/;"	k
+map ci search_next order	minimal/ranger_rc.conf	/^map ci search_next order=mimetype$/;"	k
+map cm search_next order	minimal/ranger_rc.conf	/^map cm search_next order=mtime$/;"	k
+map cs search_next order	minimal/ranger_rc.conf	/^map cs search_next order=size$/;"	k
+map ct search_next order	minimal/ranger_rc.conf	/^map ct search_next order=tag$/;"	k
+map da cut mode	minimal/ranger_rc.conf	/^map da cut mode=add$/;"	k
+map dr cut mode	minimal/ranger_rc.conf	/^map dr cut mode=remove$/;"	k
+map dt cut mode	minimal/ranger_rc.conf	/^map dt cut mode=toggle$/;"	k
+map oA chain set sort	minimal/ranger_rc.conf	/^map oA chain set sort=atime;     set sort_reverse=True$/;"	k
+map oB chain set sort	minimal/ranger_rc.conf	/^map oB chain set sort=basename;  set sort_reverse=True$/;"	k
+map oC chain set sort	minimal/ranger_rc.conf	/^map oC chain set sort=ctime;     set sort_reverse=True$/;"	k
+map oE chain set sort	minimal/ranger_rc.conf	/^map oE chain set sort=extension; set sort_reverse=True$/;"	k
+map oM chain set sort	minimal/ranger_rc.conf	/^map oM chain set sort=mtime;     set sort_reverse=True$/;"	k
+map oN chain set sort	minimal/ranger_rc.conf	/^map oN chain set sort=natural;   set sort_reverse=True$/;"	k
+map oS chain set sort	minimal/ranger_rc.conf	/^map oS chain set sort=size;      set sort_reverse=True$/;"	k
+map oT chain set sort	minimal/ranger_rc.conf	/^map oT chain set sort=type;      set sort_reverse=True$/;"	k
+map oa chain set sort	minimal/ranger_rc.conf	/^map oa chain set sort=atime;     set sort_reverse=False$/;"	k
+map ob chain set sort	minimal/ranger_rc.conf	/^map ob chain set sort=basename;  set sort_reverse=False$/;"	k
+map oc chain set sort	minimal/ranger_rc.conf	/^map oc chain set sort=ctime;     set sort_reverse=False$/;"	k
+map oe chain set sort	minimal/ranger_rc.conf	/^map oe chain set sort=extension; set sort_reverse=False$/;"	k
+map om chain set sort	minimal/ranger_rc.conf	/^map om chain set sort=mtime;     set sort_reverse=False$/;"	k
+map on chain set sort	minimal/ranger_rc.conf	/^map on chain set sort=natural;   set sort_reverse=False$/;"	k
+map os chain set sort	minimal/ranger_rc.conf	/^map os chain set sort=size;      set sort_reverse=False$/;"	k
+map ot chain set sort	minimal/ranger_rc.conf	/^map ot chain set sort=type;      set sort_reverse=False$/;"	k
+map oz set sort	minimal/ranger_rc.conf	/^map oz set sort=random$/;"	k
+map pL paste_symlink relative	minimal/ranger_rc.conf	/^map pL paste_symlink relative=True$/;"	k
+map pO paste overwrite	minimal/ranger_rc.conf	/^map pO paste overwrite=True append=True$/;"	k
+map pP paste append	minimal/ranger_rc.conf	/^map pP paste append=True$/;"	k
+map pd console paste dest	minimal/ranger_rc.conf	/^map pd console paste dest=$/;"	k
+map pl paste_symlink relative	minimal/ranger_rc.conf	/^map pl paste_symlink relative=False$/;"	k
+map po paste overwrite	minimal/ranger_rc.conf	/^map po paste overwrite=True$/;"	k
+map uV      toggle_visual_mode reverse	minimal/ranger_rc.conf	/^map uV      toggle_visual_mode reverse=True$/;"	k
+map uv      mark_files all	minimal/ranger_rc.conf	/^map uv      mark_files all=True val=False$/;"	k
+map v       mark_files all	minimal/ranger_rc.conf	/^map v       mark_files all=True toggle=True$/;"	k
+map ya copy mode	minimal/ranger_rc.conf	/^map ya copy mode=add$/;"	k
+map yr copy mode	minimal/ranger_rc.conf	/^map yr copy mode=remove$/;"	k
+map yt copy mode	minimal/ranger_rc.conf	/^map yt copy mode=toggle$/;"	k
+mapleader	minimal/init.vim	/^let mapleader = ","$/;"	v
+maplocalleader	minimal/init.vim	/^let maplocalleader = "\\<Space>"$/;"	v
+menu	index.html	/^					<nav id="menu" class="menu-ip-container"><ul id="menu-ip" class="menu"><li id="menu-item-11/;"	I
+menu-ip	index.html	/^					<nav id="menu" class="menu-ip-container"><ul id="menu-ip" class="menu"><li id="menu-item-11/;"	I
+menu-item-116	index.html	/^					<nav id="menu" class="menu-ip-container"><ul id="menu-ip" class="menu"><li id="menu-item-11/;"	I
+menu-item-126	index.html	/^<li id="menu-item-126" class="menu-item menu-item-type-post_type menu-item-object-page"><a href=/;"	I
+menu-item-14	index.html	/^<li id="menu-item-14" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-/;"	I
+menu-item-156	index.html	/^<li id="menu-item-156" class="menu-item menu-item-type-post_type menu-item-object-page"><a href=/;"	I
+menu-item-21	index.html	/^	<li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page"><a href=/;"	I
+menu-item-24	index.html	/^	<li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page"><a href=/;"	I
+menu-item-27	index.html	/^	<li id="menu-item-27" class="menu-item menu-item-type-post_type menu-item-object-page"><a href=/;"	I
+menu-item-31	index.html	/^	<li id="menu-item-31" class="menu-item menu-item-type-post_type menu-item-object-page"><a href=/;"	I
+menu-item-34	index.html	/^	<li id="menu-item-34" class="menu-item menu-item-type-post_type menu-item-object-page"><a href=/;"	I
+menu-item-37	index.html	/^	<li id="menu-item-37" class="menu-item menu-item-type-post_type menu-item-object-page"><a href=/;"	I
+menu-item-39	index.html	/^<li id="menu-item-39" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-/;"	I
+menu-item-41	index.html	/^	<li id="menu-item-41" class="menu-item menu-item-type-post_type menu-item-object-page"><a href=/;"	I
+menu-item-70	index.html	/^	<li id="menu-item-70" class="menu-item menu-item-type-post_type menu-item-object-page"><a href=/;"	I
+menu-item-85	index.html	/^	<li id="menu-item-85" class="menu-item menu-item-type-custom menu-item-object-custom"><a title=/;"	I
+mfn-animations-css	index.html	/^<link rel='stylesheet' id='mfn-animations-css'  href='https:\/\/ip.nu\/wp-content\/themes\/bethe/;"	I
+mfn-base-css	index.html	/^<link rel='stylesheet' id='mfn-base-css'  href='https:\/\/ip.nu\/wp-content\/themes\/betheme\/cs/;"	I
+mfn-dnmc-config-js	index.html	/^<script id="mfn-dnmc-config-js">$/;"	I
+mfn-dnmc-style-css	index.html	/^<style id="mfn-dnmc-style-css">$/;"	I
+mfn-dnmc-theme-css	index.html	/^<style id="mfn-dnmc-theme-css">$/;"	I
+mfn-jplayer-css	index.html	/^<link rel='stylesheet' id='mfn-jplayer-css'  href='https:\/\/ip.nu\/wp-content\/themes\/betheme\//;"	I
+mfn-jquery-ui-css	index.html	/^<link rel='stylesheet' id='mfn-jquery-ui-css'  href='https:\/\/ip.nu\/wp-content\/themes\/bethem/;"	I
+mfn-layout-css	index.html	/^<link rel='stylesheet' id='mfn-layout-css'  href='https:\/\/ip.nu\/wp-content\/themes\/betheme\//;"	I
+mfn-prettyPhoto-css	index.html	/^<link rel='stylesheet' id='mfn-prettyPhoto-css'  href='https:\/\/ip.nu\/wp-content\/themes\/beth/;"	I
+mfn-responsive-css	index.html	/^<link rel='stylesheet' id='mfn-responsive-css'  href='https:\/\/ip.nu\/wp-content\/themes\/bethe/;"	I
+mfn-rev-slider	index.html	/^				<div class="mfn-main-slider" id="mfn-rev-slider">$/;"	I
+mfn-shortcodes-css	index.html	/^<link rel='stylesheet' id='mfn-shortcodes-css'  href='https:\/\/ip.nu\/wp-content\/themes\/bethe/;"	I
+monsterinsights-frontend-script-js	index.html	/^<script type='text\/javascript' src='https:\/\/ip.nu\/wp-content\/plugins\/google-analytics-for-/;"	I
+monsterinsights-frontend-script-js-extra	index.html	/^<script type='text\/javascript' id='monsterinsights-frontend-script-js-extra'>$/;"	I
+offer	index.html	/^<a class="button  button_large button_stroke_custom button_js" href="https:\/\/www.ovpn.com\/sv?/;"	I
+paste dest	minimal/ranger_rc.conf	/^map p'<any> paste dest=%any_path$/;"	k
+paste dest	minimal/ranger_rc.conf	/^map p`<any> paste dest=%any_path$/;"	k
+position	minimal/ranger_rc.conf	/^map I  eval fm.open_console('rename ' + fm.thisfile.relative_path.replace("%", "%%"), position=7/;"	k
+prscript-js	index.html	/^<script type='text\/javascript' src='https:\/\/ip.nu\/wp-content\/themes\/betheme-child\/js\/ip./;"	I
+repair	index.html	/^				<div class="section mcb-section   " id="repair" style="padding-top:10px; padding-bottom:30px/;"	I
+rev_slider_1_2	index.html	/^	<div id="rev_slider_1_2" class="rev_slider fullwidthabanner" style="display:none;max-height:350/;"	I
+rev_slider_1_2_wrapper	index.html	/^<div id="rev_slider_1_2_wrapper" class="rev_slider_wrapper fullwidthbanner-container" style="mar/;"	I
+revmin-js	index.html	/^<script type='text\/javascript' src='https:\/\/ip.nu\/wp-content\/plugins\/revslider\/rs-plugin\//;"	I
+right	minimal/ranger_rc.conf	/^cmap <a-f> eval fm.ui.console.move_word(right=1)$/;"	k
+right	minimal/ranger_rc.conf	/^cmap <end>   eval fm.ui.console.move(right=-1, absolute=True)$/;"	k
+right	minimal/ranger_rc.conf	/^cmap <home>  eval fm.ui.console.move(right=0, absolute=True)$/;"	k
+right	minimal/ranger_rc.conf	/^cmap <right> eval fm.ui.console.move(right=1)$/;"	k
+rs-plugin-settings-css	index.html	/^<link rel='stylesheet' id='rs-plugin-settings-css'  href='https:\/\/ip.nu\/wp-content\/plugins\//;"	I
+rs-plugin-settings-inline-css	index.html	/^<style id='rs-plugin-settings-inline-css' type='text\/css'>$/;"	I
+s	index.html	/^	<input type="text" class="field" name="s" id="s" placeholder="Sök" \/>			$/;"	I
+s:build_quickfix_list	minimal/init.vim	/^function! s:build_quickfix_list(lines)$/;"	f
+s:show_documentation	development/dev.vim	/^function! s:show_documentation()$/;"	f
+searchForm2	index.html	/^			style="z-index: 5; max-width: auto; max-height: auto; white-space: nowrap;"><form id="searchF/;"	I
+searchform	index.html	/^<form method="get" id="searchform" action="https:\/\/ip.nu\/">$/;"	I
+style-css	index.html	/^<link rel='stylesheet' id='style-css'  href='https:\/\/ip.nu\/wp-content\/themes\/betheme-child\//;"	I
+testimonials	index.html	/^<\/div><\/div><\/div><\/div><\/div><\/div><\/div><div class="section mcb-section dark  " id="tes/;"	I
+text-2	index.html	/^<\/div><div class="column one-third"><aside id="text-2" class="widget widget_text"><h4>IP-nummer/;"	I
+text-4	index.html	/^		<\/aside><\/div><div class="column one-third"><aside id="text-4" class="widget widget_text"><h/;"	I
+tp-tools-js	index.html	/^<script type='text\/javascript' src='https:\/\/ip.nu\/wp-content\/plugins\/revslider\/rs-plugin\//;"	I
+wp-block-library-css	index.html	/^	<link rel='stylesheet' id='wp-block-library-css'  href='https:\/\/ip.nu\/wp-includes\/css\/dist/;"	I
+wp-embed-js	index.html	/^<script type='text\/javascript' src='https:\/\/ip.nu\/wp-includes\/js\/wp-embed.min.js?ver=5.5.2/;"	I
+x	minimal/init.vim	/^noremap x "_x"$/;"	m
+¤	minimal/init.vim	/^nnoremap <silent> ¤ \$$/;"	m
