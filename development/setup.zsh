@@ -2,6 +2,11 @@
 /bin/sudo apt -y upgrade
 #/bin/sudo apt -y install ansible make build-essential libssl-dev pkg-config nodejs mupdf ctags texlive-full
 
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+apt update
+apt remove yarn
+apt install yarn
 
 for i in python3-pip ansible make build-essential libssl-dev pkg-config mupdf ctags nodejs npm; do
   echo "installing $i"
@@ -50,6 +55,9 @@ mkdir -p ~/.local/bin
 ~/.cargo/bin/rustup component add rust-src
 
 
+
+curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > ~/.local/bin/rust-analyzer
+chown -R jacsan.jacsan ./.local/share/.cpan
 nvim +'CocInstall -sync coc-rust-analyzer' +qall
 nvim +CocUpdateSync +qall
 
