@@ -22,7 +22,7 @@
 
     Plug 'ryuta69/coc-perl', {'do': 'yarn install && yarn build'}
     " 
-    Plug 'vimwiki/vimwiki'
+    "Plug 'vimwiki/vimwiki' "I local-plugin.vim
     "
     " To help write latex in vim
     Plug 'lervag/vimtex'

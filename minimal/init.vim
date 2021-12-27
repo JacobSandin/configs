@@ -59,7 +59,7 @@ highlight ColorColumn ctermbg=60
 "    work witout checktime
 " ======================================
 set autoread
-au CursorHold,CursorHoldI * checktime
+"au CursorHold,CursorHoldI * checktime
 
 " ======================================
 "    Keymappings
@@ -367,7 +367,3 @@ if !empty(glob("~/.config/nvim/dev.vim"))
     source ~/.config/nvim/dev.vim 
 endif
 
-if executable('rg')
-        set grepprg=rg\ --vimgrep
-        set grepformat^=%f:%l:%c:%m
-endif

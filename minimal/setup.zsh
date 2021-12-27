@@ -27,6 +27,9 @@ wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/min
 wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/init.vim -O ~/.config/nvim/init.vim 
 wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/ranger_rc.conf -O ~/.config/ranger/rc.conf
 
+touch ~/.config/nvim/local-plugins.vim
+touch ~/.config/nvim/local.vim
+
 # Oh my zsh setup
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.config/zsh/oh-my-zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.config/zsh/plugins/zsh-autosuggestions
