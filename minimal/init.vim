@@ -144,7 +144,6 @@ let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-go', 'CodeLLDB' ]
 "
 nmap <silent> <leader>n :TagbarToggle<CR>
 
-
 "nmap <leader>t :FloatermToggle!<CR>
 "nmap <F11> :FloatermNew! cd %:p:h&clear<CR>
 nmap <silent> <leader>t :FloatermToggle!<CR>
@@ -216,7 +215,7 @@ call plug#begin()
     "^music .mp3$ sbtrkt !inte 'behövs | eller
     Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
-    
+    Plug 'vim-scripts/ZoomWin'  " To maximize a pane and then toggle back 
     " Powertool for searching f,F,t,T
     Plug 'unblevable/quick-scope'
     

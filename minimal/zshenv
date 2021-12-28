@@ -2,7 +2,7 @@ if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
 
     if [[ $UID != 0 && $EUID != 0 ]]; then
     	
-        if [ ! -f "~/.config/ranger/rc.conf" ]; then
+        if [[ ! -f ~/.config/ranger/rc.conf ]]; then
             mkdir -p ~/.config/ranger
             ranger --copy-config=all
         fi
