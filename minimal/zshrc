@@ -3,6 +3,7 @@ export TERM=screen-256color
 #setxkbmap -layout se,se -variant ,dvorak -option grp:alt_shift_toggle
 #setxkbmap -layout se,se -variant ,dvorak_a5 -option grp:alt_shift_toggle
 setopt rmstarsilent #Set so that rm -f do not ask confirmation
+unsetopt HIST_VERIFY #To not get command on the line after when pressing enter
 
 ZDOTDIR=$HOME/.config/zsh
 
@@ -113,7 +114,7 @@ if type rg &> /dev/null; then
 fi
 
 source ~/.config/zsh/oh-my-zsh/oh-my-zsh.sh
-
+alias ranger='source ranger' # To get ranger to drop you in vicited dir on exit.
 
 if [ -f ~/.aliases ]; then
     source ~/.aliases
