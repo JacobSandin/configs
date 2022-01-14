@@ -4,7 +4,7 @@
 syntax on
 filetype plugin indent on
 let maplocalleader = "\<Space>"
-let mapleader = ","
+let mapleader = "."
 
 if !has('gui_running')
   set t_Co=256
@@ -61,6 +61,7 @@ highlight ColorColumn ctermbg=60
 set autoread
 "au CursorHold,CursorHoldI * checktime
 
+
 " ======================================
 "    Keymappings
 " ======================================
@@ -88,15 +89,23 @@ vnoremap <Left> <Nop>
 vnoremap <Right> <Nop>
 vnoremap <Up> <Nop>
 
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <Down> <C-W><C-J>
+nnoremap <Up> <C-W><C-K>
+nnoremap <Right> <C-W><C-L>
+nnoremap <Left> <C-W><C-H>
 
-"inoremap <C-k> <up>
-"inoremap <C-j> <down>
-"inoremap <C-h> <left>
-"inoremap <C-l> <right>
+nnoremap <leader>s <C-W>s
+nnoremap <leader>v <C-W>v
+nnoremap <C-J> <C-W>+
+nnoremap <C-K> <C-W>-
+nnoremap <C-L> <C-W>>
+nnoremap <C-H> <C-W><
+
+
+nnoremap <leader>tn :tabnew %<CR>
+nnoremap <leader>tc :tabclose<CR>
+
+
 " goto code navigation.
 nnoremap <silent> gi <plug>(coc-implementation)
 nnoremap <silent> gr <plug>(coc-references)
@@ -146,7 +155,7 @@ nmap <silent> <leader>n :TagbarToggle<CR>
 
 "nmap <leader>t :FloatermToggle!<CR>
 "nmap <F11> :FloatermNew! cd %:p:h&clear<CR>
-nmap <silent> <leader>t :FloatermToggle!<CR>
+nmap <silent> <leader>tt :FloatermToggle!<CR>
 nmap <silent> <F12> :FloatermToggle!<CR>
 let g:floaterm_keymap_toggle = '<F12>'
 let g:floaterm_opener = 'edit'
@@ -165,10 +174,6 @@ command! -bar                                  -bang Q         quit<bang>
 "
 
 
-let g:mapleader = "\<Space>"
-let g:maplocalleader = ','
-nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
-nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 
 " ======================================
 "    My functions
@@ -215,7 +220,7 @@ call plug#begin()
     "^music .mp3$ sbtrkt !inte 'behövs | eller
     Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
-    Plug 'vim-scripts/ZoomWin'  " To maximize a pane and then toggle back 
+    Plug 'vim-scripts/ZoomWin'  " To maximize a pane and then toggle back C-0
     " Powertool for searching f,F,t,T
     Plug 'unblevable/quick-scope'
     
@@ -228,7 +233,7 @@ call plug#begin()
     Plug 'majutsushi/tagbar' " Not working with rust without https://github.com/universal-ctags/ctags first remove ctags and etags (exuberant-ctags)
     Plug 'frazrepo/vim-rainbow'
     Plug 'voldikss/vim-floaterm'
-    Plug 'liuchengxu/vim-which-key'
+    Plug 'liuchengxu/vim-which-key' "Shows a quickhelp for leader and localleader
 
 if !empty(glob("~/.config/nvim/local-plugin.vim"))
     source ~/.config/nvim/local-plugin.vim 
@@ -237,6 +242,28 @@ if !empty(glob("~/.config/nvim/dev-plugin.vim"))
     source ~/.config/nvim/dev-plugin.vim 
 endif
 call plug#end()
+
+" For Whichkey
+let g:mapleader = "\<Space>"
+let g:maplocalleader = '.'
+call which_key#register('.', "g:which_key_map")
+call which_key#register('<Space>', "g:which_key_map_local")
+nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  '.'<CR>
+let g:which_key_map = {}
+let g:which_key_map_local = {}
+"            \'<tab>' : [':call ShowWhiteSpaces()','Toggle white spaces']
+"            \}
+let g:which_key_map.c = 'Open config'
+let g:which_key_map.z = 'FZF home'
+let g:which_key_map.Z = 'FZF root'
+let g:which_key_map.n = 'Tagbar'
+let g:which_key_map.g = 'Ripgrep'
+let g:which_key_map.s = 'Split pane horizontal'
+let g:which_key_map.v = 'Split pane vertical'
+let g:which_key_map.f = 'Ranger'
+
+
 
 let g:rainbow_active = 1
 let g:tagbar_width = 30
@@ -250,9 +277,9 @@ let base16colorspace=256
 "colorscheme base16-default-dark
 "colorscheme base16-classic-dark
 "colorscheme base16-eighties
-"colorscheme base16-circus  " Good, not so much wite
+colorscheme base16-circus  " Good not so much wite
 "colorscheme base16-chalk
-colorscheme base16-atelier-savanna     "A little bright but else good
+"colorscheme base16-atelier-savanna     "A little bright but else good
 "colorscheme base16-atelier-plateau  "This one I like
 "colorscheme base16-atelier-heath   "good
 "colorscheme base16-atelier-forest   "good
@@ -365,4 +392,6 @@ endif
 if !empty(glob("~/.config/nvim/dev.vim"))
     source ~/.config/nvim/dev.vim 
 endif
+
+
 

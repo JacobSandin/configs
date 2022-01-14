@@ -10,29 +10,33 @@
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20211226.0/
 82.115.149.1	index.html	/^<h2>82.115.149.1<\/h2>$/;"	i
-<C-H>	minimal/init.vim	/^nnoremap <C-H> <C-W><C-H>$/;"	m
-<C-J>	minimal/init.vim	/^nnoremap <C-J> <C-W><C-J>$/;"	m
-<C-K>	minimal/init.vim	/^nnoremap <C-K> <C-W><C-K>$/;"	m
-<C-L>	minimal/init.vim	/^nnoremap <C-L> <C-W><C-L>$/;"	m
+<C-H>	minimal/init.vim	/^nnoremap <C-H> <C-W><$/;"	m
+<C-J>	minimal/init.vim	/^nnoremap <C-J> <C-W>+$/;"	m
+<C-K>	minimal/init.vim	/^nnoremap <C-K> <C-W>-$/;"	m
+<C-L>	minimal/init.vim	/^nnoremap <C-L> <C-W>>$/;"	m
 <Down>	minimal/init.vim	/^cnoremap <Down> <Nop>$/;"	m
 <Down>	minimal/init.vim	/^inoremap <Down> <Nop>$/;"	m
+<Down>	minimal/init.vim	/^nnoremap <Down> <C-W><C-J>$/;"	m
 <Down>	minimal/init.vim	/^nnoremap <Down> <Nop>$/;"	m
 <Down>	minimal/init.vim	/^vnoremap <Down> <Nop>$/;"	m
 <F12>	minimal/init.vim	/^nmap <silent> <F12> :FloatermToggle!<CR>$/;"	m
 <Left>	minimal/init.vim	/^cnoremap <Left> <Nop>$/;"	m
 <Left>	minimal/init.vim	/^inoremap <Left> <Nop>$/;"	m
+<Left>	minimal/init.vim	/^nnoremap <Left> <C-W><C-H>$/;"	m
 <Left>	minimal/init.vim	/^nnoremap <Left> <Nop>$/;"	m
 <Left>	minimal/init.vim	/^vnoremap <Left> <Nop>$/;"	m
 <M-h>	minimal/init.vim	/^nnoremap <M-h> :bp<CR>$/;"	m
 <M-l>	minimal/init.vim	/^nnoremap <M-l> :bn<CR>$/;"	m
 <Right>	minimal/init.vim	/^cnoremap <Right> <Nop>$/;"	m
 <Right>	minimal/init.vim	/^inoremap <Right> <Nop>$/;"	m
+<Right>	minimal/init.vim	/^nnoremap <Right> <C-W><C-L>$/;"	m
 <Right>	minimal/init.vim	/^nnoremap <Right> <Nop>$/;"	m
 <Right>	minimal/init.vim	/^vnoremap <Right> <Nop>$/;"	m
 <S-Tab>	development/dev.vim	/^inoremap <expr> <S-Tab> pumvisible() ? "\\<C-p>" : "\\<S-Tab>"$/;"	m
 <Tab>	development/dev.vim	/^inoremap <expr> <Tab> pumvisible() ? "\\<C-n>" : "\\<Tab>"$/;"	m
 <Up>	minimal/init.vim	/^cnoremap <Up> <Nop>$/;"	m
 <Up>	minimal/init.vim	/^inoremap <Up> <Nop>$/;"	m
+<Up>	minimal/init.vim	/^nnoremap <Up> <C-W><C-K>$/;"	m
 <Up>	minimal/init.vim	/^nnoremap <Up> <Nop>$/;"	m
 <Up>	minimal/init.vim	/^vnoremap <Up> <Nop>$/;"	m
 <cr>	development/dev.vim	/^inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\\<C-g>u\\<CR>"$/;"	m
@@ -50,9 +54,13 @@
 <leader>f	minimal/init.vim	/^nnoremap <silent> <leader>f :FloatermNew --autoclose=2 ranger<cr>$/;"	m
 <leader>g	minimal/init.vim	/^nnoremap <silent> <leader>g :Rg<cr>$/;"	m
 <leader>n	minimal/init.vim	/^nmap <silent> <leader>n :TagbarToggle<CR>$/;"	m
-<leader>t	minimal/init.vim	/^nmap <silent> <leader>t :FloatermToggle!<CR>$/;"	m
+<leader>s	minimal/init.vim	/^nnoremap <leader>s <C-W>s$/;"	m
+<leader>tc	minimal/init.vim	/^nnoremap <leader>tc :tabclose<CR>$/;"	m
+<leader>tn	minimal/init.vim	/^nnoremap <leader>tn :tabnew %<CR>$/;"	m
+<leader>tt	minimal/init.vim	/^nmap <silent> <leader>tt :FloatermToggle!<CR>$/;"	m
+<leader>v	minimal/init.vim	/^nnoremap <leader>v <C-W>v$/;"	m
 <leader>z	minimal/init.vim	/^nnoremap <silent> <leader>z :FZF<cr>$/;"	m
-<localleader>	minimal/init.vim	/^nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>$/;"	m
+<localleader>	minimal/init.vim	/^nnoremap <silent> <localleader> :<c-u>WhichKey  '.'<CR>$/;"	m
 <localleader>h	minimal/init.vim	/^nmap <localleader>h 0$/;"	m
 <localleader>l	minimal/init.vim	/^nmap <localleader>l \$$/;"	m
 <localleader>z	minimal/init.vim	/^nnoremap <silent> <localleader>z :FZF ~<cr>$/;"	m
@@ -132,7 +140,7 @@ g:fzf_layout	minimal/init.vim	/^let g:fzf_layout = { 'down': '60%' }$/;"	v
 g:fzf_layout	minimal/init.vim	/^let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }$/;"	v
 g:lightline	minimal/init.vim	/^let g:lightline = {$/;"	v
 g:mapleader	minimal/init.vim	/^let g:mapleader = "\\<Space>"$/;"	v
-g:maplocalleader	minimal/init.vim	/^let g:maplocalleader = ','$/;"	v
+g:maplocalleader	minimal/init.vim	/^let g:maplocalleader = '.'$/;"	v
 g:qs_highlight_on_keys	minimal/init.vim	/^let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']$/;"	v
 g:rainbow_active	minimal/init.vim	/^let g:rainbow_active = 1$/;"	v
 g:show_spaces_set	minimal/init.vim	/^        let g:show_spaces_set=0$/;"	v
@@ -145,6 +153,16 @@ g:vimspector_enable_mappings	minimal/init.vim	/^let g:vimspector_enable_mappings
 g:vimspector_install_gadgets	minimal/init.vim	/^let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-go', 'CodeLLDB' ]$/;"	v
 g:vimtex_quickfix_mode	development/dev.vim	/^let g:vimtex_quickfix_mode=0$/;"	v
 g:vimtex_view_method	development/dev.vim	/^let g:vimtex_view_method='mupdf'$/;"	v
+g:which_key_map	minimal/init.vim	/^let g:which_key_map = {}$/;"	v
+g:which_key_map	minimal/init.vim	/^let g:which_key_map.Z = 'FZF root'$/;"	v
+g:which_key_map	minimal/init.vim	/^let g:which_key_map.c = 'Open config'$/;"	v
+g:which_key_map	minimal/init.vim	/^let g:which_key_map.f = 'Ranger'$/;"	v
+g:which_key_map	minimal/init.vim	/^let g:which_key_map.g = 'Ripgrep'$/;"	v
+g:which_key_map	minimal/init.vim	/^let g:which_key_map.n = 'Tagbar'$/;"	v
+g:which_key_map	minimal/init.vim	/^let g:which_key_map.s = 'Split pane horizontal'$/;"	v
+g:which_key_map	minimal/init.vim	/^let g:which_key_map.v = 'Split pane vertical'$/;"	v
+g:which_key_map	minimal/init.vim	/^let g:which_key_map.z = 'FZF home'$/;"	v
+g:which_key_map_local	minimal/init.vim	/^let g:which_key_map_local = {}$/;"	v
 gd	development/dev.vim	/^nmap <silent> gd <Plug>(coc-definition)$/;"	m
 gi	development/dev.vim	/^nmap <silent> gi <Plug>(coc-implementation)$/;"	m
 gi	minimal/init.vim	/^nnoremap <silent> gi <plug>(coc-implementation)$/;"	m
@@ -221,7 +239,7 @@ map v       mark_files all	minimal/ranger_rc.conf	/^map v       mark_files all=T
 map ya copy mode	minimal/ranger_rc.conf	/^map ya copy mode=add$/;"	k
 map yr copy mode	minimal/ranger_rc.conf	/^map yr copy mode=remove$/;"	k
 map yt copy mode	minimal/ranger_rc.conf	/^map yt copy mode=toggle$/;"	k
-mapleader	minimal/init.vim	/^let mapleader = ","$/;"	v
+mapleader	minimal/init.vim	/^let mapleader = "."$/;"	v
 maplocalleader	minimal/init.vim	/^let maplocalleader = "\\<Space>"$/;"	v
 menu	index.html	/^					<nav id="menu" class="menu-ip-container"><ul id="menu-ip" class="menu"><li id="menu-item-11/;"	I
 menu-ip	index.html	/^					<nav id="menu" class="menu-ip-container"><ul id="menu-ip" class="menu"><li id="menu-item-11/;"	I
