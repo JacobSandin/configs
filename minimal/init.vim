@@ -41,7 +41,7 @@ set spelllang+=sv
 set updatetime=300
 set shortmess+=c
 set cmdheight=2
-set pastetoggle=<leader>v
+set pastetoggle=<leader>p
 set laststatus=2 "for status bar
 set colorcolumn=81
 set autochdir
@@ -135,7 +135,8 @@ nnoremap <silent> <leader>z :FZF<cr>
 nnoremap <silent> <leader>Z :FZF /<cr>
 nnoremap <silent> <localleader>z :FZF ~<cr>
 nnoremap <silent> <leader>g :Rg<cr>
-nnoremap <silent> <leader>c :e ~/.config/nvim/init.vim<cr>
+nnoremap <silent> <leader>cs :source ~/.config/nvim/init.vim<cr>
+nnoremap <silent> <leader>co :e ~/.config/nvim/init.vim<cr>
 nnoremap <silent> <leader><tab> :call ShowWhiteSpaces()<cr>
 "nnoremap <leader>t :bo terminal<cr>
 command! SV execute "source ~/.config/nvim/init.vim"
@@ -254,7 +255,9 @@ let g:which_key_map = {}
 let g:which_key_map_local = {}
 "            \'<tab>' : [':call ShowWhiteSpaces()','Toggle white spaces']
 "            \}
-let g:which_key_map.c = 'Open config'
+"let g:which_key_map.d = 'Vimspector'
+"let g:which_key_map.t = 'File tabs'
+"let g:which_key_map.c = 'Vim config'
 let g:which_key_map.z = 'FZF home'
 let g:which_key_map.Z = 'FZF root'
 let g:which_key_map.n = 'Tagbar'
