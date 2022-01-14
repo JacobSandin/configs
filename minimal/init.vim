@@ -2,20 +2,23 @@
 "    Settings
 " ======================================
 syntax on
+filetype plugin on
 filetype plugin indent on
 let maplocalleader = "\<Space>"
 let mapleader = "."
 
+
 if !has('gui_running')
-  set t_Co=256
+    set t_Co=256
 endif
 
 "set completeopt=menu,menuone,preview,noselect,noinsert
-"set  termguicolors
+set  termguicolors
 set nohlsearch
 set mouse=a
 "set clipboard=unnamedplus
 "set fileencoding=utf-8
+set nocompatible    "To add syntax highlight to xml without :syntax on
 set encoding=utf-8
 set termencoding=utf8
 set cursorline
@@ -134,9 +137,10 @@ nnoremap <silent> <leader>f :FloatermNew --autoclose=2 ranger<cr>
 nnoremap <silent> <leader>z :FZF<cr>
 nnoremap <silent> <leader>Z :FZF /<cr>
 nnoremap <silent> <localleader>z :FZF ~<cr>
+nnoremap <silent> <localleader>s :syntax on<cr>
 nnoremap <silent> <leader>g :Rg<cr>
 nnoremap <silent> <leader>cs :source ~/.config/nvim/init.vim<cr>
-nnoremap <silent> <leader>co :e ~/.config/nvim/init.vim<cr>
+nnoremap <silent> <leader>cc :e ~/.config/nvim/init.vim<cr>
 nnoremap <silent> <leader><tab> :call ShowWhiteSpaces()<cr>
 "nnoremap <leader>t :bo terminal<cr>
 command! SV execute "source ~/.config/nvim/init.vim"
@@ -200,7 +204,7 @@ endfunction
 "
 
 if has('nvim')
-set  termguicolors
+"set  termguicolors
 set fileencoding=utf-8
 " Exit terminal with Escape
 tnoremap <Esc> <C-\><C-n>
@@ -276,20 +280,22 @@ if has('nvim')
 "   Base16 color
 " ======================================
 "
-let base16colorspace=256
+"let base16colorspace=256
+let g:impact_transbg=1
 "colorscheme base16-default-dark
 "colorscheme base16-classic-dark
 "colorscheme base16-eighties
-colorscheme base16-circus  " Good not so much wite
+"colorscheme base16-circus  " Good not so much wite
 "colorscheme base16-chalk
 "colorscheme base16-atelier-savanna     "A little bright but else good
-"colorscheme base16-atelier-plateau  "This one I like
+colorscheme base16-atelier-plateau  "This one I like
 "colorscheme base16-atelier-heath   "good
 "colorscheme base16-atelier-forest   "good
 "colorscheme base16-atelier-dune     "good
 "colorscheme base16-woodland         "good
 "colorscheme base16-twilight         "good
 "colorscheme base16-tomorrow-night
+set t_Co=256
 endif
 
 " ======================================
