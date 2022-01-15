@@ -92,10 +92,10 @@ vnoremap <Left> <Nop>
 vnoremap <Right> <Nop>
 vnoremap <Up> <Nop>
 
-nnoremap <Down> <C-W><C-J>
-nnoremap <Up> <C-W><C-K>
-nnoremap <Right> <C-W><C-L>
-nnoremap <Left> <C-W><C-H>
+nnoremap <M-j> <C-W><C-J>
+nnoremap <M-k> <C-W><C-K>
+nnoremap <M-l> <C-W><C-L>
+nnoremap <M-h> <C-W><C-H>
 
 nnoremap <leader>s <C-W>s
 nnoremap <leader>v <C-W>v
@@ -116,10 +116,10 @@ nmap <silent> gy <plug>(coc-type-definition)
 nmap <silent> gr <plug>(coc-references)
 
 "Switching buffer
-nnoremap <M-h> :bp<CR>
-nnoremap <M-l> :bn<CR>
-"nnoremap <up> :Buffers<CR>
-"nnoremap <down> :Buffers<CR>
+nnoremap <Left> :bp<CR>
+nnoremap <Right> :bn<CR>
+nnoremap <Up> :<C-^>
+nnoremap <Down> :Buffers<CR>
 
 inoremap jj <esc><esc>
 
@@ -240,7 +240,7 @@ call plug#begin()
     Plug 'voldikss/vim-floaterm'
     Plug 'liuchengxu/vim-which-key' "Shows a quickhelp for leader and localleader
 
-if !empty(glob("~/.config/nvim/local-plugin.vim"))
+if !empty(glob("~/.config/nvim/local-plugins.vim"))
     source ~/.config/nvim/local-plugin.vim 
 endif
 if !empty(glob("~/.config/nvim/dev-plugin.vim"))
