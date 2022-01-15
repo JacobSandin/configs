@@ -241,7 +241,7 @@ call plug#begin()
     Plug 'liuchengxu/vim-which-key' "Shows a quickhelp for leader and localleader
 
 if !empty(glob("~/.config/nvim/local-plugins.vim"))
-    source ~/.config/nvim/local-plugin.vim 
+    source ~/.config/nvim/local-plugins.vim 
 endif
 if !empty(glob("~/.config/nvim/dev-plugin.vim"))
     source ~/.config/nvim/dev-plugin.vim 
