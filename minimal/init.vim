@@ -104,10 +104,10 @@ nnoremap <C-K> <C-W>-
 nnoremap <C-L> <C-W>>
 nnoremap <C-H> <C-W><
 
-
-nnoremap <leader>tn :tabnew %<CR>
+nnoremap <leader>tn :tabn<CR>
+nnoremap <leader>tp :tabp<CR>
+nnoremap <leader>t+ :tabnew %<CR>
 nnoremap <leader>tc :tabclose<CR>
-
 
 " goto code navigation.
 nnoremap <silent> gi <plug>(coc-implementation)
@@ -240,8 +240,8 @@ call plug#begin()
     Plug 'voldikss/vim-floaterm'
     Plug 'liuchengxu/vim-which-key' "Shows a quickhelp for leader and localleader
 
-if !empty(glob("~/.config/nvim/local-plugins.vim"))
-    source ~/.config/nvim/local-plugins.vim 
+if !empty(glob("~/.config/nvim/local-plugin.vim"))
+    source ~/.config/nvim/local-plugin.vim 
 endif
 if !empty(glob("~/.config/nvim/dev-plugin.vim"))
     source ~/.config/nvim/dev-plugin.vim 

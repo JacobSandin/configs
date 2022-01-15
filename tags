@@ -58,8 +58,10 @@
 <leader>g	minimal/init.vim	/^nnoremap <silent> <leader>g :Rg<cr>$/;"	m
 <leader>n	minimal/init.vim	/^nmap <silent> <leader>n :TagbarToggle<CR>$/;"	m
 <leader>s	minimal/init.vim	/^nnoremap <leader>s <C-W>s$/;"	m
+<leader>t+	minimal/init.vim	/^nnoremap <leader>t+ :tabnew %<CR>$/;"	m
 <leader>tc	minimal/init.vim	/^nnoremap <leader>tc :tabclose<CR>$/;"	m
-<leader>tn	minimal/init.vim	/^nnoremap <leader>tn :tabnew %<CR>$/;"	m
+<leader>tn	minimal/init.vim	/^nnoremap <leader>tn :tabn<CR>$/;"	m
+<leader>tp	minimal/init.vim	/^nnoremap <leader>tp :tabp<CR>$/;"	m
 <leader>tt	minimal/init.vim	/^nmap <silent> <leader>tt :FloatermToggle!<CR>$/;"	m
 <leader>v	minimal/init.vim	/^nnoremap <leader>v <C-W>v$/;"	m
 <leader>z	minimal/init.vim	/^nnoremap <silent> <leader>z :FZF<cr>$/;"	m
