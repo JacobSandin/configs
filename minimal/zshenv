@@ -20,7 +20,8 @@ if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
     	cd ~/.config/zsh/plugins/zsh-syntax-highlighting
     	git pull --quiet >/dev/null 2>/dev/null
     	cd ~/
-        touch ~/.config/nvim/local-plugins.vim
+        rm ~/.config/nvim/local-plugins.vim
+        touch ~/.config/nvim/local-plugin.vim
         touch ~/.config/nvim/local.vim
         #Does not work with vscode 
         #nvim -E -s -u "$HOME/.config/nvim/init.vim" +PlugInstall +qall
