@@ -230,7 +230,7 @@ call plug#begin()
     Plug 'unblevable/quick-scope'
     
     " Chages dir depending on project
-    "Plug 'airblade/vim-rooter'
+    Plug 'airblade/vim-rooter'
 
     " Powerline for vim
     Plug 'itchyny/lightline.vim'
@@ -272,7 +272,7 @@ let g:which_key_map.f = 'Ranger'
 
 
 
-let g:rainbow_active = 1
+"let g:rainbow_active = 1
 let g:tagbar_width = 30
 if has('nvim')
 "autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/
