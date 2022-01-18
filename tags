@@ -148,7 +148,6 @@ g:lightline	minimal/init.vim	/^let g:lightline = {$/;"	v
 g:mapleader	minimal/init.vim	/^let g:mapleader = "\\<Space>"$/;"	v
 g:maplocalleader	minimal/init.vim	/^let g:maplocalleader = '.'$/;"	v
 g:qs_highlight_on_keys	minimal/init.vim	/^let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']$/;"	v
-g:rainbow_active	minimal/init.vim	/^let g:rainbow_active = 1$/;"	v
 g:show_spaces_set	minimal/init.vim	/^        let g:show_spaces_set=0$/;"	v
 g:show_spaces_set	minimal/init.vim	/^        let g:show_spaces_set=1$/;"	v
 g:show_spaces_set	minimal/init.vim	/^let g:show_spaces_set=1$/;"	v
