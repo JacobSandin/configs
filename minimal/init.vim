@@ -236,7 +236,8 @@ call plug#begin()
     Plug 'itchyny/lightline.vim'
 
     Plug 'majutsushi/tagbar' " Not working with rust without https://github.com/universal-ctags/ctags first remove ctags and etags (exuberant-ctags)
-    Plug 'frazrepo/vim-rainbow'
+    "Plug 'frazrepo/vim-rainbow' Has problems with removing syntax for some filetypes
+    Plug 'luochen1990/rainbow'  "Marks paraanteses and such that connect
     Plug 'voldikss/vim-floaterm'
     Plug 'liuchengxu/vim-which-key' "Shows a quickhelp for leader and localleader
 
@@ -272,8 +273,8 @@ let g:which_key_map.f = 'Ranger'
 
 
 
-"let g:rainbow_active = 1
-au FileType rust,c,cpp,objc,objcpp,php,perl call rainbow#load()
+let g:rainbow_active = 1
+"au FileType rust,c,cpp,objc,objcpp,php,perl call rainbow#load() "No longer used with new rainbow
 
 let g:tagbar_width = 30
 if has('nvim')
