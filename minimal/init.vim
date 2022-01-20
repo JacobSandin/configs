@@ -273,7 +273,7 @@ let g:which_key_map.f = 'Ranger'
 
 
 "let g:rainbow_active = 1
-au FileType rust,c,cpp,objc,objcpp call rainbow#load()
+au FileType rust,c,cpp,objc,objcpp,php,perl call rainbow#load()
 
 let g:tagbar_width = 30
 if has('nvim')
