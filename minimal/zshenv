@@ -24,6 +24,7 @@ if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
         touch ~/.config/nvim/local.vim
         #Does not work with vscode 
         #nvim -E -s -u "$HOME/.config/nvim/init.vim" +PlugInstall +qall &
+        nvim -E -s -u "$HOME/.config/nvim/init.vim" +PlugClean +PlugInstall +qall -es
     fi	
 fi
 
