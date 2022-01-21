@@ -1,5 +1,6 @@
 if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
     if [[ $UID != 0 && $EUID != 0 ]]; then
+        setopt LOCAL_OPTIONS NO_NOTIFY NO_MONITOR
     	
         if [[ ! -f ~/.config/ranger/rc.conf ]]; then
             mkdir -p ~/.config/ranger
@@ -23,8 +24,8 @@ if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
         touch ~/.config/nvim/local-plugin.vim
         touch ~/.config/nvim/local.vim
         #Does not work with vscode 
-        nvim -E -s -u "$HOME/.config/nvim/init.vim" +PlugInstall +qall -es
-        nvim -E -s -u "$HOME/.config/nvim/init.vim" +PlugClean +qall -es
+        nvim -E -s -u "$HOME/.config/nvim/init.vim" +PlugInstall +qall -es &
+        nvim -E -s -u "$HOME/.config/nvim/init.vim" +PlugClean +qall -es &
     fi	
 fi
 
