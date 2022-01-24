@@ -5,7 +5,7 @@ syntax on
 filetype plugin on
 filetype plugin indent on
 let maplocalleader = "\<Space>"
-let mapleader = "."
+let mapleader = ","
 
 
 if !has('gui_running')
@@ -251,11 +251,11 @@ call plug#end()
 
 " For Whichkey
 let g:mapleader = "\<Space>"
-let g:maplocalleader = '.'
-call which_key#register('.', "g:which_key_map")
+let g:maplocalleader = ','
+call which_key#register(',', "g:which_key_map")
 call which_key#register('<Space>', "g:which_key_map_local")
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
-nnoremap <silent> <localleader> :<c-u>WhichKey  '.'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 let g:which_key_map = {}
 let g:which_key_map_local = {}
 "            \'<tab>' : [':call ShowWhiteSpaces()','Toggle white spaces']
