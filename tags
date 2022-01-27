@@ -65,7 +65,7 @@
 <leader>tt	minimal/init.vim	/^nmap <silent> <leader>tt :FloatermToggle!<CR>$/;"	m
 <leader>v	minimal/init.vim	/^nnoremap <leader>v <C-W>v$/;"	m
 <leader>z	minimal/init.vim	/^nnoremap <silent> <leader>z :FZF<cr>$/;"	m
-<localleader>	minimal/init.vim	/^nnoremap <silent> <localleader> :<c-u>WhichKey  '.'<CR>$/;"	m
+<localleader>	minimal/init.vim	/^nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>$/;"	m
 <localleader>h	minimal/init.vim	/^nmap <localleader>h 0$/;"	m
 <localleader>l	minimal/init.vim	/^nmap <localleader>l \$$/;"	m
 <localleader>s	minimal/init.vim	/^nnoremap <silent> <localleader>s :syntax on<cr>$/;"	m
@@ -146,7 +146,7 @@ g:fzf_layout	minimal/init.vim	/^let g:fzf_layout = { 'window': { 'width': 0.9, '
 g:impact_transbg	minimal/init.vim	/^let g:impact_transbg=1$/;"	v
 g:lightline	minimal/init.vim	/^let g:lightline = {$/;"	v
 g:mapleader	minimal/init.vim	/^let g:mapleader = "\\<Space>"$/;"	v
-g:maplocalleader	minimal/init.vim	/^let g:maplocalleader = '.'$/;"	v
+g:maplocalleader	minimal/init.vim	/^let g:maplocalleader = ','$/;"	v
 g:qs_highlight_on_keys	minimal/init.vim	/^let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']$/;"	v
 g:rainbow_active	minimal/init.vim	/^let g:rainbow_active = 1$/;"	v
 g:show_spaces_set	minimal/init.vim	/^        let g:show_spaces_set=0$/;"	v
@@ -244,7 +244,7 @@ map v       mark_files all	minimal/ranger_rc.conf	/^map v       mark_files all=T
 map ya copy mode	minimal/ranger_rc.conf	/^map ya copy mode=add$/;"	k
 map yr copy mode	minimal/ranger_rc.conf	/^map yr copy mode=remove$/;"	k
 map yt copy mode	minimal/ranger_rc.conf	/^map yt copy mode=toggle$/;"	k
-mapleader	minimal/init.vim	/^let mapleader = "."$/;"	v
+mapleader	minimal/init.vim	/^let mapleader = ","$/;"	v
 maplocalleader	minimal/init.vim	/^let maplocalleader = "\\<Space>"$/;"	v
 menu	index.html	/^					<nav id="menu" class="menu-ip-container"><ul id="menu-ip" class="menu"><li id="menu-item-11/;"	I
 menu-ip	index.html	/^					<nav id="menu" class="menu-ip-container"><ul id="menu-ip" class="menu"><li id="menu-item-11/;"	I

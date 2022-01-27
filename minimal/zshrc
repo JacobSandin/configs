@@ -80,7 +80,7 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # Aliases
-alias ssh='ssh -CY'
+alias ssh='ssh -o TCPKeepAlive=yes -o ServerAliveCountMax=20 -o ServerAliveInterval=15 -CY'
 alias ch='cd ~/'
 alias ce='ce /etc'
 alias sv='/bin/sudo vim'
