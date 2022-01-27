@@ -18,7 +18,8 @@
 
     Plug 'puremourning/vimspector'
     "Plug 'dense-analysis/ale'
-
+    
+    Plug 'majutsushi/tagbar' " Not working with rust without https://github.com/universal-ctags/ctags first remove ctags and etags (exuberant-ctags)
 
     Plug 'ryuta69/coc-perl', {'do': 'yarn install && yarn build'}
     " 

@@ -235,7 +235,7 @@ call plug#begin()
     " Powerline for vim
     Plug 'itchyny/lightline.vim'
 
-    Plug 'majutsushi/tagbar' " Not working with rust without https://github.com/universal-ctags/ctags first remove ctags and etags (exuberant-ctags)
+    "Plug 'majutsushi/tagbar' " Not working with rust without https://github.com/universal-ctags/ctags first remove ctags and etags (exuberant-ctags)
     "Plug 'frazrepo/vim-rainbow' Has problems with removing syntax for some filetypes
     Plug 'luochen1990/rainbow'  "Marks paraanteses and such that connect
     Plug 'voldikss/vim-floaterm'
