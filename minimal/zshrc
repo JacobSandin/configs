@@ -1,0 +1,130 @@
+export TERM=screen-256color
+#enable dvorak with alt+shift
+#setxkbmap -layout se,se -variant ,dvorak -option grp:alt_shift_toggle
+#setxkbmap -layout se,se -variant ,dvorak_a5 -option grp:alt_shift_toggle
+setopt rmstarsilent #Set so that rm -f do not ask confirmation
+
+ZDOTDIR=$HOME/.config/zsh
+
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.config/nvim/plugged/fzf/bin:$HOME/bin:$PATH"
+setopt histignorealldups sharehistory
+
+
+plugins=(git vi-mode zsh-autosuggestions zsh-syntax-highlighting)
+
+# Use emacs keybindings even if our EDITOR is set to vi
+#bindkey -e
+# Use vim keybindings
+#bindkey -v
+#autoload -U edit-command-line
+#zle -N edit-command-line
+##Home and end key Ctrl-v then key to see what is sent
+#bindkey  "^[[1~"   beginning-of-line
+#bindkey  "^[[4~"   end-of-line
+#
+#bindkey '^E' edit-command-line                   # Opens Vim to edit current command line
+#bindkey '^R' history-incremental-search-backward # Perform backward search in command line history
+#bindkey '^S' history-incremental-search-forward  # Perform forward search in command line history
+#bindkey '^P' history-search-backward             # Go back/search in history (autocomplete)
+#bindkey '^N' history-search-forward              # Go forward/search in history (autocomplete)
+
+# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.config/zsh/history
+
+#PROMPT='%F{green}%n@%m:%B%F{blue}%~%f%b%# '
+
+PROMPT='%F{green}%n%f@%F{magenta}%m%f %F{blue}%B%~%b%f %# '
+RPROMPT='[%F{yellow}%?%f]'
+
+ZSH_CUSTOM=~/.config/zsh
+
+#Change the keypress rate works with Xwin
+#xset r rate 180 20
+
+# Remove warnings after sudo
+ZSH_DISABLE_COMPFIX=true
+
+# You may need to manually set your language environment
+#export LC_ALL=se_SV.UTF-8
+export LANG=se_SV.UTF-8
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
+
+# Use modern completion system
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select=2
+eval "$(dircolors -b)"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+# Aliases
+alias ranger='source ranger' #To make ranger exit in current dir
+alias ssh='ssh -CY'
+alias ch='cd ~/'
+alias ce='ce /etc'
+alias sv='/bin/sudo vim'
+alias hz='history|fzf'
+alias e='exit'
+alias bzip2='echo "==========================================\n\n WARNING! (bzip2) Använd lzma istället \n\n==========================================" 1>&2;'
+if [ -f /usr/bin/nvim ]; then
+    export EDITOR='nvim'
+    alias vim=nvim
+    alias vi=nvim
+    alias vc="nvim ~/.config/nvim/init.vim"
+    alias zc='nvim ~/.zshrc'
+    source ~/.config/nvim/plugged/fzf/shell/key-bindings.zsh
+    source ~/.config/nvim/plugged/fzf/shell/completion.zsh
+else
+    export EDITOR='vim'
+    alias vi=vim
+    alias vc="vim ~/.config/nvim/init.vim"
+    alias zc='vim ~/.zshrc'
+fi
+# Replace sudo too keep variables and go to zsh
+u() {
+    command sudo -E zsh
+}
+
+# Use ripgrep with fzf
+if type rg &> /dev/null; then
+  #export FZF_DEFAULT_COMMAND='find .'
+  export FZF_DEFAULT_COMMAND='rg --hidden --files --glob "!.git/*"'
+  export FZF_DEFAULT_OPTS='-m --height 100% --border'
+fi
+
+source ~/.config/zsh/oh-my-zsh/oh-my-zsh.sh
+
+
+if [ -f ~/.aliases ]; then
+    source ~/.aliases
+fi
+
+
+PATH="/home/jacsan/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/jacsan/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/jacsan/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/jacsan/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/jacsan/perl5"; export PERL_MM_OPT;
+
