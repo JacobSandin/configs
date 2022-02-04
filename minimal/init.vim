@@ -15,9 +15,11 @@ endif
 "set completeopt=menu,menuone,preview,noselect,noinsert
 set  termguicolors
 set nohlsearch
+set modifiable
 set mouse=a
 "set clipboard=unnamedplus
 "set fileencoding=utf-8
+set modifiable
 set nocompatible    "To add syntax highlight to xml without :syntax on
 set encoding=utf-8
 set termencoding=utf8
