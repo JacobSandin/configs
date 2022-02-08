@@ -8,6 +8,11 @@ apt update
 apt remove yarn
 apt install yarn
 
+apt remove neovim
+add-apt-repository ppa:neovim-ppa/unstable
+apt install neovim
+
+
 for i in python3-pip ansible make build-essential libssl-dev pkg-config mupdf ctags nodejs npm; do
   echo "installing $i"
 #for i in python3-pip ansible make build-essential libssl-dev pkg-config nodejs mupdf ctags texlive-full; do
