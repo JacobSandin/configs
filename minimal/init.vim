@@ -129,6 +129,11 @@ nmap <localleader>h 0
 "nnoremap <S-h> 30<C-w><
 "nnoremap <S-l> 30<C-w>>
 
+nmap <localleader>c :RustDebuggables<CR>
+nmap <localleader>o :lua require'dap'.step_over()<CR>
+nmap <localleader>i :lua require'dap'.step_into()<CR>
+nmap <localleader>b :lua require'dap'.toggle_breakpoint()<CR>
+
 " <leader><leader> toggles between buffers
 nnoremap <silent> <leader><leader> <c-^>
 nnoremap <silent> <leader>b :Buffers<cr>
@@ -152,7 +157,8 @@ nmap <leader>dx :VimspectorReset<CR>
 nmap <leader>de :VimspectorEval
 nmap <leader>dw :VimspectorWatch
 nmap <leader>do :VimspectorShowOutput
-let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-go', 'CodeLLDB' ]
+nmap <Leader>di <Plug>VimspectorBalloonEval
+"let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-go', 'CodeLLDB' ]
 " ======================================
 "   Tagbar
 " ======================================
@@ -212,7 +218,7 @@ tnoremap <Esc> <C-\><C-n>
 
  if empty(glob('~/.config/nvim/plugged'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  "autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
  endif
 endif
 
@@ -231,7 +237,7 @@ call plug#begin()
     Plug 'unblevable/quick-scope'
     
     " Chages dir depending on project
-    "Plug 'airblade/vim-rooter' "Its irritating when you are not programming, working with RG and so on
+    Plug 'airblade/vim-rooter' "Its irritating when you are not programming, working with RG and so on
 
     " Powerline for vim
     Plug 'itchyny/lightline.vim'

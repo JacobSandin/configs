@@ -80,7 +80,8 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # Aliases
-alias ranger='source ranger' #To make ranger exit in current dir
+#alias ranger='source ranger' #To make ranger exit in current dir OBS did not work with paths in command line
+alias ranger='ranger --choosedir=$HOME/rangerdir;cd "$(cat $HOME/rangerdir)"||sed 's/ .*//''
 alias ssh='ssh -CY'
 alias ch='cd ~/'
 alias ce='ce /etc'

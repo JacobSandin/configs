@@ -1,3 +1,7 @@
+lua <<EOF
+    require'lspconfig'.pyright.setup{}
+EOF
+
 "let g:ale_rust_rls_config = {
 "	\ 'rust': {
 "		\ 'all_targets': 1,
@@ -63,3 +67,37 @@ let g:vimtex_quickfix_mode=0
 "\ }
 " register compoments:
 call lightline#coc#register()
+
+lua <<EOF
+
+
+-- Update this path
+local extension_path = '/home/jacsan/.vscode-server/extensions/vadimcn.vscode-lldb-1.6.10/'
+local codelldb_path = extension_path .. 'adapter/codelldb'
+local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
+
+local opts = {
+    -- ... other configs
+            args = {'--', 'adfadfadfa'},
+    
+    dap = {
+        adapter = require('rust-tools.dap').get_codelldb_adapter(
+            codelldb_path, liblldb_path),
+            args = {'--', 'adfadfadfa'}
+    }
+}
+require('rust-tools').setup(opts)
+--require("dapui").setup()
+
+-- Command:
+-- RustSetInlayHints
+-- RustDisableInlayHints 
+-- RustToggleInlayHints 
+
+-- set inlay hints
+require('rust-tools.inlay_hints').set_inlay_hints()
+require('rust-tools.runnables').runnables()
+
+EOF
+
+
