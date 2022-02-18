@@ -17,7 +17,7 @@ set  termguicolors
 set nohlsearch
 set modifiable
 set mouse=a
-"set clipboard=unnamedplus
+set clipboard=unnamed
 "set fileencoding=utf-8
 set nocompatible    "To add syntax highlight to xml without :syntax on
 set encoding=utf-8

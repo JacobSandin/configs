@@ -20,6 +20,7 @@
 <Down>	minimal/init.vim	/^nnoremap <Down> <Nop>$/;"	m
 <Down>	minimal/init.vim	/^vnoremap <Down> <Nop>$/;"	m
 <F12>	minimal/init.vim	/^nmap <silent> <F12> :FloatermToggle!<CR>$/;"	m
+<Leader>di	minimal/init.vim	/^nmap <Leader>di <Plug>VimspectorBalloonEval$/;"	m
 <Left>	minimal/init.vim	/^cnoremap <Left> <Nop>$/;"	m
 <Left>	minimal/init.vim	/^inoremap <Left> <Nop>$/;"	m
 <Left>	minimal/init.vim	/^nnoremap <Left> :bp<CR>$/;"	m
@@ -66,8 +67,12 @@
 <leader>v	minimal/init.vim	/^nnoremap <leader>v <C-W>v$/;"	m
 <leader>z	minimal/init.vim	/^nnoremap <silent> <leader>z :FZF<cr>$/;"	m
 <localleader>	minimal/init.vim	/^nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>$/;"	m
+<localleader>b	minimal/init.vim	/^nmap <localleader>b :lua require'dap'.toggle_breakpoint()<CR>$/;"	m
+<localleader>c	minimal/init.vim	/^nmap <localleader>c :RustDebuggables<CR>$/;"	m
 <localleader>h	minimal/init.vim	/^nmap <localleader>h 0$/;"	m
+<localleader>i	minimal/init.vim	/^nmap <localleader>i :lua require'dap'.step_into()<CR>$/;"	m
 <localleader>l	minimal/init.vim	/^nmap <localleader>l \$$/;"	m
+<localleader>o	minimal/init.vim	/^nmap <localleader>o :lua require'dap'.step_over()<CR>$/;"	m
 <localleader>s	minimal/init.vim	/^nnoremap <silent> <localleader>s :syntax on<cr>$/;"	m
 <localleader>z	minimal/init.vim	/^nnoremap <silent> <localleader>z :FZF ~<cr>$/;"	m
 Content	index.html	/^<div id="Content">$/;"	I
@@ -156,7 +161,6 @@ g:sneak#label	minimal/init.vim	/^let g:sneak#label = 1$/;"	v
 g:tagbar_width	minimal/init.vim	/^let g:tagbar_width = 30$/;"	v
 g:tex_flavor	development/dev.vim	/^let g:tex_flavor = 'latex'$/;"	v
 g:vimspector_enable_mappings	minimal/init.vim	/^let g:vimspector_enable_mappings = 'HUMAN'$/;"	v
-g:vimspector_install_gadgets	minimal/init.vim	/^let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-go', 'CodeLLDB' ]$/;"	v
 g:vimtex_quickfix_mode	development/dev.vim	/^let g:vimtex_quickfix_mode=0$/;"	v
 g:vimtex_view_method	development/dev.vim	/^let g:vimtex_view_method='mupdf'$/;"	v
 g:which_key_map	minimal/init.vim	/^let g:which_key_map = {}$/;"	v
