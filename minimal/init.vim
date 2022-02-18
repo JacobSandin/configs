@@ -17,7 +17,7 @@ set  termguicolors
 set nohlsearch
 set modifiable
 set mouse=a
-set clipboard=unnamed
+"set clipboard=unnamedplus
 "set fileencoding=utf-8
 set nocompatible    "To add syntax highlight to xml without :syntax on
 set encoding=utf-8
@@ -119,8 +119,8 @@ nmap <silent> gr <plug>(coc-references)
 "Switching buffer
 nnoremap <Left> :bp<CR>
 nnoremap <Right> :bn<CR>
-nnoremap <Up> :<C-^>
-nnoremap <Down> :Buffers<CR>
+nnoremap <Up> :tabnext<CR>
+nnoremap <Down> :tabprev<CR>
 
 inoremap jj <esc><esc>
 
@@ -138,18 +138,24 @@ nmap <localleader>b :lua require'dap'.toggle_breakpoint()<CR>
 nnoremap <silent> <leader><leader> <c-^>
 nnoremap <silent> <leader>b :Buffers<cr>
 nnoremap <silent> ¤ $
-
+nmap <silent> <leader>m :History<CR>
 nnoremap <silent> <leader>f :FloatermNew --autoclose=2 ranger<cr>
 nnoremap <silent> <leader>z :FZF<cr>
 nnoremap <silent> <leader>Z :FZF /<cr>
 nnoremap <silent> <localleader>z :FZF ~<cr>
 nnoremap <silent> <localleader>s :syntax on<cr>
 nnoremap <silent> <leader>g :Rg<cr>
-nnoremap <silent> <leader>cs :source ~/.config/nvim/init.vim<cr>
-nnoremap <silent> <leader>cc :e ~/.config/nvim/init.vim<cr>
+if has('win32')
+    nnoremap <silent> <leader>cs :source ~/.config/nvim/init.vim<cr>
+    nnoremap <silent> <leader>cc :e ~/.config/nvim/init.vim<cr>
+    command! SV execute "source ~/.config/nvim/init.vim"
+elseif has('unix')
+    nnoremap <silent> <leader>cs :source ~/.config/nvim/init.vim<cr>
+    nnoremap <silent> <leader>cc :e ~/.config/nvim/init.vim<cr>
+    command! SV execute "source ~/.config/nvim/init.vim"
+endif
 nnoremap <silent> <leader><tab> :call ShowWhiteSpaces()<cr>
 "nnoremap <leader>t :bo terminal<cr>
-command! SV execute "source ~/.config/nvim/init.vim"
 
 let g:vimspector_enable_mappings = 'HUMAN'
 nmap <leader>dd :call vimspector#Launch()<CR>
