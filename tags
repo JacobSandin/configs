@@ -16,7 +16,7 @@
 <C-L>	minimal/init.vim	/^nnoremap <C-L> <C-W>>$/;"	m
 <Down>	minimal/init.vim	/^cnoremap <Down> <Nop>$/;"	m
 <Down>	minimal/init.vim	/^inoremap <Down> <Nop>$/;"	m
-<Down>	minimal/init.vim	/^nnoremap <Down> :Buffers<CR>$/;"	m
+<Down>	minimal/init.vim	/^nnoremap <Down> :tabprev<CR>$/;"	m
 <Down>	minimal/init.vim	/^nnoremap <Down> <Nop>$/;"	m
 <Down>	minimal/init.vim	/^vnoremap <Down> <Nop>$/;"	m
 <F12>	minimal/init.vim	/^nmap <silent> <F12> :FloatermToggle!<CR>$/;"	m
@@ -39,7 +39,7 @@
 <Tab>	development/dev.vim	/^inoremap <expr> <Tab> pumvisible() ? "\\<C-n>" : "\\<Tab>"$/;"	m
 <Up>	minimal/init.vim	/^cnoremap <Up> <Nop>$/;"	m
 <Up>	minimal/init.vim	/^inoremap <Up> <Nop>$/;"	m
-<Up>	minimal/init.vim	/^nnoremap <Up> :<C-^>$/;"	m
+<Up>	minimal/init.vim	/^nnoremap <Up> :tabnext<CR>$/;"	m
 <Up>	minimal/init.vim	/^nnoremap <Up> <Nop>$/;"	m
 <Up>	minimal/init.vim	/^vnoremap <Up> <Nop>$/;"	m
 <cr>	development/dev.vim	/^inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\\<C-g>u\\<CR>"$/;"	m
@@ -48,8 +48,8 @@
 <leader><tab>	minimal/init.vim	/^nnoremap <silent> <leader><tab> :call ShowWhiteSpaces()<cr>$/;"	m
 <leader>Z	minimal/init.vim	/^nnoremap <silent> <leader>Z :FZF \/<cr>$/;"	m
 <leader>b	minimal/init.vim	/^nnoremap <silent> <leader>b :Buffers<cr>$/;"	m
-<leader>cc	minimal/init.vim	/^nnoremap <silent> <leader>cc :e ~\/.config\/nvim\/init.vim<cr>$/;"	m
-<leader>cs	minimal/init.vim	/^nnoremap <silent> <leader>cs :source ~\/.config\/nvim\/init.vim<cr>$/;"	m
+<leader>cc	minimal/init.vim	/^    nnoremap <silent> <leader>cc :e ~\/.config\/nvim\/init.vim<cr>$/;"	m
+<leader>cs	minimal/init.vim	/^    nnoremap <silent> <leader>cs :source ~\/.config\/nvim\/init.vim<cr>$/;"	m
 <leader>dd	minimal/init.vim	/^nmap <leader>dd :call vimspector#Launch()<CR>$/;"	m
 <leader>de	minimal/init.vim	/^nmap <leader>de :VimspectorEval$/;"	m
 <leader>do	minimal/init.vim	/^nmap <leader>do :VimspectorShowOutput$/;"	m
@@ -57,6 +57,7 @@
 <leader>dx	minimal/init.vim	/^nmap <leader>dx :VimspectorReset<CR>$/;"	m
 <leader>f	minimal/init.vim	/^nnoremap <silent> <leader>f :FloatermNew --autoclose=2 ranger<cr>$/;"	m
 <leader>g	minimal/init.vim	/^nnoremap <silent> <leader>g :Rg<cr>$/;"	m
+<leader>m	minimal/init.vim	/^nmap <silent> <leader>m :History<CR>$/;"	m
 <leader>n	minimal/init.vim	/^nmap <silent> <leader>n :TagbarToggle<CR>$/;"	m
 <leader>s	minimal/init.vim	/^nnoremap <leader>s <C-W>s$/;"	m
 <leader>t+	minimal/init.vim	/^nnoremap <leader>t+ :tabnew %<CR>$/;"	m
@@ -88,7 +89,7 @@ Open+Sans-css	index.html	/^<link rel='stylesheet' id='Open+Sans-css'  href='http
 Patua+One-css	index.html	/^<link rel='stylesheet' id='Patua+One-css'  href='https:\/\/fonts.googleapis.com\/css?family=Patu/;"	I
 Q	minimal/init.vim	/^command! -bar                                  -bang Q         quit<bang>$/;"	c
 Roboto-css	index.html	/^<link rel='stylesheet' id='Roboto-css'  href='https:\/\/fonts.googleapis.com\/css?family=Roboto%/;"	I
-SV	minimal/init.vim	/^command! SV execute "source ~\/.config\/nvim\/init.vim"$/;"	c
+SV	minimal/init.vim	/^    command! SV execute "source ~\/.config\/nvim\/init.vim"$/;"	c
 ShowWhiteSpaces	minimal/init.vim	/^function! ShowWhiteSpaces()$/;"	f
 Spåra IP nummer	index.html	/^<h2>Spåra IP nummer<\/h2>$/;"	i
 Top_bar	index.html	/^<div id="Top_bar" class="loading">$/;"	I
