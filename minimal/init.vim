@@ -118,7 +118,7 @@ nmap <silent> gr <plug>(coc-references)
 
 "Switching buffer
 nnoremap <silent> <Left> :bprev<CR>
-nnoremap <silent> <Right> :bnnext<CR>
+nnoremap <silent> <Right> :bnext<CR>
 nnoremap <silent> <Up> :tabnext<CR>
 nnoremap <silent> <Down> :tabprev<CR>
 nnoremap <silent> <leader>tt :tabnew<CR>
