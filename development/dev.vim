@@ -1,6 +1,9 @@
 lua <<EOF
     require'lspconfig'.pyright.setup{}
 EOF
+let g:coc_filetype_map = {
+  \ 'yaml.ansible': 'ansible',
+  \ }
 
 "let g:ale_rust_rls_config = {
 "	\ 'rust': {
@@ -97,6 +100,7 @@ require('rust-tools').setup(opts)
 -- set inlay hints
 require('rust-tools.inlay_hints').set_inlay_hints()
 require('rust-tools.runnables').runnables()
+
 
 EOF
 

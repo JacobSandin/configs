@@ -47,3 +47,5 @@
     \ 'branch': 'next',
     \ 'do': './install.sh'
     \ }
+
+    Plug 'yaegassy/coc-ansible', {'do': 'yarn install --frozen-lockfile'}

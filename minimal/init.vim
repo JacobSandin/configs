@@ -117,10 +117,11 @@ nmap <silent> gy <plug>(coc-type-definition)
 nmap <silent> gr <plug>(coc-references)
 
 "Switching buffer
-nnoremap <Left> :bp<CR>
-nnoremap <Right> :bn<CR>
-nnoremap <Up> :tabnext<CR>
-nnoremap <Down> :tabprev<CR>
+nnoremap <silent> <Left> :bprev<CR>
+nnoremap <silent> <Right> :bnnext<CR>
+nnoremap <silent> <Up> :tabnext<CR>
+nnoremap <silent> <Down> :tabprev<CR>
+nnoremap <silent> <leader>tt :tabnew<CR>
 
 inoremap jj <esc><esc>
 
@@ -139,7 +140,7 @@ nnoremap <silent> <leader><leader> <c-^>
 nnoremap <silent> <leader>b :Buffers<cr>
 nnoremap <silent> ¤ $
 nmap <silent> <leader>m :History<CR>
-nnoremap <silent> <leader>f :FloatermNew --autoclose=2 ranger<cr>
+nnoremap <silent> <leader>r :FloatermNew --autoclose=2 ranger<cr>
 nnoremap <silent> <leader>z :FZF<cr>
 nnoremap <silent> <leader>Z :FZF /<cr>
 nnoremap <silent> <localleader>z :FZF ~<cr>
@@ -173,7 +174,7 @@ nmap <silent> <leader>n :TagbarToggle<CR>
 
 "nmap <leader>t :FloatermToggle!<CR>
 "nmap <F11> :FloatermNew! cd %:p:h&clear<CR>
-nmap <silent> <leader>tt :FloatermToggle!<CR>
+nmap <silent> <leader>f :FloatermToggle!<CR>
 nmap <silent> <F12> :FloatermToggle!<CR>
 let g:floaterm_keymap_toggle = '<F12>'
 let g:floaterm_opener = 'edit'
