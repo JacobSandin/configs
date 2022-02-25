@@ -4,6 +4,7 @@ export TERM=screen-256color
 #setxkbmap -layout se,se -variant ,dvorak_a5 -option grp:alt_shift_toggle
 setopt rmstarsilent #Set so that rm -f do not ask confirmation
 
+DISABLE_MAGIC_FUNCTIONS=true
 RANGER_LOAD_DEFAULT_RC=FALSE
 ZDOTDIR=$HOME/.config/zsh
 
@@ -82,7 +83,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # Aliases
 #alias ranger='source ranger' #To make ranger exit in current dir OBS did not work with paths in command line
-alias ranger='ranger --choosedir=$HOME/rangerdir;cd "$(cat $HOME/rangerdir)"||sed 's/ .*//''
+#alias ranger='ranger --choosedir=$HOME/rangerdir;cd "$(cat $HOME/rangerdir)"||sed "s/ .*//"'
 alias ssh='ssh -CY'
 alias ch='cd ~/'
 alias ce='ce /etc'
