@@ -90,7 +90,7 @@ alias ce='ce /etc'
 alias sv='/bin/sudo vim'
 alias hz='history|fzf'
 alias e='exit'
-alias bzip2='echo "==========================================\n\n WARNING! (bzip2) Använd lzma istället \n\n==========================================" 1>&2;'
+# bzip2 still best alternative I feel. alias bzip2='echo "==========================================\n\n WARNING! (bzip2) Använd lzma istället \n\n==========================================" 1>&2;'
 if [ -f /usr/bin/nvim ]; then
     export EDITOR='nvim'
     alias vim=nvim

@@ -41,7 +41,7 @@
 
     Plug 'pearofducks/ansible-vim'
     
-    Plug 'ludovicchabant/vim-gutentags' "To build ctags so that I can use goto in coc
+    "Plug 'ludovicchabant/vim-gutentags' "To build ctags so that I can use goto in coc
 
     Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
