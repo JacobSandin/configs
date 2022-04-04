@@ -7,6 +7,7 @@ setopt rmstarsilent #Set so that rm -f do not ask confirmation
 DISABLE_MAGIC_FUNCTIONS=true
 RANGER_LOAD_DEFAULT_RC=FALSE
 ZDOTDIR=$HOME/.config/zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.config/nvim/plugged/fzf/bin:$HOME/bin:$PATH"
 setopt histignorealldups sharehistory
