@@ -255,6 +255,8 @@ call plug#begin()
     Plug 'voldikss/vim-floaterm'
     Plug 'liuchengxu/vim-which-key' "Shows a quickhelp for leader and localleader
 
+    Plug 'tpope/vim-fugitive' "Git handler for vim
+
 if !empty(glob("~/.config/nvim/local-plugin.vim"))
     source ~/.config/nvim/local-plugin.vim 
 endif
