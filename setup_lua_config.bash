@@ -2,19 +2,20 @@
 #
 # Variabler
 vim_min_version="8.0"
+node_min_version="16.00"
 #
 #
 #
 #
 #
 if command -v etckeeper; then
-  echo "etckeeper EEEEeeh"
+  echo "etckeeper gahr"
   sudo etckeeper commit -c "nvim lua install"
 fi
 
-vim_version=$(vim --version | head -1 | grep -o '[0-9]\.[0-9]')
+vim_version=$(vim --version | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
 vim_version_compare=$(echo "$vim_version < $vim_min_version" | bc -l)
-echo "version compare ($vim_version_compare)"
+echo "nvim version compare ($vim_version_compare)"
 if [ "$vim_version_compare" -eq "1" ]; then
   echo "$vim_version"
   sudo apt update
@@ -23,6 +24,14 @@ if [ "$vim_version_compare" -eq "1" ]; then
   sudo apt remove -y ./nvim-linux64.deb
   sudo apt install -y ./nvim-linux64.deb build-essential
   rm nvim-linux64.deb*
+fi
+
+node_version=$(node --version| head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
+node_version_compare=$(echo "$node_version < $node_min_version" | bc -l)
+echo "$node_version < $node_min_version = $node_version_compare"
+if [ "$node_version_compare" -eq "1" ]; then
+  curl -sL https://deb.nodesource.com/setup_17.x | sudo bash -
+  sudo apt-get install -y nodejs
 fi
 
 if [[ -f ~/.config/nvim/init.vim ]]; then
