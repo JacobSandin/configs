@@ -14,7 +14,7 @@ fi
 #
 if command -v etckeeper; then
 #  echo "etckeeper gahr"
-  sudo etckeeper commit -c "nvim lua install"
+  sudo etckeeper commit -c "nvim lua install" >/dev/null
 fi
 
 vim_version=$(vim --version | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
@@ -45,10 +45,10 @@ if [[ ! -d ~/.config/nvim ]]; then
 fi
 if [[ ! -d ~/utv/git/config ]]; then
   mkdir -p ~/utv/git
-  git clone https://github.com/JacobSandin/configs ~/utv/git/config
+  git clone https://github.com/JacobSandin/configs ~/utv/git/config >/dev/null
 else
  cd ~/utv/git/config/
- git pull
+ git pull >/dev/null
 fi
 if [[ ! -L ~/.config/nvim/lua ]] || [[ ! -e ~/.config/nvim/lua ]]; then
   echo "LUA dir verkar tokigt skapar länkar"
