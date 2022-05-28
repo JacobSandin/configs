@@ -32,4 +32,10 @@ require('nightfox').setup({})
 -- })
 
 -- setup must be called before loading
-vim.cmd("colorscheme nightfox")
+--vim.cmd("colorscheme dawnfox")
+--vim.cmd("colorscheme terafox")
+--vim.cmd("colorscheme duskfox")
+--vim.cmd("colorscheme nightfox")
+--vim.cmd("colorscheme dayfox")
+vim.cmd("colorscheme nordfox")
+vim.cmd("hi Visual  guifg=#c0c6cf guibg=#556173 gui=none")

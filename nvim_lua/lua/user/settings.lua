@@ -50,6 +50,7 @@ opt.pastetoggle="<leader>p"
 opt.colorcolumn = "81"
 
 vim.cmd [[
+"set undodir=~/.config/nvim/undodir
 " ======================================
 "    Keymappings
 " ======================================

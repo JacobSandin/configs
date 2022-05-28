@@ -1,8 +1,8 @@
 -- vim.cmd 'source ~/.config/nvim/init_old.vim'
+require "user.nightfox"
 require "user.settings"
 require "user.keymaps"
 require "user.plugins"
-require "user.nightfox"
 require "user.cmp"
 require "user.lsp"
 require "user.telescope"
