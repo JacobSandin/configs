@@ -17,7 +17,7 @@ if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
             wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
             sudo apt install ./nvim-linux64.deb
             rm .nvim-linux64.deb
-            rm -fR ~/.config/nvim
+            sudo rm -fR ~/.config/nvim
             sudo apt-get install git-svn
             git svn clone https://github.com/JacobSandin/configs/trunk/nvim_lua ~/.config/nvim
         fi
