@@ -12,7 +12,7 @@ fi
 #
 #
 #
-if command -v etckeeper; then
+if [ `command -v etckeeper` ]; then
 #  echo "etckeeper gahr"
   sudo etckeeper commit -c "nvim lua install" >/dev/null
 fi
