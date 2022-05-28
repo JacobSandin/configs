@@ -5,8 +5,8 @@ vim_min_version="8.0"
 node_min_version="16.00"
 #
 #
-if [ "$EUID" -eq 0 ]
-  then echo "Please do not run as root"
+if [ "$EUID" -eq 0 ]; then
+#  echo "Please do not run as root"
   exit
 fi
 #
