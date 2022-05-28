@@ -6,7 +6,7 @@ local opt = vim.opt  -- to set options_info
 g.syntax_on = true
 --g:filetype = 1
 
-opt.undodir = "undodir"
+opt.undodir = os.getenv( "HOME" ) .. '/.config/nvim/undodir' -- Does not seem to use ~
 opt.undofile = true
 opt.termguicolors = true
 opt.completeopt = {'menu','menuone','preview','noselect','noinsert'}  -- Completion options (for deoplete)
