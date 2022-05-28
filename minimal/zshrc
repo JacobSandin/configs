@@ -103,7 +103,7 @@ if [ -f /usr/bin/nvim ]; then
     if [ -f ~/.local/share/nvim/plugged/fzf/shell/key-bindings.zsh ]; then
         source ~/.local/share/nvim/plugged/fzf/shell/key-bindings.zsh
         source ~/.local/share/nvim/plugged/fzf/shell/completion.zsh
-    else
+    elif [ -f ~/.config/nvim/plugged/fzf/shell/key-bindings.zsh ]; then
         source ~/.config/nvim/plugged/fzf/shell/key-bindings.zsh
         source ~/.config/nvim/plugged/fzf/shell/completion.zsh
     fi
