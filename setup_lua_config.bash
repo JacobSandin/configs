@@ -28,6 +28,9 @@ fi
 if [[ -f ~/.config/nvim/init.vim ]]; then
   rm -fR ~/.config/nvim/*
 fi
+if [[ ! -d ~/.config/nvim ]]; then
+  mkdir -p ~/.config/nvim
+fi
 if [[ ! -d ~/utv/git/config ]]; then
   mkdir -p ~/utv/git
   git clone https://github.com/JacobSandin/configs ~/utv/git/config
