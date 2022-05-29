@@ -32,7 +32,7 @@ fi
 node_version=$(node --version| head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
 node_version_compare=$(echo "$node_version < $node_min_version" | bc -l)
 echo "node: curr=$node_version > min=$node_min_version = $node_version_compare"
-if [ "$node_version_compare" -eq "1" ]; then
+if [[ ! `command -v node` ||  "$node_version_compare" -eq "1" ]]; then
   curl -sL https://deb.nodesource.com/setup_17.x | sudo bash -
   sudo apt-get install -y nodejs
 fi
@@ -46,6 +46,8 @@ fi
 if [[ ! -d ~/utv/git/config ]]; then
   mkdir -p ~/utv/git
   git clone https://github.com/JacobSandin/configs ~/utv/git/config >/dev/null
+  git config --global user.email "jacob@imcode.com"
+  git config --global user.name "Jacob Sandin"
 else
  cd ~/utv/git/config/
  git pull >/dev/null
