@@ -14,13 +14,14 @@ if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
         
         if [[ ! -f ~/.config/nvim/init.lua ]]; then
             sudo apt update
-            sudo apt remove neovim neovim-runtime build-essential
+            sudo apt remove neovim neovim-runtime build-essential sqlite3
             wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
             sudo apt install ./nvim-linux64.deb
             rm .nvim-linux64.deb
             sudo rm -fR ~/.config/nvim
             sudo apt-get install git-svn
-            git svn clone https://github.com/JacobSandin/configs/trunk/nvim_lua ~/.config/nvim
+            mkdir -p ~/utv/git
+            git clone https://github.com/JacobSandin/configs ~/utv/git/config
         fi
     	
     	
