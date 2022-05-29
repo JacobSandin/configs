@@ -20,7 +20,7 @@ fi
 vim_version=$(nvim --version | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
 vim_version_compare=$(echo "$vim_version < $vim_min_version" | bc -l)
 echo "nvim: curr=$vim_version > min=$vim_min_version = $vim_version_compare"
-if [ "$vim_version_compare" -eq "1" ]; then
+if [[ ! `command -v nvim` || "$vim_version_compare" -eq "1" ]]; then
   sudo apt update
   sudo apt remove -y neovim neovim-runtime
   wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
