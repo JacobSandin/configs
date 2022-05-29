@@ -44,6 +44,8 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  use 'kyazdani42/nvim-tree.lua'
+
   use "EdenEast/nightfox.nvim"
   use {
   "folke/which-key.nvim",
@@ -80,7 +82,9 @@ return packer.startup(function(use)
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
-
+  use 'nvim-telescope/telescope-frecency.nvim'
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { "tami5/sqlite.lua" }
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",

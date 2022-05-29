@@ -30,13 +30,16 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
--- Telescope frecency
-vim.api.nvim_set_keymap("n", "<leader>tf", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>", {noremap = true, silent = true})
---" Using Lua functionst
-keymap("n", "<leader>tf","<cmd>lua require('telescope.builtin').find_files()<cr>", {noremap = true, silent = true})
-keymap("n", "<leader>tg","<cmd>lua require('telescope.builtin').live_grep()<cr>", {noremap = true, silent = true})
-keymap("n", "<leader>tb","<cmd>lua require('telescope.builtin').buffers()<cr>", {noremap = true, silent = true})
-keymap("n", "<leader>th","<cmd>lua require('telescope.builtin').help_tags()<cr>", {noremap = true, silent = true})
+-- Nvim-tree
+keymap("n", "<C-n>", ":NvimTreeToggle<cr>", opts)
+
+-- Telescope
+keymap("n", "<leader>tr", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>", {noremap = true, silent = true})
+keymap("n", "<leader>tf","<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
+keymap("n", "<leader>tg","<cmd>lua require('telescope.builtin').live_grep()<cr>",opts)
+keymap("n", "<leader>tb","<cmd>lua require('telescope.builtin').buffers()<cr>",opts)
+keymap("n", "<leader>th","<cmd>lua require('telescope.builtin').help_tags()<cr>",opts)
+
 -- Naviagate buffers
 keymap("n", "<Right>", ":bnext<CR>", opts)
 keymap("n", "<Left>", ":bprevious<CR>", opts)
