@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Variabler
-vim_min_version="8.0"
+vim_min_version="0.7"
 node_min_version="16.00"
 #
 #
@@ -17,7 +17,7 @@ if [ `command -v etckeeper` ]; then
   sudo etckeeper commit -c "nvim lua install" >/dev/null
 fi
 
-vim_version=$(vim --version | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
+vim_version=$(nvim --version | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
 vim_version_compare=$(echo "$vim_version < $vim_min_version" | bc -l)
 echo "nvim: curr=$vim_version > min=$vim_min_version = $vim_version_compare"
 if [ "$vim_version_compare" -eq "1" ]; then
