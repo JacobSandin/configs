@@ -83,6 +83,7 @@ return packer.startup(function(use)
   -- Telescope
   use "nvim-telescope/telescope.nvim"
   use 'nvim-telescope/telescope-frecency.nvim'
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { "tami5/sqlite.lua" }
   -- Treesitter
   use {
