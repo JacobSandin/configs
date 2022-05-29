@@ -9,11 +9,11 @@ g.syntax_on = true
 opt.undodir = os.getenv( "HOME" ) .. '/.config/nvim/undodir' -- Does not seem to use ~
 opt.undofile = true
 opt.termguicolors = true
-opt.completeopt = {'menu','menuone','preview','noselect','noinsert'}  -- Completion options (for deoplete)
+opt.completeopt = {'menuone', 'noselect', 'noinsert' }  -- Completion options (for deoplete)
 opt.expandtab = true                -- Use spaces instead of tabs
 opt.hidden = true                   -- Enable background buffers
 opt.ignorecase = true               -- Ignore case
---opt.joinspaces = false              -- No double spaces with join
+opt.joinspaces = false              -- No double spaces with join
 opt.list = true                     -- Show some invisible characters
 opt.number = true                   -- Show line numbers
 opt.relativenumber = true           -- Relative line numbers
@@ -28,7 +28,8 @@ opt.splitright = true               -- Put new windows right of current
 opt.tabstop = 2                     -- Number of spaces tabs count for
 opt.softtabstop = 2
 opt.termguicolors = true            -- True color support
-opt.wildmode = {'list', 'longest'}  -- Command-line completion mode
+opt.wildmode = {'full'}  -- Command-line completion mode
+--opt.wildchar = '<Tab>'
 opt.wrap = false                    -- Disable line wrap
 
 opt.modifiable = true
@@ -48,7 +49,7 @@ opt.updatetime = 300
 opt.cmdheight = 2
 opt.pastetoggle="<leader>p"
 opt.colorcolumn = "81"
-
+--
 vim.cmd [[
 "set undodir=~/.config/nvim/undodir
 " ======================================

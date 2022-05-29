@@ -100,4 +100,28 @@ if [[ ! -L ~/.config/nvim/init.lua ]] || [[ ! -e ~/.config/nvim/init.lua ]]; the
   echo "init.lua verkar tokigt"
 fi
 
+if [[ ! `command -v stylua` ]]; then
+  wget --quiet --no-cache --no-cookies https://github.com/JohnnyMorganz/StyLua/releases/download/v0.13.1/stylua-linux.zip
+  unzip stylua-linux.zip
+  sudo cp -f stylua /usr/bin/
+  rm stylua*
+  sudo chmod 755 /usr/bin/stylua
+fi
 
+#Python
+if [[ ! `command -v flake8` ]]; then
+  pip install flake8
+fi
+#Python
+if [[ ! `command -v black` ]]; then
+  pip install git+https://github.com/psf/black
+fi
+
+
+
+#sudo curl -L https://cs.symfony.com/download/php-cs-fixer-v3.phar -o /usr/bin/php-cs-fixer
+#chmod 755 /usr/bin/php-cs-fixer
+#
+#
+#cpan install -y Perl::Tidy
+#sudo perl -I /usr/lib/perl5 -MCPAN 
