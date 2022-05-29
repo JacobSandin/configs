@@ -2,6 +2,7 @@
 #
 # Variabler
 vim_min_version="0.7"
+lg_min_version="0.34"
 node_min_version="16.00"
 #
 #
@@ -14,6 +15,20 @@ fi
 # Update etckeeper if it exists so it does not interfere
 if [ `command -v etckeeper` ]; then
   sudo etckeeper commit -c "nvim lua install" >/dev/null
+fi
+#
+#
+# Check lazygit version and update if too old or missing
+lg_version=$(lazygit --version | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
+lg_version_compare=$(echo "$lg_version < $lg_min_version" | bc -l)
+echo "lazygit: curr=$lg_version > min=$lg_min_version = $lg_version_compare"
+if [[ ! `command -v lazygit` || "$lg_version_compare" -eq "1" ]]; then
+  sudo apt-get install xdg-utils
+  wget https://github.com/jesseduffield/lazygit/releases/download/v0.34/lazygit_0.34_Linux_x86_64.tar.gz
+  tar -xzvf lazygit_0.34_Linux_x86_64.tar.gz lazygit
+  sudo cp lazygit /usr/bin
+  sudo mv lazygit /usr/bin/lg
+  rm lazygit_0.34_Linux_x86_64.tar.gz
 fi
 #
 #
