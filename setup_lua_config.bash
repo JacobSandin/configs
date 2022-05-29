@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Variabler
-vim_min_version="8.0"
+vim_min_version="0.7"
 node_min_version="16.00"
 #
 #
