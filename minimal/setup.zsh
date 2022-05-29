@@ -4,7 +4,7 @@
 # zsh -c "$(curl -fsSL https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/setup.zsh)"
 #
 
-for i in ranger zsh neovim ripgrep xclip $(check-language-support -l sv); do
+for i in ranger zsh ripgrep xclip $(check-language-support -l sv); do
   sudo apt-get install -y $i
 done
 
@@ -36,7 +36,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.config/zsh/plu
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/plugins/zsh-syntax-highlighting
 #git clone https://github.com/softmoth/zsh-vim-mode.git .config/zsh/plugins/zsh-vim-mode
 
-nvim -E -s -u "$HOME/.config/nvim/init.vim" +PlugInstall +qall
+#nvim -E -s -u "$HOME/.config/nvim/init.vim" +PlugInstall +qall
+
+wget --quiet -O - --no-cache --no-cookies https://raw.githubusercontent.com/JacobSandin/configs/master/setup_lua_config.bash|bash
 
 zsh source ~/.zshrc
  
