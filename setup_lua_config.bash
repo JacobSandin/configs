@@ -2,6 +2,7 @@
 #
 # Variabler
 vim_min_version="0.7"
+lg_min_version="0.34"
 node_min_version="16.00"
 #
 #
@@ -17,12 +18,26 @@ if [ `command -v etckeeper` ]; then
 fi
 #
 #
+# Check lazygit version and update if too old or missing
+lg_version=$(lazygit --version | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
+lg_version_compare=$(echo "$lg_version < $lg_min_version" | bc -l)
+echo "lazygit: curr=$lg_version > min=$lg_min_version = $lg_version_compare"
+if [[ ! `command -v lazygit` || "$lg_version_compare" -eq "1" ]]; then
+  sudo apt-get install xdg-utils
+  wget https://github.com/jesseduffield/lazygit/releases/download/v0.34/lazygit_0.34_Linux_x86_64.tar.gz
+  tar -xzvf lazygit_0.34_Linux_x86_64.tar.gz lazygit
+  sudo cp lazygit /usr/bin
+  sudo mv lazygit /usr/bin/lg
+  rm lazygit_0.34_Linux_x86_64.tar.gz
+fi
+#
+#
 #
 # Check nvim version and update if too old
 vim_version=$(vim --version | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
 vim_version_compare=$(echo "$vim_version < $vim_min_version" | bc -l)
 echo "nvim: curr=$vim_version > min=$vim_min_version = $vim_version_compare"
-if [ "$vim_version_compare" -eq "1" ]; then
+if [[ ! `command -v nvim` || "$vim_version_compare" -eq "1" ]]; then
   sudo apt update
   sudo apt remove -y neovim neovim-runtime
   wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
@@ -37,7 +52,7 @@ fi
 node_version=$(node --version| head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
 node_version_compare=$(echo "$node_version < $node_min_version" | bc -l)
 echo "node: curr=$node_version > min=$node_min_version = $node_version_compare"
-if [ "$node_version_compare" -eq "1" ]; then
+if [[ ! `command -v node` ||  "$node_version_compare" -eq "1" ]]; then
   curl -sL https://deb.nodesource.com/setup_17.x | sudo bash -
   sudo apt-get install -y nodejs
 fi
@@ -54,6 +69,8 @@ fi
 if [[ ! -d ~/utv/git/config ]]; then
   mkdir -p ~/utv/git
   git clone https://github.com/JacobSandin/configs ~/utv/git/config >/dev/null
+  git config --global user.email "jacob@imcode.com"
+  git config --global user.name "Jacob Sandin"
 else
  cd ~/utv/git/config/
  git pull >/dev/null
