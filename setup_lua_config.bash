@@ -109,7 +109,7 @@ if [[ ! `command -v stylua` ]]; then
 fi
 
 #Python
-if [[ ! `command -v flake8` ]]; then
+if [[ ! `command -v /home/jacsan/.local/bin/flake8` ]]; then
   pip install flake8
 fi
 #Python
