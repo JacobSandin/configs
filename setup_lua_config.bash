@@ -4,6 +4,8 @@
 vim_min_version="0.7"
 lg_min_version="0.34"
 node_min_version="16.00"
+rg_min_version="13"
+ripgrep_file="ripgrep_13.0.0_amd64.deb"
 #
 #
 if [ "$EUID" -eq 0 ]; then
@@ -15,6 +17,18 @@ fi
 # Update etckeeper if it exists so it does not interfere
 if [ `command -v etckeeper` ]; then
   sudo etckeeper commit -c "nvim lua install" >/dev/null
+fi
+#
+#
+## Check ripgrep version and update if too old or missing
+rg_version=$(rg --version | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
+rg_version_compare=$(echo "$rg_version < $rg_min_version" | bc -l)
+echo "ripgrep: curr=$rg_version > min=$rg_min_version = $rg_version_compare"
+if [[ ! `command -v rg` || "$rg_version_compare" -eq "1" ]]; then
+  curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/$ripgrep_file
+  sudo dpkg -i $ripgrep_file
+  rm $ripgrep_file*
+
 fi
 #
 #
