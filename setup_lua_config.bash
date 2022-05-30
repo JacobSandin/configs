@@ -8,18 +8,18 @@ rg_min_version="13"
 ripgrep_file="ripgrep_13.0.0_amd64.deb"
 #
 #OLDPATH=$PATH
-if [[ ! "$PATH" == *"$HOME"* ]];then
+if [[ ! "$PATH" == *"$HOME"* ]]; then
   export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.config/nvim/plugged/fzf/bin:$HOME/bin:$PATH"
 fi
 #
 if [ "$EUID" -eq 0 ]; then
-#  echo "Please do not run as root"
+  #  echo "Please do not run as root"
   exit
 fi
 #
 #
 # Update etckeeper if it exists so it does not interfere
-if [ `command -v etckeeper` ]; then
+if [ $(command -v etckeeper) ]; then
   sudo etckeeper commit -c "nvim lua install" >/dev/null
 fi
 #
@@ -28,7 +28,7 @@ fi
 rg_version=$(rg --version | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
 rg_version_compare=$(echo "$rg_version < $rg_min_version" | bc -l)
 echo "ripgrep: curr=$rg_version > min=$rg_min_version = $rg_version_compare"
-if [[ ! `command -v rg` || "$rg_version_compare" -eq "1" ]]; then
+if [[ ! $(command -v rg) || "$rg_version_compare" -eq "1" ]]; then
   curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/$ripgrep_file
   sudo dpkg -i $ripgrep_file
   rm $ripgrep_file*
@@ -39,7 +39,7 @@ fi
 lg_version=$(lazygit --version | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
 lg_version_compare=$(echo "$lg_version < $lg_min_version" | bc -l)
 echo "lazygit: curr=$lg_version > min=$lg_min_version = $lg_version_compare"
-if [[ ! `command -v lazygit` || "$lg_version_compare" -eq "1" ]]; then
+if [[ ! $(command -v lazygit) || "$lg_version_compare" -eq "1" ]]; then
   sudo apt-get install xdg-utils
   wget https://github.com/jesseduffield/lazygit/releases/download/v0.34/lazygit_0.34_Linux_x86_64.tar.gz
   tar -xzvf lazygit_0.34_Linux_x86_64.tar.gz lazygit
@@ -54,7 +54,7 @@ fi
 vim_version=$(vim --version | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
 vim_version_compare=$(echo "$vim_version < $vim_min_version" | bc -l)
 echo "nvim: curr=$vim_version > min=$vim_min_version = $vim_version_compare"
-if [[ ! `command -v nvim` || "$vim_version_compare" -eq "1" ]]; then
+if [[ ! $(command -v nvim) || "$vim_version_compare" -eq "1" ]]; then
   sudo apt update
   sudo apt remove -y neovim neovim-runtime
   wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
@@ -66,10 +66,10 @@ fi
 #
 #
 # Check node version and update if too old
-node_version=$(node --version| head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
+node_version=$(node --version | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
 node_version_compare=$(echo "$node_version < $node_min_version" | bc -l)
 echo "node: curr=$node_version > min=$node_min_version = $node_version_compare"
-if [[ ! `command -v node` ||  "$node_version_compare" -eq "1" ]]; then
+if [[ ! $(command -v node) || "$node_version_compare" -eq "1" ]]; then
   curl -sL https://deb.nodesource.com/setup_17.x | sudo bash -
   sudo apt-get install -y nodejs
 fi
@@ -89,8 +89,8 @@ if [[ ! -d ~/utv/git/config ]]; then
   git config --global user.email "jacob@imcode.com"
   git config --global user.name "Jacob Sandin"
 else
- cd ~/utv/git/config/
- git pull >/dev/null
+  cd ~/utv/git/config/
+  git pull >/dev/null
 fi
 if [[ ! -L ~/.config/nvim/lua ]] || [[ ! -e ~/.config/nvim/lua ]]; then
   echo "LUA dir verkar tokigt skapar länkar"
@@ -103,7 +103,7 @@ if [[ ! -L ~/.config/nvim/init.lua ]] || [[ ! -e ~/.config/nvim/init.lua ]]; the
   echo "init.lua verkar tokigt"
 fi
 
-if [[ ! `command -v stylua` ]]; then
+if [[ ! $(command -v stylua) ]]; then
   wget --quiet --no-cache --no-cookies https://github.com/JohnnyMorganz/StyLua/releases/download/v0.13.1/stylua-linux.zip
   unzip stylua-linux.zip
   sudo cp -f stylua /usr/bin/
@@ -112,24 +112,24 @@ if [[ ! `command -v stylua` ]]; then
 fi
 
 #Python
-if [[ ! `command -v flake8` ]]; then
+if [[ ! $(command -v flake8) ]]; then
   pip install flake8
 fi
 #Python
-if [[ ! `command -v black` ]]; then
+if [[ ! $(command -v black) ]]; then
   pip install git+https://github.com/psf/black
 fi
-
-
+#Bash format
+if [[ ! $(command -v shfmt) ]]; then
+  sudo snap install shfmt
+fi
 
 #sudo curl -L https://cs.symfony.com/download/php-cs-fixer-v3.phar -o /usr/bin/php-cs-fixer
 #chmod 755 /usr/bin/php-cs-fixer
 #
 #
 #cpan install -y Perl::Tidy
-#sudo perl -I /usr/lib/perl5 -MCPAN 
-
+#sudo perl -I /usr/lib/perl5 -MCPAN
 
 #OLDPATH="$PATH"
 #export PATH="$OLDPATH"
-
