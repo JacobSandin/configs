@@ -140,11 +140,11 @@ fi
 
 #OLDPATH="$PATH"
 #export PATH="$OLDPATH"
-if [[ ! -d ~/.local/share/fonts/NerdFonts ]]; then
-  mkdir -p ~/.local/share/fonts/NerdFonts
-  unzip nerdfonts.zip -d ~/.local/share/fonts/NerdFonts
-  rm nerdfonts.zip
-fi
+#if [[ ! -d ~/.local/share/fonts/NerdFonts ]]; then
+#  mkdir -p ~/.local/share/fonts/NerdFonts
+#  unzip nerdfonts.zip -d ~/.local/share/fonts/NerdFonts
+#  rm nerdfonts.zip
+#fi
 
 # install plugins in vim
 if [[ ! -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim ]]; then

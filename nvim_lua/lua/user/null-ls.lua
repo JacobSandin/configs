@@ -6,6 +6,7 @@ end
 local form = null_ls.builtins.formatting
 local diag = null_ls.builtins.diagnostics
 local comp = null_ls.builtins.completion
+local code = null_ls.builtins.code_actions
 
 require("null-ls").setup({
   sources = {
@@ -17,6 +18,7 @@ require("null-ls").setup({
     form.phpcsfixer,
     form.perltidy,
     form.shfmt.with({ extra_args = { "-i", "2" } }),
+    code.gitsigns,
 
   },
 })

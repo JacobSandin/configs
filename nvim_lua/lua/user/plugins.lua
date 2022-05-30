@@ -62,8 +62,8 @@ return packer.startup(function(use)
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use("lunarvim/darkplus.nvim")
-  -- cmp plugins
 
+  -- cmp plugins
   use("hrsh7th/nvim-cmp") -- The completion plugin
   use("hrsh7th/cmp-buffer") -- buffer completions
   use("hrsh7th/cmp-path") -- path completions
@@ -79,7 +79,7 @@ return packer.startup(function(use)
   use("L3MON4D3/LuaSnip") --snippet engine
   use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
   use("honza/vim-snippets")
-  -- LSP
+  -- LSPj
   use("neovim/nvim-lspconfig") -- enable LSP
   use("williamboman/nvim-lsp-installer") -- simple to use language server installer
   use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
@@ -102,6 +102,14 @@ return packer.startup(function(use)
   use("mfussenegger/nvim-dap-python")
   use("nvim-telescope/telescope-dap.nvim")
   use("theHamsta/nvim-dap-virtual-text")
+
+  -- Git
+  use({
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup()
+    end,
+  })
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
