@@ -1,6 +1,6 @@
 #!/bin/bash
 if [[ "$SLUA" != "" ]]; then
-  return
+  exit 0
 fi
 #
 # Variabler
