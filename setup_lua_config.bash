@@ -53,7 +53,7 @@ fi
 #
 #
 # Check nvim version and update if too old
-vim_version=$(vim --version | tail -n +1  | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
+vim_version=$(nvim --version | tail -n +1  | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
 vim_version_compare=$(echo "$vim_version < $vim_min_version" | bc -l)
 echo "nvim: curr=$vim_version > min=$vim_min_version = $vim_version_compare"
 if [[ ! $(command -v nvim) || "$vim_version_compare" -eq "1" ]]; then
