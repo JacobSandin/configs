@@ -7,6 +7,8 @@ node_min_version="16.00"
 rg_min_version="13"
 ripgrep_file="ripgrep_13.0.0_amd64.deb"
 #
+OLDPATH=$PATH
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.config/nvim/plugged/fzf/bin:$HOME/bin:$PATH"
 #
 if [ "$EUID" -eq 0 ]; then
 #  echo "Please do not run as root"
@@ -125,3 +127,8 @@ fi
 #
 #cpan install -y Perl::Tidy
 #sudo perl -I /usr/lib/perl5 -MCPAN 
+
+
+OLDPATH="$PATH"
+export PATH="$OLDPATH"
+
