@@ -1,4 +1,9 @@
 #!/bin/bash
+if [[ "$SLUA" != "" ]]; then
+  return
+fi
+export SLUA="DONE"
+echo $SLUA
 #
 # Variabler
 vim_min_version="0.7"
@@ -91,6 +96,7 @@ if [[ ! -d ~/utv/git/config ]]; then
 else
   cd ~/utv/git/config/
   git pull >/dev/null
+  cd ~/ 
 fi
 if [[ ! -L ~/.config/nvim/lua ]] || [[ ! -e ~/.config/nvim/lua ]]; then
   echo "LUA dir verkar tokigt skapar länkar"
@@ -133,3 +139,19 @@ fi
 
 #OLDPATH="$PATH"
 #export PATH="$OLDPATH"
+
+
+# install plugins in vim
+if [[ ! -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim ]]; then
+  errorout=$(nvim -c PackerSync -c 'sleep 5' -c qa --headless 2>&1)
+
+  while [[ "$errorout" != "" ]]; do
+    errorout=$(nvim -c PackerSync -c 'sleep 5' -c qa --headless 2>&1)
+    #echo "$errorout"
+    if [[ -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && ! -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim/build ]]; then
+      cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim
+      make
+      cd ~/
+    fi
+  done
+fi
