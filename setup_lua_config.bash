@@ -1,6 +1,10 @@
 #!/bin/bash
 if [[ "$SLUA" != "" ]]; then
-  exit 0
+  exit
+fi
+if [ "$EUID" -eq 0 ]; then
+  #  echo "Please do not run as root"
+  exit
 fi
 #
 # Variabler
@@ -15,20 +19,15 @@ if [[ ! "$PATH" == *"$HOME"* ]]; then
   export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.config/nvim/plugged/fzf/bin:$HOME/bin:$PATH"
 fi
 #
-if [ "$EUID" -eq 0 ]; then
-  #  echo "Please do not run as root"
-  exit
-fi
-#
 #
 # Update etckeeper if it exists so it does not interfere
 if [ $(command -v etckeeper) ]; then
-  sudo etckeeper commit -c "nvim lua install" >/dev/null
+  sudo etckeeper commit -c "nvim lua install"
 fi
 #
 #
 ## Check ripgrep version and update if too old or missing
-rg_version=$(rg --version | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
+rg_version=$(rg --version | tail -n +1 | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
 rg_version_compare=$(echo "$rg_version < $rg_min_version" | bc -l)
 echo "ripgrep: curr=$rg_version > min=$rg_min_version = $rg_version_compare"
 if [[ ! $(command -v rg) || "$rg_version_compare" -eq "1" ]]; then
@@ -39,7 +38,7 @@ fi
 #
 #
 # Check lazygit version and update if too old or missing
-lg_version=$(lazygit --version | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
+lg_version=$(lazygit --version | tail -n +1 | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
 lg_version_compare=$(echo "$lg_version < $lg_min_version" | bc -l)
 echo "lazygit: curr=$lg_version > min=$lg_min_version = $lg_version_compare"
 if [[ ! $(command -v lazygit) || "$lg_version_compare" -eq "1" ]]; then
@@ -54,7 +53,7 @@ fi
 #
 #
 # Check nvim version and update if too old
-vim_version=$(vim --version | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
+vim_version=$(vim --version | tail -n +1  | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
 vim_version_compare=$(echo "$vim_version < $vim_min_version" | bc -l)
 echo "nvim: curr=$vim_version > min=$vim_min_version = $vim_version_compare"
 if [[ ! $(command -v nvim) || "$vim_version_compare" -eq "1" ]]; then
@@ -69,7 +68,7 @@ fi
 #
 #
 # Check node version and update if too old
-node_version=$(node --version | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
+node_version=$(node --version | tail -n +1  | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
 node_version_compare=$(echo "$node_version < $node_min_version" | bc -l)
 echo "node: curr=$node_version > min=$node_min_version = $node_version_compare"
 if [[ ! $(command -v node) || "$node_version_compare" -eq "1" ]]; then
@@ -115,6 +114,10 @@ if [[ ! $(command -v stylua) ]]; then
   sudo chmod 755 /usr/bin/stylua
 fi
 
+#Python
+if [[ ! $(command -v pip) ]]; then
+  sudo apt install pip
+fi
 #Python
 if [[ ! $(command -v flake8) ]]; then
   pip install flake8
