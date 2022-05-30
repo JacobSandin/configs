@@ -16,6 +16,7 @@ require("null-ls").setup({
     diag.php,
     form.phpcsfixer,
     form.perltidy,
+    form.shfmt.with({ extra_args = { "-i", "2" } }),
 
   },
 })
