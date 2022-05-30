@@ -42,7 +42,7 @@ lg_version=$(lazygit --version | tail -n +1 | head -1 | egrep -o '[0-9]{1,2}\.[0
 lg_version_compare=$(echo "$lg_version < $lg_min_version" | bc -l)
 echo "lazygit: curr=$lg_version > min=$lg_min_version = $lg_version_compare"
 if [[ ! $(command -v lazygit) || "$lg_version_compare" -eq "1" ]]; then
-  sudo apt-get install xdg-utils
+  sudo apt-get install -y  xdg-utils
   wget https://github.com/jesseduffield/lazygit/releases/download/v0.34/lazygit_0.34_Linux_x86_64.tar.gz
   tar -xzvf lazygit_0.34_Linux_x86_64.tar.gz lazygit
   sudo cp lazygit /usr/bin
@@ -57,7 +57,7 @@ vim_version=$(vim --version | tail -n +1  | head -1 | egrep -o '[0-9]{1,2}\.[0-9
 vim_version_compare=$(echo "$vim_version < $vim_min_version" | bc -l)
 echo "nvim: curr=$vim_version > min=$vim_min_version = $vim_version_compare"
 if [[ ! $(command -v nvim) || "$vim_version_compare" -eq "1" ]]; then
-  sudo apt update
+  sudo apt update -y
   sudo apt remove -y neovim neovim-runtime
   wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
   sudo apt remove -y ./nvim-linux64.deb
@@ -116,7 +116,7 @@ fi
 
 #Python
 if [[ ! $(command -v pip) ]]; then
-  sudo apt install pip
+  sudo apt install -y pip
 fi
 #Python
 if [[ ! $(command -v flake8) ]]; then
