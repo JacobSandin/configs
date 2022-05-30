@@ -153,6 +153,7 @@ if [[ ! -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim 
       cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim
       make
       cd ~/
+      exit
     fi
   done
 fi

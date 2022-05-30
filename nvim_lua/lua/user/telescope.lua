@@ -88,9 +88,6 @@ telescope.setup {
           "-L",
       }
     },
---  find_files = {
---      find_command = {"rg", "--ignore", "-L", "--hidden", "--files"},
---    },
     -- Default configuration for builtin pickers goes here:
     -- picker_name = {
     --   picker_config_key = value,
@@ -117,3 +114,4 @@ telescope.setup {
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
+--require('telescope').extensions.notify.notify()
