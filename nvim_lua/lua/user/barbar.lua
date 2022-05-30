@@ -1,3 +1,10 @@
+vim.g.bufferline = {
+  animation=false,
+  closable=true,
+  icon_separator_active='',
+  icon_separator_inactive='',
+}
+
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
