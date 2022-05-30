@@ -7,8 +7,10 @@ node_min_version="16.00"
 rg_min_version="13"
 ripgrep_file="ripgrep_13.0.0_amd64.deb"
 #
-OLDPATH=$PATH
-export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.config/nvim/plugged/fzf/bin:$HOME/bin:$PATH"
+#OLDPATH=$PATH
+if [[ ! "$PATH" == *"$HOME"* ]];then
+  export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.config/nvim/plugged/fzf/bin:$HOME/bin:$PATH"
+fi
 #
 if [ "$EUID" -eq 0 ]; then
 #  echo "Please do not run as root"
@@ -30,7 +32,6 @@ if [[ ! `command -v rg` || "$rg_version_compare" -eq "1" ]]; then
   curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/$ripgrep_file
   sudo dpkg -i $ripgrep_file
   rm $ripgrep_file*
-
 fi
 #
 #
@@ -129,6 +130,6 @@ fi
 #sudo perl -I /usr/lib/perl5 -MCPAN 
 
 
-OLDPATH="$PATH"
-export PATH="$OLDPATH"
+#OLDPATH="$PATH"
+#export PATH="$OLDPATH"
 
