@@ -2,8 +2,6 @@
 if [[ "$SLUA" != "" ]]; then
   return
 fi
-export SLUA="DONE"
-echo $SLUA
 #
 # Variabler
 vim_min_version="0.7"
