@@ -44,7 +44,7 @@ opt.swapfile = false
 opt.backup = false
 
 opt.spelllang = "en,sv"
-opt.spell = true
+opt.spell = false
 opt.updatetime = 300
 opt.cmdheight = 2
 opt.pastetoggle="<leader>p"
