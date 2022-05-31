@@ -157,7 +157,15 @@ if [[ ! -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim 
       cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim
       make
       cd ~/
-      exit
+      break
     fi
   done
 fi
+
+if [[ -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim  && ! -f ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim/build/libfzf.so ]]; then
+      cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim
+      make
+      cd ~/
+fi
+
+
