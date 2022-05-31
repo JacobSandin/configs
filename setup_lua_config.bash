@@ -24,6 +24,8 @@ fi
 if [ $(command -v etckeeper) ]; then
   sudo etckeeper commit -c "nvim lua install"
 fi
+
+sudo chown -R $EUID.$EUID $HOME
 #
 #
 ## Check ripgrep version and update if too old or missing
