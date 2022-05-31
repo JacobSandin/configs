@@ -106,6 +106,10 @@ if [ -f /usr/bin/nvim ]; then
     elif [ -f ~/.config/nvim/plugged/fzf/shell/key-bindings.zsh ]; then
         source ~/.config/nvim/plugged/fzf/shell/key-bindings.zsh
         source ~/.config/nvim/plugged/fzf/shell/completion.zsh
+    elif [ -f ~/utv/git/configs/fzf/key-bindings.zsh ]; then
+        source ~/utv/git/configs/fzf/key-bindings.zsh
+        source ~/utv/git/configs/fzf/completion.zsh
+    fi
     fi
 else
     export EDITOR='vim'
