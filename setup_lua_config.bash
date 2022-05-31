@@ -151,8 +151,8 @@ if [[ ! -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim 
   errorout=$(nvim -c PackerSync -c 'sleep 5' -c qa --headless 2>&1)
 
   while [[ "$errorout" != "" ]]; do
+    echo "$errorout"
     errorout=$(nvim -c PackerSync -c 'sleep 5' -c qa --headless 2>&1)
-    #echo "$errorout"
     if [[ -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && ! -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim/build ]]; then
       cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim
       make
