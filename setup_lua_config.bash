@@ -24,6 +24,8 @@ fi
 if [ $(command -v etckeeper) ]; then
   sudo etckeeper commit -c "nvim lua install"
 fi
+
+sudo chown -R $EUID.$EUID $HOME
 #
 #
 ## Check ripgrep version and update if too old or missing
@@ -90,6 +92,8 @@ if [[ ! -d ~/utv/git/config ]]; then
   git clone https://github.com/JacobSandin/configs ~/utv/git/config >/dev/null
   git config --global user.email "jacob@imcode.com"
   git config --global user.name "Jacob Sandin"
+  source ~/utv/git/configs/fzf/key-bindings.zsh
+  source ~/utv/git/configs/fzf/completion.zsh
 else
   cd ~/utv/git/config/
   git pull >/dev/null
@@ -151,13 +155,21 @@ if [[ ! -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim 
   errorout=$(nvim -c PackerSync -c 'sleep 5' -c qa --headless 2>&1)
 
   while [[ "$errorout" != "" ]]; do
+    echo "$errorout"
     errorout=$(nvim -c PackerSync -c 'sleep 5' -c qa --headless 2>&1)
-    #echo "$errorout"
     if [[ -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && ! -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim/build ]]; then
       cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim
       make
       cd ~/
-      exit
+      break
     fi
   done
 fi
+
+if [[ -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim  && ! -f ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim/build/libfzf.so ]]; then
+      cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim
+      make
+      cd ~/
+fi
+
+
