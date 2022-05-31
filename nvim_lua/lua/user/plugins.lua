@@ -46,6 +46,7 @@ return packer.startup(function(use)
   use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
   use("kyazdani42/nvim-tree.lua")
   use("rcarriga/nvim-notify")
+  use 'ggandor/lightspeed.nvim'
 
   use("EdenEast/nightfox.nvim")
   use({
