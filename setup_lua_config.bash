@@ -1,14 +1,17 @@
 #!/bin/bash
 full="$1"
-echo "$SLUA"
+export SLUA=""
 echo "$full"
-if [[ "$SLUA" != "" && "$full" != "full" ]]; then
+if [[ "$SLUA" != "" && "$full" == "" ]]; then
   exit
 fi
 
 if [ "$EUID" == 0 ]; then
   #  echo "Please do not run as root"
   exit
+fi
+if [[ -f ~/.full_setup ]]; then
+    full="full"
 fi
 
 if [[ "$full" == "full" ]]; then
