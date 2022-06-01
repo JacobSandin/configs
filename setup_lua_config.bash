@@ -1,6 +1,6 @@
 #!/bin/bash
 full="$1"
-export SLUA=""
+#export SLUA=""
 echo "$full"
 if [[ "$SLUA" != "" && "$full" == "" ]]; then
   exit

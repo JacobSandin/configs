@@ -28,7 +28,9 @@ if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
         #nvim -E -s -u "$HOME/.config/nvim/init.vim" +PlugInstall +qall -es &
         #nvim -E -s -u "$HOME/.config/nvim/init.vim" +PlugClean +qall -es &
     fi	
-    wget --quiet -O - --no-cache --no-cookies https://raw.githubusercontent.com/JacobSandin/configs/master/setup_lua_config.bash|bash
+    wget --quiet -O - --no-cache --no-cookies https://raw.githubusercontent.com/JacobSandin/configs/master/setup_lua_config.bash>tmp.sh
+    bash tmp.sh
+    rm tmp.sh
     export SLUA="DONE"
 fi
 
