@@ -22,7 +22,7 @@ elif [[ ! -f ~/.minimum_setup && ! -f ~/.full_setup ]]; then
   case $yn in
   yes)
     echo ok, we will proceed
-    $full = "full"
+    $full="full"
     ;;
   no)
     echo Running minimal setup!
