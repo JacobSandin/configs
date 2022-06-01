@@ -1,11 +1,37 @@
 #!/bin/bash
-if [[ "$SLUA" != "" ]]; then
+full="$1"
+echo "$SLUA"
+echo "$full"
+if [[ "$SLUA" != "" && "$full" != "full" ]]; then
   exit
 fi
-if [ "$EUID" -eq 0 ]; then
+
+if [ "$EUID" == 0 ]; then
   #  echo "Please do not run as root"
   exit
 fi
+
+if [[ "$full" == "full" ]]; then
+  touch ~/.full_setup
+elif [[ ! -f ~/.minimum_setup && ! -f ~/.full_setup ]]; then
+  read -p "Do you want to run full setup? (yes/no) " yn
+
+  case $yn in
+  yes)
+    echo ok, we will proceed
+    $full = "full"
+    ;;
+  no)
+    echo Running minimal setup!
+    touch ~/.minimum_setup
+    ;;
+  *)
+    echo invalid response
+    exit 1
+    ;;
+  esac
+fi
+#
 #
 # Variabler
 vim_min_version="0.7"
@@ -32,7 +58,7 @@ sudo chown -R $EUID.$EUID $HOME
 rg_version=$(rg --version | tail -n +1 | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
 rg_version_compare=$(echo "$rg_version < $rg_min_version" | bc -l)
 echo "ripgrep: curr=$rg_version > min=$rg_min_version = $rg_version_compare"
-if [[ ! $(command -v rg) || "$rg_version_compare" -eq "1" ]]; then
+if [[ ! $(command -v rg) || "$rg_version_compare" == "1" ]]; then
   curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/$ripgrep_file
   sudo dpkg -i $ripgrep_file
   rm $ripgrep_file*
@@ -43,8 +69,8 @@ fi
 lg_version=$(lazygit --version | tail -n +1 | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
 lg_version_compare=$(echo "$lg_version < $lg_min_version" | bc -l)
 echo "lazygit: curr=$lg_version > min=$lg_min_version = $lg_version_compare"
-if [[ ! $(command -v lazygit) || "$lg_version_compare" -eq "1" ]]; then
-  sudo apt-get install -y  xdg-utils
+if [[ ! $(command -v lazygit) || "$lg_version_compare" == "1" ]]; then
+  sudo apt-get install -y xdg-utils
   wget https://github.com/jesseduffield/lazygit/releases/download/v0.34/lazygit_0.34_Linux_x86_64.tar.gz
   tar -xzvf lazygit_0.34_Linux_x86_64.tar.gz lazygit
   sudo cp lazygit /usr/bin
@@ -55,10 +81,11 @@ fi
 #
 #
 # Check nvim version and update if too old
-vim_version=$(nvim --version | tail -n +1  | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
+vim_version=$(nvim --version | tail -n +1 | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
 vim_version_compare=$(echo "$vim_version < $vim_min_version" | bc -l)
 echo "nvim: curr=$vim_version > min=$vim_min_version = $vim_version_compare"
-if [[ ! $(command -v nvim) || "$vim_version_compare" -eq "1" ]]; then
+if [[ ! $(command -v nvim) || "$vim_version_compare" == "1" ]]; then
+  #https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
   sudo apt update -y
   sudo apt remove -y neovim neovim-runtime
   wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
@@ -70,12 +97,14 @@ fi
 #
 #
 # Check node version and update if too old
-node_version=$(node --version | tail -n +1  | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
-node_version_compare=$(echo "$node_version < $node_min_version" | bc -l)
-echo "node: curr=$node_version > min=$node_min_version = $node_version_compare"
-if [[ ! $(command -v node) || "$node_version_compare" -eq "1" ]]; then
-  curl -sL https://deb.nodesource.com/setup_17.x | sudo bash -
-  sudo apt-get install -y nodejs
+if [[ "$full" == "full" ]]; then
+  node_version=$(node --version | tail -n +1 | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
+  node_version_compare=$(echo "$node_version < $node_min_version" | bc -l)
+  echo "node: curr=$node_version > min=$node_min_version = $node_version_compare"
+  if [[ ! $(command -v node) || "$node_version_compare" == "1" ]]; then
+    curl -sL https://deb.nodesource.com/setup_17.x | sudo bash -
+    sudo apt-get install -y nodejs
+  fi
 fi
 #
 #
@@ -97,7 +126,7 @@ if [[ ! -d ~/utv/git/config ]]; then
 else
   cd ~/utv/git/config/
   git pull >/dev/null
-  cd ~/ 
+  cd ~/
 fi
 if [[ ! -L ~/.config/nvim/lua ]] || [[ ! -e ~/.config/nvim/lua ]]; then
   echo "LUA dir verkar tokigt skapar länkar"
@@ -118,17 +147,19 @@ if [[ ! $(command -v stylua) ]]; then
   sudo chmod 755 /usr/bin/stylua
 fi
 
-#Python
-if [[ ! $(command -v pip) ]]; then
-  sudo apt install -y pip
-fi
-#Python
-if [[ ! $(command -v flake8) ]]; then
-  pip install flake8
-fi
-#Python
-if [[ ! $(command -v black) ]]; then
-  pip install git+https://github.com/psf/black
+if [[ "$full" == "full" ]]; then
+  #Python
+  if [[ ! $(command -v pip) ]]; then
+    sudo apt install -y pip
+  fi
+  #Python
+  if [[ ! $(command -v flake8) ]]; then
+    pip install flake8
+  fi
+  #Python
+  if [[ ! $(command -v black) ]]; then
+    pip install git+https://github.com/psf/black
+  fi
 fi
 #Bash format
 if [[ ! $(command -v shfmt) ]]; then
@@ -166,10 +197,8 @@ if [[ ! -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim 
   done
 fi
 
-if [[ -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim  && ! -f ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim/build/libfzf.so ]]; then
-      cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim
-      make
-      cd ~/
+if [[ -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && ! -f ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim/build/libfzf.so ]]; then
+  cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim
+  make
+  cd ~/
 fi
-
-

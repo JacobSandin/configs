@@ -31,7 +31,7 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Nvim-tree
-keymap("n", "<C-n>", ":NvimTreeToggle<cr>", opts)
+-- keymap("n", "<C-n>", ":NvimTreeToggle<cr>", opts)
 
 -- Telescope
 keymap(

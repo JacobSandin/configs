@@ -137,9 +137,9 @@ if has('win32')
     nnoremap <silent> <leader>cc :e ~/.config/nvim/init.vim<cr>
     command! SV execute "source ~/.config/nvim/init.vim"
 elseif has('unix')
-    nnoremap <silent> <leader>cs :source ~/.config/nvim/init.vim<cr>
-    nnoremap <silent> <leader>cc :e ~/.config/nvim/init.vim<cr>
-    command! SV execute "source ~/.config/nvim/init.vim"
+    nnoremap <silent> <leader>cs :source ~/.config/nvim/init.lua<cr>
+    nnoremap <silent> <leader>cc :e ~/.config/nvim/init.lua<cr>
+    command! SV execute "source ~/.config/nvim/init.lua"
 endif
 nnoremap <silent> <leader><tab> :call ShowWhiteSpaces()<cr>
 "nnoremap <leader>t :bo terminal<cr>

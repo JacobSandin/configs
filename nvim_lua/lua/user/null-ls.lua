@@ -1,6 +1,6 @@
 local null_ls_status_ok, null_ls = pcall(require, "null-ls")
 if not null_ls_status_ok then
-    return
+  return
 end
 
 local form = null_ls.builtins.formatting
@@ -19,7 +19,6 @@ require("null-ls").setup({
     form.perltidy,
     form.shfmt.with({ extra_args = { "-i", "2" } }),
     code.gitsigns,
-
   },
 })
 
