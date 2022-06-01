@@ -94,7 +94,7 @@ alias hz='history|fzf'
 alias e='exit'
 alias vimdiff='nvim -d'
 # bzip2 still best alternative I feel. alias bzip2='echo "==========================================\n\n WARNING! (bzip2) Använd lzma istället \n\n==========================================" 1>&2;'
-if [ -f /usr/bin/nvim ]; then
+if [ $(command -v nvim) ]; then
     export EDITOR='nvim'
     alias vim=nvim
     alias vi=nvim
