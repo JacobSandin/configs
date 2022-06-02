@@ -122,13 +122,13 @@ if [[ ! -d ~/.config/nvim ]]; then
   mkdir -p ~/.config/nvim
 fi
 if [[ -d /srv/github/tools ]]; then
-  echo "updating /srv/github/tools/\n"
+  echo "updating /srv/github/tools/"
   cd /srv/github/tools/
   sudo -u root git pull
   cd ~/
 fi
 if [[ -d /srv/github/vufind ]]; then
-  echo "Updating /srv/github/vufind\n"
+  echo "Updating /srv/github/vufind/"
   cd /srv/github/vufind/
   sudo -u root git pull
   cd ~/
