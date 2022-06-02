@@ -19,7 +19,8 @@ require("null-ls").setup({
     form.perltidy,
     form.shfmt.with({ extra_args = { "-i", "2" } }),
     code.gitsigns,
-    diag.ansiblelint,
+    diag.ansiblelint, -- ansible npm install -g @ansible/ansible-language-server
+    form.prettier, -- yaml etc npm install --save-dev --save-exact prettier
   },
 })
 

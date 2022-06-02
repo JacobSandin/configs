@@ -186,7 +186,8 @@ fi
 #sudo curl -L https://cs.symfony.com/download/php-cs-fixer-v3.phar -o /usr/bin/php-cs-fixer
 #chmod 755 /usr/bin/php-cs-fixer
 #
-#
+#npm install -g @ansible/ansible-language-server
+#npm install --save-dev --save-exact prettier
 #cpan install -y Perl::Tidy
 #sudo perl -I /usr/lib/perl5 -MCPAN
 
