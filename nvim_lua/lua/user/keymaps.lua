@@ -40,6 +40,8 @@ keymap(
   "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>",
   { noremap = true, silent = true }
 )
+--lua require('telescope.builtin').find_files( { cwd = vim.fn.expand('~/') })
+keymap("n", "<leader>tF", "<cmd>lua require('telescope.builtin').find_files({ cwd = vim.fn.expand('~/') })<cr>", opts)
 keymap("n", "<leader>tf", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
 keymap("n", "<leader>tg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
 keymap("n", "<leader>tb", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
