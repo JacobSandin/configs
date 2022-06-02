@@ -120,6 +120,14 @@ fi
 if [[ ! -d ~/.config/nvim ]]; then
   mkdir -p ~/.config/nvim
 fi
+if [[ ! -d /srv/github/tools ]]; then
+  echo "updating /srv/github/tools/"
+  cd /srv/github/tools/;git pull;cd ~/
+fi
+if [[ ! -d /srv/github/vufind ]]; then
+  echo "Updating /srv/github/vufind"
+  cd /srv/github/vufind/;git pull;cd ~/
+fi
 if [[ ! -d ~/utv/git/config ]]; then
   mkdir -p ~/utv/git
   git clone https://github.com/JacobSandin/configs ~/utv/git/config >/dev/null
