@@ -130,7 +130,7 @@ fi
 if [[ -d /srv/github/vufind ]]; then
   echo "Updating /srv/github/vufind\n"
   cd /srv/github/vufind/
-  sudo git -u root pull
+  sudo -u root git pull
   cd ~/
 fi
 if [[ ! -d ~/utv/git/config ]]; then
