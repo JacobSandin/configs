@@ -22,6 +22,7 @@ elif [[ ! -f ~/.minimum_setup && ! -f ~/.full_setup ]]; then
   case $yn in
   yes)
     echo ok, we will proceed
+    touch ~/.full_setup
     full="full"
     ;;
   no)
