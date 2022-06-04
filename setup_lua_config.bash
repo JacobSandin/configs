@@ -221,7 +221,7 @@ if [[ -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim &&
   cd ~/
 fi
 
-
+#cd ~/utv/git/
 #git clone https://github.com/xdebug/vscode-php-debug.git
 #cd vscode-php-debug
 #npm install && npm run build
