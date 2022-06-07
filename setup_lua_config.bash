@@ -225,4 +225,8 @@ fi
 #git clone https://github.com/xdebug/vscode-php-debug.git
 #cd vscode-php-debug
 #npm install && npm run build
-
+#
+#
+# wget https://cs.symfony.com/download/php-cs-fixer-v3.phar -O php-cs-fixer
+# chmod 755 php-cs-fixer
+# cp php-cs-fixer ~/.local/bin/
