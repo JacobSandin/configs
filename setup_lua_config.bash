@@ -230,3 +230,7 @@ fi
 # wget https://cs.symfony.com/download/php-cs-fixer-v3.phar -O php-cs-fixer
 # chmod 755 php-cs-fixer
 # cp php-cs-fixer ~/.local/bin/
+#
+#wget -O composer-setup.php https://getcomposer.org/installer
+#sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+#
