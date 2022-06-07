@@ -1,11 +1,11 @@
 local M = {}
 
 function M.setup(_)
-local dap = require('dap')
+local dap = require "dap"
 dap.adapters.php = {
   type = 'executable',
   command = 'node',
-  args = { '~/utv/git/vscode-php-debug/out/phpDebug.js' }
+  args = { os.getenv('HOME') .. '/utv/git/vscode-php-debug/out/phpDebug.js' }
 }
 
 dap.configurations.php = {
@@ -13,7 +13,9 @@ dap.configurations.php = {
     type = 'php',
     request = 'launch',
     name = 'Listen for Xdebug',
-    port = 9000
+    port = 9000,
+    log = true,
+    --localSourceRoot = '/usr/local/vufind/',
   }
 }
 end

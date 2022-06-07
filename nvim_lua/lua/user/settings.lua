@@ -42,7 +42,7 @@ opt.mouse = "a"
 opt.cursorline = true
 opt.swapfile = false
 opt.backup = false
-
+opt.iskeyword:append("$")
 opt.spelllang = "en,sv"
 opt.spell = false
 opt.updatetime = 300

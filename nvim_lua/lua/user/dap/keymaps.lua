@@ -11,13 +11,13 @@ function M.setup()
     d = {
       name = "Debug",
       R = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run to Cursor" },
-      --E = { "<cmd>lua require'dapui'.eval(vim.fn.input '[Expression] > ')<cr>", "Evaluate Input" },
+      E = { "<cmd>lua require'dapui'.eval(vim.fn.input '[Expression] > ')<cr>", "Evaluate Input" },
       C = { "<cmd>lua require'dap'.set_breakpoint(vim.fn.input '[Condition] > ')<cr>", "Conditional Breakpoint" },
-      --U = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle UI" },
+      U = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle UI" },
       b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
       c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
       d = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
---      e = { "<cmd>lua require'dapui'.eval()<cr>", "Evaluate" },
+      e = { "<cmd>lua require'dapui'.eval()<cr>", "Evaluate" },
       g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
       h = { "<cmd>lua require'dap.ui.widgets'.hover()<cr>", "Hover Variables" },
       S = { "<cmd>lua require'dap.ui.widgets'.scopes()<cr>", "Scopes" },
@@ -43,10 +43,8 @@ function M.setup()
   })
 
   local keymap_v = {
---    d = {
---      name = "Debug",
---      e = { "<cmd>lua require'dapui'.eval()<cr>", "Evaluate" },
---    },
+    name = "Debug",
+    e = { "<cmd>lua require'dapui'.eval()<cr>", "Evaluate" },
   }
   whichkey.register(keymap_v, {
     mode = "v",

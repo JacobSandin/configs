@@ -1,47 +1,70 @@
+local M = {}
 
+local function configure()
+  local dap_install = require "dap-install"
+  dap_install.setup {
+    installation_path = vim.fn.stdpath "data" .. "/dapinstall/",
+  }
 
-require('dap-python').setup('python')
+  local dap_breakpoint = {
+    error = {
+      text = "🟥",
+      texthl = "LspDiagnosticsSignError",
+      linehl = "",
+      numhl = "",
+    },
+    rejected = {
+      text = "",
+      texthl = "LspDiagnosticsSignHint",
+      linehl = "",
+      numhl = "",
+    },
+    stopped = {
+      text = "⭐️",
+      texthl = "LspDiagnosticsSignInformation",
+      linehl = "DiagnosticUnderlineInfo",
+      numhl = "LspDiagnosticsSignInformation",
+    },
+  }
 
-local dap = require('dap')
---dap.adapters.node2 = {
---  type = 'executable',
---  command = 'node',
-----  args = {os.getenv('HOME') .. '/apps/node/out/src/nodeDebug.js'},
---}
+  vim.fn.sign_define("DapBreakpoint", dap_breakpoint.error)
+  vim.fn.sign_define("DapStopped", dap_breakpoint.stopped)
+  vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
+end
 
--- require('dap').set_log_level('INFO')
-dap.defaults.fallback.terminal_win_cmd = '20split new'
---vim.fn.sign_define('DapBreakpoint', {text='🟥', texthl='', linehl='', numhl=''})
---vim.fn.sign_define('DapBreakpointRejected', {text='🟦', texthl='', linehl='', numhl=''})
-vim.fn.sign_define('DapStopped', {text='⭐️', texthl='', linehl='', numhl=''})
+local function configure_exts()
+  require("nvim-dap-virtual-text").setup {
+    commented = true,
+  }
 
-vim.keymap.set('n', '<leader>dh', function() require"dap".toggle_breakpoint() end)
-vim.keymap.set('n', '<leader>dH', ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
-vim.keymap.set('n', '<A-k>', function() require"dap".step_out() end)
-vim.keymap.set('n', "<A-l>", function() require"dap".step_into() end)
-vim.keymap.set('n', '<A-j>', function() require"dap".step_over() end)
-vim.keymap.set('n', '<A-h>', function() require"dap".continue() end)
-vim.keymap.set('n', '<leader>dn', function() require"dap".run_to_cursor() end)
-vim.keymap.set('n', '<leader>dc', function() require"dap".terminate() end)
-vim.keymap.set('n', '<leader>dR', function() require"dap".clear_breakpoints() end)
-vim.keymap.set('n', '<leader>de', function() require"dap".set_exception_breakpoints({"all"}) end)
-vim.keymap.set('n', '<leader>da', function() require"debugHelper".attach() end)
-vim.keymap.set('n', '<leader>dA', function() require"debugHelper".attachToRemote() end)
-vim.keymap.set('n', '<leader>di', function() require"dap.ui.widgets".hover() end)
-vim.keymap.set('n', '<leader>d?', function() local widgets=require"dap.ui.widgets";widgets.centered_float(widgets.scopes) end)
-vim.keymap.set('n', '<leader>dk', ':lua require"dap".up()<CR>zz')
-vim.keymap.set('n', '<leader>dj', ':lua require"dap".down()<CR>zz')
-vim.keymap.set('n', '<leader>dr', ':lua require"dap".repl.toggle({}, "vsplit")<CR><C-w>l')
+  local dap, dapui = require "dap", require "dapui"
+  dapui.setup {} -- use default
+  dap.listeners.after.event_initialized["dapui_config"] = function()
+    dapui.open()
+  end
+  dap.listeners.before.event_terminated["dapui_config"] = function()
+    dapui.close()
+  end
+  dap.listeners.before.event_exited["dapui_config"] = function()
+    dapui.close()
+  end
+end
 
--- nvim-telescope/telescope-dap.nvim
-require('telescope').load_extension('dap')
-vim.keymap.set('n', '<leader>ds', ':Telescope dap frames<CR>')
--- vim.keymap.set('n', '<leader>dc', ':Telescope dap commands<CR>')
-vim.keymap.set('n', '<leader>db', ':Telescope dap list_breakpoints<CR>')
+local function configure_debuggers()
+  require("user.dap.lua").setup()
+  --require("user.dap.python").setup()
+  --require("user.dap.rust").setup()
+  --require("user.dap.go").setup()
+  require("user.dap.php").setup()
+end
 
---require("user.dap.lua").setup()
---require("user.dap.python").setup()
---require("user.dap.rust").setup()
---require("user.dap.go").setup()
-require("user.dap.php").setup()
---require('nvim-dap-virtual-text').setup()
+function M.setup()
+  configure() -- Configuration
+  configure_exts() -- Extensions
+  configure_debuggers() -- Debugger
+  require("user.dap.keymaps").setup() -- Keymaps
+end
+
+configure_debuggers()
+
+return M

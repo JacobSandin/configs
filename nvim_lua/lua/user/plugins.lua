@@ -46,7 +46,7 @@ return packer.startup(function(use)
   use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
   use("kyazdani42/nvim-tree.lua")
   use("rcarriga/nvim-notify")
-  use 'ggandor/lightspeed.nvim'
+  use("ggandor/lightspeed.nvim")
 
   use("EdenEast/nightfox.nvim")
   use({
@@ -98,12 +98,27 @@ return packer.startup(function(use)
   })
   use("p00f/nvim-ts-rainbow")
   use("nvim-treesitter/playground")
-  use("mfussenegger/nvim-dap")
-  use("Pocco81/dap-buddy.nvim")
-  use("mfussenegger/nvim-dap-python")
-  use("nvim-telescope/telescope-dap.nvim")
-  use("theHamsta/nvim-dap-virtual-text")
-
+  --use("Pocco81/dap-buddy.nvim")
+  -- Debugging
+  use({
+    "mfussenegger/nvim-dap",
+    opt = true,
+    event = "BufReadPre",
+    module = { "dap" },
+    wants = { "nvim-dap-virtual-text", "dap-buddy.nvim", "nvim-dap-ui", "nvim-dap-python", "which-key.nvim" },
+    requires = {
+      {"Pocco81/dap-buddy.nvim",branch = "dev"},
+      "theHamsta/nvim-dap-virtual-text",
+      "rcarriga/nvim-dap-ui",
+      "mfussenegger/nvim-dap-python",
+      "nvim-telescope/telescope-dap.nvim",
+      { "leoluz/nvim-dap-go", module = "dap-go" },
+      { "jbyuki/one-small-step-for-vimkind", module = "osv" },
+    },
+    config = function()
+      require("user.dap").setup()
+    end,
+  })
   -- Git
   use({
     "lewis6991/gitsigns.nvim",
