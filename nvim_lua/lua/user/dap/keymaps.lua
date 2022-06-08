@@ -30,6 +30,11 @@ function M.setup()
       t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
       x = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate" },
       u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
+      k = { "<cmd>lua require'telescope'.extensions.dap.commands{}<cr>", "Step Out" },
+      y = { "<cmd>lua require'telescope'.extensions.dap.configurations{}<cr>", "Step Out" },
+      l = { "<cmd>lua require'telescope'.extensions.dap.list_breakpoints{}<cr>", "Step Out" },
+      v = { "<cmd>lua require'telescope'.extensions.dap.variables{}<cr>", "Step Out" },
+      f = { "<cmd>lua require'telescope'.extensions.dap.frames{}<cr>", "Step Out" },
     },
   }
 
