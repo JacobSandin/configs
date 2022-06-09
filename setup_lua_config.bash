@@ -17,22 +17,18 @@ fi
 if [[ "$full" == "full" ]]; then
   touch ~/.full_setup
 elif [[ ! -f ~/.minimum_setup && ! -f ~/.full_setup ]]; then
-  read -p "Do you want to run full setup? (yes/no) " yn
+  read -p "Do you want to run full setup? (full) " full
 
-  case $yn in
-  yes)
+  case $full in
+  full)
     echo ok, we will proceed
     touch ~/.full_setup
     full="full"
     ;;
-  no)
+  *)
     echo Running minimal setup!
     touch ~/.minimum_setup
     full=""
-    ;;
-  *)
-    echo invalid response
-    exit 1
     ;;
   esac
 fi
