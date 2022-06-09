@@ -1,36 +1,36 @@
-local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
+local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
 --local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
-local g = vim.g      -- a table to access global variables
-local opt = vim.opt  -- to set options_info
+local g = vim.g -- a table to access global variables
+local opt = vim.opt -- to set options_info
 
 g.syntax_on = true
 --g:filetype = 1
 
-opt.undodir = os.getenv( "HOME" ) .. '/.config/nvim/undodir' -- Does not seem to use ~
+opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir" -- Does not seem to use ~
 opt.undofile = true
 opt.termguicolors = true
-opt.completeopt = {'menuone', 'noselect', 'noinsert' }  -- Completion options (for deoplete)
-opt.expandtab = true                -- Use spaces instead of tabs
-opt.hidden = true                   -- Enable background buffers
-opt.ignorecase = true               -- Ignore case
-opt.joinspaces = false              -- No double spaces with join
-opt.list = true                     -- Show some invisible characters
-opt.number = true                   -- Show line numbers
-opt.relativenumber = true           -- Relative line numbers
-opt.scrolloff = 4                   -- Lines of context
-opt.shiftround = true               -- Round indent
-opt.shiftwidth = 2                  -- Size of an indent
-opt.sidescrolloff = 8               -- Columns of context
-opt.smartcase = true                -- Do not ignore case with capitals
-opt.smartindent = true              -- Insert indents automatically
-opt.splitbelow = true               -- Put new windows below current
-opt.splitright = true               -- Put new windows right of current
-opt.tabstop = 2                     -- Number of spaces tabs count for
+opt.completeopt = { "menuone", "noselect", "noinsert" } -- Completion options (for deoplete)
+opt.expandtab = true -- Use spaces instead of tabs
+opt.hidden = true -- Enable background buffers
+opt.ignorecase = true -- Ignore case
+opt.joinspaces = false -- No double spaces with join
+opt.list = true -- Show some invisible characters
+opt.number = true -- Show line numbers
+opt.relativenumber = true -- Relative line numbers
+opt.scrolloff = 4 -- Lines of context
+opt.shiftround = true -- Round indent
+opt.shiftwidth = 2 -- Size of an indent
+opt.sidescrolloff = 8 -- Columns of context
+opt.smartcase = true -- Do not ignore case with capitals
+opt.smartindent = true -- Insert indents automatically
+opt.splitbelow = true -- Put new windows below current
+opt.splitright = true -- Put new windows right of current
+opt.tabstop = 2 -- Number of spaces tabs count for
 opt.softtabstop = 2
-opt.termguicolors = true            -- True color support
-opt.wildmode = {'full'}  -- Command-line completion mode
+opt.termguicolors = true -- True color support
+opt.wildmode = { "full" } -- Command-line completion mode
 --opt.wildchar = '<Tab>'
-opt.wrap = false                    -- Disable line wrap
+opt.wrap = false -- Disable line wrap
 
 opt.modifiable = true
 opt.encoding = "utf-8"
@@ -47,10 +47,11 @@ opt.spelllang = "en,sv"
 opt.spell = false
 opt.updatetime = 300
 opt.cmdheight = 2
-opt.pastetoggle="<leader>p"
+opt.pastetoggle = "<leader>p"
 opt.colorcolumn = "81"
 --
-vim.cmd [[
+vim.cmd([[
+
 "set undodir=~/.config/nvim/undodir
 " ======================================
 "    Keymappings
@@ -206,4 +207,4 @@ endfunction
 "if has('nvim')
 "set  termguicolors
 set fileencoding=utf-8
-]]
+]])
