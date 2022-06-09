@@ -47,6 +47,7 @@ keymap("n", "<leader>tg", "<cmd>lua require('telescope.builtin').live_grep()<cr>
 keymap("n", "<leader>tb", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
 keymap("n", "<leader>th", "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
 keymap("n", "<leader>tn", "<cmd>lua require('telescope').extensions.notify.notify()<cr>", opts)
+keymap("n", "<leader>tm", "<cmd>lua require('telescope.builtin').keymaps()<cr>", opts)
 
 -- Naviagate buffers
 keymap("n", "<Right>", ":bnext<CR>", opts)
