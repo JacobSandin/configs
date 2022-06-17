@@ -88,6 +88,7 @@ return packer.startup(function(use)
 
   -- Floaterm
   use 'voldikss/vim-floaterm'
+  use 'voldikss/fzf-floaterm'
 
   -- Telescope
   use("nvim-telescope/telescope.nvim")
