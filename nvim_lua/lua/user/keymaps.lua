@@ -33,25 +33,6 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- Nvim-tree
 -- keymap("n", "<C-n>", ":NvimTreeToggle<cr>", opts)
 
--- Telescope
-keymap(
-  "n",
-  "<leader>tr",
-  "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>",
-  { noremap = true, silent = true }
-)
---lua require('telescope.builtin').find_files( { cwd = vim.fn.expand('~/') })
-keymap("n", "<leader>tF", "<cmd>lua require('telescope.builtin').find_files({ cwd = vim.fn.expand('~/') })<cr>", opts)
-keymap("n", "<leader>tf", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
-keymap("n", "<leader>tg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
-keymap("n", "<leader>tb", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
-keymap("n", "<leader>th", "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
-keymap("n", "<leader>tn", "<cmd>lua require('telescope').extensions.notify.notify()<cr>", opts)
-keymap("n", "<leader>tm", "<cmd>lua require('telescope.builtin').keymaps()<cr>", opts)
-
--- Naviagate buffers
-keymap("n", "<Right>", ":bnext<CR>", opts)
-keymap("n", "<Left>", ":bprevious<CR>", opts)
 
 ------------
 -- Insert --
@@ -70,4 +51,51 @@ keymap("n", "<Left>", ":bprevious<CR>", opts)
 --------------
 -- Custom   --
 --------------
---
+--------------
+-- whichkey --
+--------------
+
+-- Naviagate buffers
+keymap("n", "<Right>", ":bnext<CR>", opts)
+keymap("n", "<Left>", ":bprevious<CR>", opts)
+
+local whichkey = require "which-key"
+local keymapt = {
+  t = {
+    name = "Telescope",
+    r = { "<cmd>lua require('telescope').extensions.frecency.frecency()<CR>", "Frecency"},
+    -- f = { "<cmd>lua require'telescope'.extensions.dap.frames{}<cr>", "Telescope frames" },
+    F = {"<cmd>lua require('telescope.builtin').find_files({ cwd = vim.fn.expand('~/') })<cr>", "Files ~" },
+    f = {"<cmd>lua require('telescope.builtin').find_files()<cr>", "Files"},
+    g = {"<cmd>lua require('telescope.builtin').live_grep({ cwd = vim.fn.expand('~/') })<cr>", "Ripgrep" },
+    b = {"<cmd>lua require('telescope.builtin').buffers()<cr>", "Buffers"},
+    h = {"<cmd>lua require('telescope.builtin').help_tags()<cr>", "Help"},
+    n = {"<cmd>lua require('telescope').extensions.notify.notify()<cr>", "Notify"},
+    m = {"<cmd>lua require('telescope.builtin').keymaps()<cr>", "Keymaps"},
+  },
+  f = {
+    s = {":FZF /srv<cr>", "fzf /srv"},
+    e = {":FZF /etc<cr>", "fzf /etc"},
+    r = {":FZF /<cr>", "fzf root"},
+    h = {":FZF ~/<cr>", "fzf home"},
+    f = {":FZF<cr>", "fzf workdir"},
+  },
+  g = {
+    s = {"<cmd>lua require('telescope.builtin').live_grep({ cwd = vim.fn.expand('/srv') })<cr>", "Ripgrep /srv" },
+    e = {"<cmd>lua require('telescope.builtin').live_grep({ cwd = vim.fn.expand('/etc') })<cr>", "Ripgrep /etc" },
+    r = {"<cmd>lua require('telescope.builtin').live_grep({ cwd = vim.fn.expand('/') })<cr>", "Ripgrep /" },
+    h = {"<cmd>lua require('telescope.builtin').live_grep({ cwd = vim.fn.expand('~/') })<cr>", "Ripgrep ~/" },
+    g = {"<cmd>lua require('telescope.builtin').live_grep()<cr>", "Ripgrep" },
+  },
+  l = {":Lg<cr>", "Lazygit"},
+}
+
+whichkey.register(keymapt, {
+  mode = "n",
+  prefix = "<leader>",
+  buffer = nil,
+  silent = true,
+  noremap = true,
+  nowait = false,
+})
+

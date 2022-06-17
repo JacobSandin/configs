@@ -69,18 +69,18 @@ require("gitsigns").setup({
 --    end, { expr = true })
 --
 --    -- Actions
---    map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
---    map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
---    map("n", "<leader>hS", gs.stage_buffer)
---    map("n", "<leader>hu", gs.undo_stage_hunk)
---    map("n", "<leader>hR", gs.reset_buffer)
---    map("n", "<leader>hp", gs.preview_hunk)
---    map("n", "<leader>hb", function()
+--    map({ "n", "v" }, "<leader>gs", ":Gitsigns stage_hunk<CR>")
+--    map({ "n", "v" }, "<leader>gr", ":Gitsigns reset_hunk<CR>")
+--    map("n", "<leader>gS", gs.stage_buffer)
+--    map("n", "<leader>gu", gs.undo_stage_hunk)
+--    map("n", "<leader>gR", gs.reset_buffer)
+--    map("n", "<leader>gp", gs.preview_hunk)
+--    map("n", "<leader>gb", function()
 --      gs.blame_line({ full = true })
 --    end)
 --    map("n", "<leader>tb", gs.toggle_current_line_blame)
---    map("n", "<leader>hd", gs.diffthis)
---    map("n", "<leader>hD", function()
+--    map("n", "<leader>gd", gs.diffthis)
+--    map("n", "<leader>gD", function()
 --      gs.diffthis("~")
 --    end)
 --    map("n", "<leader>td", gs.toggle_deleted)
@@ -120,29 +120,45 @@ map("n", "[c", function()
 end, { expr = true })
 
 -- Actions
-map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
-map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
-map("n", "<leader>hS", gs.stage_buffer)
-map("n", "<leader>hu", gs.undo_stage_hunk)
-map("n", "<leader>hR", gs.reset_buffer)
-map("n", "<leader>hp", gs.preview_hunk)
-map("n", "<leader>hb", function()
-  gs.blame_line({ full = true })
-end)
-map("n", "<leader>tb", gs.toggle_current_line_blame)
-map("n", "<leader>hd", gs.diffthis)
-map("n", "<leader>hD", function()
-  gs.diffthis("~")
-end)
-map("n", "<leader>td", gs.toggle_deleted)
 
 -- Text object
-map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
 
 local wk = require("which-key")
 wk.register({
-  a={
-    name="testar",
-    a = { gs.diffthis, "Diffthis"},
+  d={
+      s = {":Gitsigns stage_hunk<CR>", "Stage hunk"},
+      r = {":Gitsigns reset_hunk<CR>", "Reset hunk"},
+      S = {gs.stage_buffer, "Stage buffer"},
+      u = {gs.undo_stage_hunk, "Stage hunk"},
+      R = {gs.reset_buffer, "Reset buffer"},
+      p = {gs.preview_hunk, "Preview hunk"},
+      b = {function()
+              gs.blame_line({ full = true })
+          end, "Blame line"},
+      l = {gs.toggle_current_line_blame, "Toggle blame"},
+      d = {gs.diffthis, "Diff this"},
+      D = {function()
+            gs.diffthis("~")
+          end, "Diff ~"},
+      x = {gs.toggle_deleted, "Toggle deleted"},
   },
 }, {mode = "n",prefix = "<leader>"})
+
+wk.register({
+  d={
+      s = {":Gitsigns stage_hunk<CR>", "Stage hunk"},
+      r = {":Gitsigns reset_hunk<CR>", "Reset hunk"},
+  },
+}, {mode = "v",prefix = "<leader>"})
+
+wk.register({
+  d={
+      h = {":<C-U>Gitsigns select_hunk<CR>", "Select hunk"},
+  },
+}, {mode = "x", prefix = "<leader>"})
+
+wk.register({
+  d={
+      h = {":<C-U>Gitsigns select_hunk<CR>", "Select hunk"},
+  },
+}, {mode = "o",prefix = "<leader>"})
