@@ -86,6 +86,9 @@ return packer.startup(function(use)
   use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
   use("jose-elias-alvarez/null-ls.nvim")
 
+  -- Floaterm
+  use 'voldikss/vim-floaterm'
+
   -- Telescope
   use("nvim-telescope/telescope.nvim")
   use("nvim-telescope/telescope-frecency.nvim")
@@ -107,7 +110,7 @@ return packer.startup(function(use)
     module = { "dap" },
     wants = { "nvim-dap-virtual-text", "dap-buddy.nvim", "nvim-dap-ui", "nvim-dap-python", "which-key.nvim" },
     requires = {
-      {"Pocco81/dap-buddy.nvim",branch = "dev"},
+      { "Pocco81/dap-buddy.nvim", branch = "dev" },
       "theHamsta/nvim-dap-virtual-text",
       "rcarriga/nvim-dap-ui",
       "mfussenegger/nvim-dap-python",

@@ -230,3 +230,8 @@ fi
 #wget -O composer-setup.php https://getcomposer.org/installer
 #sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 #
+# wget https://github.com/junegunn/fzf/releases/download/0.30.0/fzf-0.30.0-linux_amd64.tar.gz
+#tar -xf fzf-0.30.0-linux_amd64.tar.gz
+#sudo mv fzf /usr/bin/
+#rm fzf*
+#sudo chown root.root /usr/bin/fzf
