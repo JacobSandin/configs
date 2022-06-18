@@ -7,6 +7,9 @@ local whichkey = require "which-key"
 -- end
 
 function M.setup()
+
+
+
   local keymap = {
     d = {
       name = "Debug",
@@ -60,5 +63,24 @@ function M.setup()
     nowait = false,
   })
 end
+  
+  local keymap_local = {
+    h = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
+    l = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+    i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
+    j = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
+    k = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
+    t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+    u = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle UI" },
+  }
+
+whichkey.register(keymap_local, {
+    mode = "n",
+    prefix = "<localleader>",
+    buffer = nil,
+    silent = true,
+    noremap = true,
+    nowait = false,
+  })
 
 return M

@@ -27,9 +27,32 @@ let g:floaterm_position="right"
 
 
 tnoremap <silent> <localleader>m <C-\><C-n>:FloatermToggle<CR>
-nnoremap <silent> <localleader>m :FloatermToggle --position=right --width=90 --wintype=vsplit<CR>
+"""nnoremap <silent> <localleader>m :FloatermToggle --position=right --width=90 --wintype=vsplit<CR>
 "command! FZF FloatermNew --width=0.6 --wintype=float --position=center fzf
 "command! Rg FloatermNew --width=0.8 --height=0.8 --wintype=float --position=center rg
 command! Lg FloatermNew --width=0.8 --height=0.8 --wintype=float --position=center lazygit
 
 ]])
+local whichkey = require "which-key"
+
+--whichkey.register({
+--  m = {"<C\\><Cn>:FloatermToggle", "Term toggle"},
+--}, {
+--  mode = "t",
+--  prefix = "<localleader>",
+--  buffer = nil,
+--  silent = true,
+--  noremap = true,
+--  nowait = false,
+--})
+
+whichkey.register({
+  m = {":FloatermToggle<cr>", "Term toggle"},
+}, {
+  mode = "n",
+  prefix = "<localleader>",
+  buffer = nil,
+  silent = true,
+  noremap = true,
+  nowait = false,
+})
