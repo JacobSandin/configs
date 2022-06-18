@@ -63,33 +63,33 @@ local whichkey = require "which-key"
 local keymapt = {
   t = {
     name = "Telescope",
-    r = { "<cmd>lua require('telescope').extensions.frecency.frecency()<CR>", "Frecency"},
+    r = { "<cmd>lua require('telescope').extensions.frecency.frecency()<CR>", "Frecency" },
     -- f = { "<cmd>lua require'telescope'.extensions.dap.frames{}<cr>", "Telescope frames" },
-    F = {"<cmd>lua require('telescope.builtin').find_files({ cwd = vim.fn.expand('~/') })<cr>", "Files ~" },
-    f = {"<cmd>lua require('telescope.builtin').find_files()<cr>", "Files"},
-    g = {"<cmd>lua require('telescope.builtin').live_grep({ cwd = vim.fn.expand('~/') })<cr>", "Ripgrep" },
-    b = {"<cmd>lua require('telescope.builtin').buffers()<cr>", "Buffers"},
-    h = {"<cmd>lua require('telescope.builtin').help_tags()<cr>", "Help"},
-    n = {"<cmd>lua require('telescope').extensions.notify.notify()<cr>", "Notify"},
-    m = {"<cmd>lua require('telescope.builtin').keymaps()<cr>", "Keymaps"},
+    F = { "<cmd>lua require('telescope.builtin').find_files({ cwd = vim.fn.expand('~/') })<cr>", "Files ~" },
+    f = { "<cmd>lua require('telescope.builtin').find_files()<cr>", "Files" },
+    g = { "<cmd>lua require('telescope.builtin').live_grep({ cwd = vim.fn.expand('~/') })<cr>", "Ripgrep" },
+    b = { "<cmd>lua require('telescope.builtin').buffers()<cr>", "Buffers" },
+    h = { "<cmd>lua require('telescope.builtin').help_tags()<cr>", "Help" },
+    n = { "<cmd>lua require('telescope').extensions.notify.notify()<cr>", "Notify" },
+    m = { "<cmd>lua require('telescope.builtin').keymaps()<cr>", "Keymaps" },
   },
   f = {
     name = "FZF",
-    s = {":FZF /srv<cr>", "fzf /srv"},
-    e = {":FZF /etc<cr>", "fzf /etc"},
-    r = {":FZF /<cr>", "fzf root"},
-    h = {":FZF ~/<cr>", "fzf home"},
-    f = {":FZF<cr>", "fzf workdir"},
+    s = { ":FZF /srv<cr>", "fzf /srv" },
+    e = { ":FZF /etc<cr>", "fzf /etc" },
+    r = { ":FZF /<cr>", "fzf root" },
+    h = { ":FZF ~/<cr>", "fzf home" },
+    f = { ":FZF<cr>", "fzf workdir" },
   },
   g = {
     name = "Live grep",
-    s = {"<cmd>lua require('telescope.builtin').live_grep({ cwd = vim.fn.expand('/srv') })<cr>", "Ripgrep /srv" },
-    e = {"<cmd>lua require('telescope.builtin').live_grep({ cwd = vim.fn.expand('/etc') })<cr>", "Ripgrep /etc" },
-    r = {"<cmd>lua require('telescope.builtin').live_grep({ cwd = vim.fn.expand('/') })<cr>", "Ripgrep /" },
-    h = {"<cmd>lua require('telescope.builtin').live_grep({ cwd = vim.fn.expand('~/') })<cr>", "Ripgrep ~/" },
-    g = {"<cmd>lua require('telescope.builtin').live_grep()<cr>", "Ripgrep" },
+    s = { "<cmd>lua require('telescope.builtin').live_grep({ cwd = vim.fn.expand('/srv') })<cr>", "Ripgrep /srv" },
+    e = { "<cmd>lua require('telescope.builtin').live_grep({ cwd = vim.fn.expand('/etc') })<cr>", "Ripgrep /etc" },
+    r = { "<cmd>lua require('telescope.builtin').live_grep({ cwd = vim.fn.expand('/') })<cr>", "Ripgrep /" },
+    h = { "<cmd>lua require('telescope.builtin').live_grep({ cwd = vim.fn.expand('~/') })<cr>", "Ripgrep ~/" },
+    g = { "<cmd>lua require('telescope.builtin').live_grep()<cr>", "Ripgrep" },
   },
-  l = {":Lg<cr>", "Lazygit"},
+  l = { ":Lg<cr>", "Lazygit" },
 }
 
 whichkey.register(keymapt, {
@@ -100,4 +100,3 @@ whichkey.register(keymapt, {
   noremap = true,
   nowait = false,
 })
-
