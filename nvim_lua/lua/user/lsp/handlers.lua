@@ -15,7 +15,7 @@ M.setup = function()
 
   local config = {
     -- disable virtual text
-    virtual_text = true,
+    virtual_text = false,
     -- show signs
     signs = {
       active = signs,
@@ -54,7 +54,7 @@ local function lsp_highlight_document(client)
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
-    ]],
+    ]] ,
       false
     )
   end
@@ -76,12 +76,18 @@ local function lsp_keymaps(bufnr)
     bufnr,
     "n",
     "gl",
-    '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>',
+    --'<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>',
+    '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>',
     opts
   )
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
+  local whichkey = require "which-key"
+  whichkey.register({
+    q = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "LSP set local list" },
+  }, { mode = "n", prefix = "<leader>" })
   --vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-  -- is in null-ls.lua vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format {async = true}' ]])
+  -- is in null-ls.lua
+  vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format {async = true}' ]])
 end
 
 M.on_attach = function(client, bufnr)

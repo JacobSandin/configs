@@ -1,6 +1,6 @@
 local opts = { noremap = true, silent = true }
 
-local term_opts = { silent = true }
+-- local term_opts = { silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -74,6 +74,7 @@ local keymapt = {
     m = {"<cmd>lua require('telescope.builtin').keymaps()<cr>", "Keymaps"},
   },
   f = {
+    name = "FZF",
     s = {":FZF /srv<cr>", "fzf /srv"},
     e = {":FZF /etc<cr>", "fzf /etc"},
     r = {":FZF /<cr>", "fzf root"},
@@ -81,6 +82,7 @@ local keymapt = {
     f = {":FZF<cr>", "fzf workdir"},
   },
   g = {
+    name = "Live grep",
     s = {"<cmd>lua require('telescope.builtin').live_grep({ cwd = vim.fn.expand('/srv') })<cr>", "Ripgrep /srv" },
     e = {"<cmd>lua require('telescope.builtin').live_grep({ cwd = vim.fn.expand('/etc') })<cr>", "Ripgrep /etc" },
     r = {"<cmd>lua require('telescope.builtin').live_grep({ cwd = vim.fn.expand('/') })<cr>", "Ripgrep /" },
