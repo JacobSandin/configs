@@ -110,14 +110,8 @@ return packer.startup(function(use)
   use({
     "puremourning/vimspector",
     config = function()
-      vim.cmd[[
-        " basedir does not work it seem
-        "let g:vimspector_base_dir=expand( '$HOME/utv/git/config/nvim_lua/vimspector' )
-        let g:vimspector_enable_mappings = 'HUMAN'
-      ]]
     end,
   })
-
 --  use({
 --    "mfussenegger/nvim-dap",
 --    opt = true,
