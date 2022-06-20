@@ -111,7 +111,8 @@ return packer.startup(function(use)
     "puremourning/vimspector",
     config = function()
       vim.cmd[[
-        let g:vimspector_base_dir=expand( '$HOME/utv/git/config/nvim_lua/vimspector' )
+        " basedir does not work it seem
+        "let g:vimspector_base_dir=expand( '$HOME/utv/git/config/nvim_lua/vimspector' )
         let g:vimspector_enable_mappings = 'HUMAN'
       ]]
     end,
