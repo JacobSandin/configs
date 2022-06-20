@@ -108,24 +108,34 @@ return packer.startup(function(use)
   --use("Pocco81/dap-buddy.nvim")
   -- Debugging
   use({
-    "mfussenegger/nvim-dap",
-    opt = true,
-    event = "BufReadPre",
-    module = { "dap" },
-    wants = { "nvim-dap-virtual-text", "dap-buddy.nvim", "nvim-dap-ui", "nvim-dap-python", "which-key.nvim" },
-    requires = {
-      { "Pocco81/dap-buddy.nvim", branch = "dev" },
-      "theHamsta/nvim-dap-virtual-text",
-      "rcarriga/nvim-dap-ui",
-      "mfussenegger/nvim-dap-python",
-      "nvim-telescope/telescope-dap.nvim",
-      { "leoluz/nvim-dap-go", module = "dap-go" },
-      { "jbyuki/one-small-step-for-vimkind", module = "osv" },
-    },
+    "puremourning/vimspector",
     config = function()
-      require("user.dap").setup()
+      vim.cmd[[
+        let g:vimspector_base_dir=expand( '$HOME/utv/git/config/nvim_lua/vimspector' )
+        let g:vimspector_enable_mappings = 'HUMAN'
+      ]]
     end,
   })
+
+--  use({
+--    "mfussenegger/nvim-dap",
+--    opt = true,
+--    event = "BufReadPre",
+--    module = { "dap" },
+--    wants = { "nvim-dap-virtual-text", "dap-buddy.nvim", "nvim-dap-ui", "nvim-dap-python", "which-key.nvim" },
+--    requires = {
+--      { "Pocco81/dap-buddy.nvim", branch = "dev" },
+--      "theHamsta/nvim-dap-virtual-text",
+--      "rcarriga/nvim-dap-ui",
+--      "mfussenegger/nvim-dap-python",
+--      "nvim-telescope/telescope-dap.nvim",
+--      { "leoluz/nvim-dap-go", module = "dap-go" },
+--      { "jbyuki/one-small-step-for-vimkind", module = "osv" },
+--    },
+--    config = function()
+--      require("user.dap").setup()
+--    end,
+--  })
   -- Git
   use({
     "lewis6991/gitsigns.nvim",
