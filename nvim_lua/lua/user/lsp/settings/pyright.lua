@@ -4,7 +4,7 @@ return {
   settings = {
     python = {
       analasis = {
-        typeCheckingMode = "off",
+        --typeCheckingMode = "strict",
       },
     },
   },
