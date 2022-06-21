@@ -123,12 +123,14 @@ if [[ -d /srv/github/tools ]]; then
   sudo -u root git pull
   cd ~/
 fi
-if [[ -d /srv/github/vufind ]]; then
-  echo "Updating /srv/github/vufind/"
-  cd /srv/github/vufind/
-  sudo -u root git pull
-  cd ~/
-fi
+# There are times when you do not want a new
+# set of files.
+#if [[ -d /srv/github/vufind ]]; then
+#  echo "Updating /srv/github/vufind/"
+#  cd /srv/github/vufind/
+#  sudo -u root git pull
+#  cd ~/
+#fi
 if [[ ! -d ~/utv/git/config ]]; then
   mkdir -p ~/utv/git
   git clone https://github.com/JacobSandin/configs ~/utv/git/config >/dev/null
