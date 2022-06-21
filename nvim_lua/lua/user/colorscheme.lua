@@ -41,11 +41,14 @@ vim.cmd("colorscheme nordfox")
 vim.cmd("hi Visual  guifg=#c0c6cf guibg=#556173 gui=none")
 if vim.opt.diff:get() then
   vim.cmd([[
+    set cursorline
+    map ] ]c
+    map [ [c
   colorscheme evening
-    hi DiffChange cterm=none ctermfg=Black ctermbg=LightMagenta gui=bold guifg=White guibg=#E08F4C
-    hi DiffText   cterm=none ctermfg=Black ctermbg=Red gui=bold guifg=Yellow guibg=#F54D20
-    hi DiffDelete   gui=bold    guifg=#ff8080       guibg=Gray
-    hi DiffAdd      gui=none    guifg=Gray         guibg=#ff8080
+"    hi DiffChange cterm=none ctermfg=Black ctermbg=LightMagenta gui=bold guifg=White guibg=#E08F4C
+"    hi DiffText   cterm=none ctermfg=Black ctermbg=Red gui=bold guifg=Yellow guibg=#F54D20
+"    hi DiffDelete   gui=bold    guifg=#ff8080       guibg=Gray
+"    hi DiffAdd      gui=none    guifg=Gray         guibg=#ff8080
 
   ]])
 end
