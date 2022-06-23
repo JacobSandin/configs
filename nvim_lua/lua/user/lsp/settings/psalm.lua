@@ -9,7 +9,7 @@
 
 return {
   init_options = {
---    formatting = true
+    formatting = true
   },
   settings = {
   },
