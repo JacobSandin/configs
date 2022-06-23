@@ -165,6 +165,7 @@ local schemas = {
   },
 }
 
+--require'lspconfig'.jsonls.setup {
 local opts = {
   settings = {
     json = {
