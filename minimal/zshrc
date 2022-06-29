@@ -32,7 +32,6 @@ plugins=(git vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 #bindkey '^P' history-search-backward             # Go back/search in history (autocomplete)
 #bindkey '^N' history-search-forward              # Go forward/search in history (autocomplete)
 #
-bindkey -s '^Z' 'fg^M'
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=10000
@@ -145,5 +144,5 @@ PERL_MB_OPT="--install_base \"/home/jacsan/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/jacsan/perl5"; export PERL_MM_OPT;
 zstyle ':urlglobber' url-other-schema
 
-
+bindkey -s '^Z' 'fg^M'
 
