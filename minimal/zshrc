@@ -31,6 +31,8 @@ plugins=(git vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 #bindkey '^S' history-incremental-search-forward  # Perform forward search in command line history
 #bindkey '^P' history-search-backward             # Go back/search in history (autocomplete)
 #bindkey '^N' history-search-forward              # Go forward/search in history (autocomplete)
+#
+bindkey -s '^Z' 'fg^M'
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=10000
@@ -119,6 +121,8 @@ u() {
     command sudo -E zsh
 }
 
+
+
 # Use ripgrep with fzf
 if type rg &> /dev/null; then
   #export FZF_DEFAULT_COMMAND='find .'
@@ -140,4 +144,6 @@ PERL_LOCAL_LIB_ROOT="/home/jacsan/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_
 PERL_MB_OPT="--install_base \"/home/jacsan/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/jacsan/perl5"; export PERL_MM_OPT;
 zstyle ':urlglobber' url-other-schema
+
+
 
