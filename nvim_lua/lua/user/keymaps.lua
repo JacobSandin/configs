@@ -33,7 +33,13 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- Nvim-tree
 -- keymap("n", "<C-n>", ":NvimTreeToggle<cr>", opts)
 
-
+------------
+-- Diff --
+------------
+if vim.opt.diff:get() then
+  keymap("n", "[", "[c", opts)
+  keymap("n", "]", "]c", opts)
+end
 ------------
 -- Insert --
 ------------
