@@ -36,7 +36,8 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 ------------
 -- Diff --
 ------------
-if vim.opt.diff:get() then
+if vim.wo.diff then
+--if vim.opt.diff:get() then
   keymap("n", "[", "[c", opts)
   keymap("n", "]", "]c", opts)
 end
