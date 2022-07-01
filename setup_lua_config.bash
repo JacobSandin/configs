@@ -41,6 +41,15 @@ node_min_version="16.00"
 rg_min_version="13"
 ripgrep_file="ripgrep_13.0.0_amd64.deb"
 #
+if [[ ! $(command -v make) ]]; then
+  sudo apt install make
+fi 
+
+if [[ ! $(command -v cc) ]]; then
+  sudo apt install gcc
+fi 
+
+
 #OLDPATH=$PATH
 if [[ ! "$PATH" == *"$HOME"* ]]; then
   export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.config/nvim/plugged/fzf/bin:$HOME/bin:$PATH"
