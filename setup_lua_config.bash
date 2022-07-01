@@ -42,11 +42,11 @@ rg_min_version="13"
 ripgrep_file="ripgrep_13.0.0_amd64.deb"
 #
 if [[ ! $(command -v make) ]]; then
-  sudo apt install make
+  sudo apt install make gcc g++
 fi 
 
 if [[ ! $(command -v cc) ]]; then
-  sudo apt install gcc
+  sudo apt install gcc g++
 fi 
 
 
