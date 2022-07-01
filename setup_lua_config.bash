@@ -86,12 +86,16 @@ vim_version=$(nvim --version | tail -n +1 | head -1 | egrep -o '[0-9]{1,2}\.[0-9
 vim_version_compare=$(echo "$vim_version < $vim_min_version" | bc -l)
 echo "nvim: curr=$vim_version > min=$vim_min_version = $vim_version_compare"
 if [[ ! $(command -v nvim) || "$vim_version_compare" == "1" ]]; then
-  #https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-  sudo apt update -y
   sudo apt remove -y neovim neovim-runtime
-  wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
-  sudo apt remove -y ./nvim-linux64.deb
-  sudo apt install -y ./nvim-linux64.deb build-essential
+  rm nvim.appimage
+  wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+  sudo chmod 755 nvim.appimage
+  sudo mv -f nvim.appimage /usr/bin/nvim
+#  sudo apt update -y
+#  sudo apt remove -y neovim neovim-runtime
+#  wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
+#  sudo apt remove -y ./nvim-linux64.deb
+#  sudo apt install -y ./nvim-linux64.deb build-essential
   rm nvim-linux64.deb*
 fi
 #
