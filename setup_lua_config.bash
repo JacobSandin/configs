@@ -149,8 +149,8 @@ if [[ ! -d ~/utv/git/config ]]; then
   git clone https://github.com/JacobSandin/configs ~/utv/git/config >/dev/null
   git config --global user.email "jacob@imcode.com"
   git config --global user.name "Jacob Sandin"
-  source ~/utv/git/configs/fzf/key-bindings.zsh
-  source ~/utv/git/configs/fzf/completion.zsh
+  source ~/utv/git/config/fzf/key-bindings.zsh
+  source ~/utv/git/config/fzf/completion.zsh
 else
   cd ~/utv/git/config/
   git pull >/dev/null
