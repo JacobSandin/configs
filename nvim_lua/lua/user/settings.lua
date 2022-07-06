@@ -51,6 +51,7 @@ opt.pastetoggle = "<leader>p"
 opt.colorcolumn = "81"
 --
 vim.cmd([[
+let g:python3_host_prog = 'python3' "Vimspector do not always detect python3
 
 "set undodir=~/.config/nvim/undodir
 " ======================================
