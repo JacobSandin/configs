@@ -37,7 +37,7 @@ fi
 # Variabler
 vim_min_version="0.7"
 lg_min_version="0.34"
-node_min_version="16.00"
+node_min_version="18.00"
 rg_min_version="13"
 ripgrep_file="ripgrep_13.0.0_amd64.deb"
 #
@@ -46,6 +46,9 @@ if [[ ! $(command -v make) ]]; then
 fi 
 
 if [[ ! $(command -v cc) ]]; then
+  sudo apt install gcc g++
+fi 
+if [[ ! $(command -v g++) ]]; then
   sudo apt install gcc g++
 fi 
 
@@ -116,7 +119,7 @@ if [[ "$full" == "full" ]]; then
   node_version_compare=$(echo "$node_version < $node_min_version" | bc -l)
   echo "node: curr=$node_version > min=$node_min_version = $node_version_compare"
   if [[ ! $(command -v node) || "$node_version_compare" == "1" ]]; then
-    curl -sL https://deb.nodesource.com/setup_17.x | sudo bash -
+    curl -sL https://deb.nodesource.com/setup_18.x | sudo bash -
     sudo apt-get install -y nodejs
   fi
 fi
