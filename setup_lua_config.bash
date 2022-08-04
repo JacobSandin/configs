@@ -99,6 +99,7 @@ vim_version_compare=$(echo "$vim_version < $vim_min_version" | bc -l)
 echo "nvim: curr=$vim_version > min=$vim_min_version = $vim_version_compare"
 if [[ ! $(command -v nvim) || "$vim_version_compare" == "1" ]]; then
   sudo apt remove -y neovim neovim-runtime
+  sudo apt install fuse
   rm nvim.appimage
   wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
   sudo chmod 755 nvim.appimage
