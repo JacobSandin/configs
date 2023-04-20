@@ -35,11 +35,13 @@ fi
 #
 #
 # Variabler
-vim_min_version="0.7"
+vim_min_version="0.8.3"
 lg_min_version="0.34"
 node_min_version="18.00"
 rg_min_version="13"
 ripgrep_file="ripgrep_13.0.0_amd64.deb"
+
+
 #
 if [[ ! $(command -v make) ]]; then
   sudo apt install make gcc g++
@@ -94,14 +96,16 @@ fi
 #
 #
 # Check nvim version and update if too old
-vim_version=$(nvim --version | tail -n +1 | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}')
+vim_version=$(nvim --version | tail -n +1 | head -1 | egrep -o '[0-9]{1,2}\.[0-9]{1,2}'| cut -c3-)
+vim_min_version=$(echo $vim_min_version| cut -c3-)
 vim_version_compare=$(echo "$vim_version < $vim_min_version" | bc -l)
 echo "nvim: curr=$vim_version > min=$vim_min_version = $vim_version_compare"
 if [[ ! $(command -v nvim) || "$vim_version_compare" == "1" ]]; then
   sudo apt remove -y neovim neovim-runtime
   sudo apt install fuse
   rm nvim.appimage
-  wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+  #wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+  wget https://github.com/neovim/neovim/releases/download/v0.8.3/nvim.appimage
   sudo chmod 755 nvim.appimage
   sudo mv -f nvim.appimage /usr/bin/nvim
 #  sudo apt update -y
