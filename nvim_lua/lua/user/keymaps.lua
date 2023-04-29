@@ -66,6 +66,7 @@ end
 keymap("n", "<Right>", ":bnext<CR>", opts)
 keymap("n", "<Left>", ":bprevious<CR>", opts)
 
+
 local whichkey = require "which-key"
 local keymapt = {
   t = {
@@ -97,6 +98,11 @@ local keymapt = {
     g = { "<cmd>lua require('telescope.builtin').live_grep()<cr>", "Ripgrep" },
   },
   l = { ":Lg<cr>", "Lazygit" },
+  n = {
+    a = { ":set invnumber invrelativenumber<cr>", "Toggle number" },
+    n = { ":set invnumber <cr>", "Toggle number" },
+    r = { ":set invrelativenumber <cr>", "Toggle relativenumber" },
+  },
 }
 
 whichkey.register(keymapt, {
