@@ -4,7 +4,7 @@
 # zsh -c "$(curl -fsSL https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/setup.zsh)"
 #
 
-for i in ranger zsh ripgrep xclip fuse $(check-language-support -l sv); do
+for i in ranger zsh ripgrep xclip fuse bc unzip ranger ripgrep $(check-language-support -l sv); do
   sudo apt-get install -y $i
 done
 
