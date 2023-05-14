@@ -11,6 +11,13 @@ keymap("", ",", "<Nop>", opts)
 vim.g.mapleader = ","
 vim.g.maplocalleader = " "
 
+
+-- Codeium
+--
+--keymap('i', '<tab>', "<cmd>call codeium#Accept()<CR>", opts)
+--keymap('i', '<right>', "<cmd>call codeium#CycleCompletions(1)<CR>", { expr = true })
+--keymap('i', '<left>', "<cmd>call codeium#CycleCompletions(-1)<CR>", opts)
+--keymap('i', '<up>', "<cmd>codeium#Clear()<CR>", orpts)
 ------------
 -- Modes  --
 ------------

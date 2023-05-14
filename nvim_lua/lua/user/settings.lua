@@ -180,7 +180,10 @@ command! -bar -nargs=* -complete=file -range=% -bang Wq        <line1>,<line2>wq
 command! -bar                                  -bang Q         quit<bang>
 "
 
-
+imap <script><silent><nowait><expr> <C-g> codeium#Accept()
+imap <left>   <Cmd>call codeium#CycleCompletions(1)<CR>
+imap <right>   <Cmd>call codeium#CycleCompletions(-1)<CR>
+imap <up>   <Cmd>call codeium#Clear()<CR>
 
 " ======================================
 "    My functions
