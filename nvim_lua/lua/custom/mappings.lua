@@ -1,6 +1,12 @@
 ---@type MappingsTable
 local M = {}
-
+-- In order to disable a default keymap, use
+--M.disabled = {
+--  n = {
+--      ["<leader>h"] = "",
+--      ["<C-a>"] = ""
+--  }
+--}
 --    F = { "<cmd>lua require('telescope.builtin').find_files({ cwd = vim.fn.expand('~/') })<cr>", "Files ~" },
 --    f = { "<cmd>lua require('telescope.builtin').find_files()<cr>", "Files" },
 --    g = { "<cmd>lua require('telescsope.builtin').live_grep({ cwd = vim.fn.expand('~/') })<cr>", "Ripgrep" },
@@ -14,6 +20,7 @@ M.general = {
     ["<leader>n"] = {" Toggle"}, -- Funkar inte trotts att ovan A fungerar
     ["<leader>nn"] = { "<cmd> set nu! <CR>", "Toggle line number" },
     ["<leader>nr"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
+    ["<leader>ss"] = { "<cmd> source ~/.config/nvim/lua/custom/init.lua<CR>", "Reload nvim" },
   },
 }
 

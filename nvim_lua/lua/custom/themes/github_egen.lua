@@ -39,9 +39,10 @@ M.base_30 = {
 }
 
 M.base_16 = {
-          base0B = "#f06800", -- Strings, Inherited Class, Markup Code, Diff Inserted
-          base08 = "#df2800", -- Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
-          base0A = "#df2800", -- Classes, Markup Bold, Search Text Background
+          base08 = "#DE2C2E", -- Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+          base0A = "#005cc5", -- classes, markup bold, search text background
+          base0B = "#3C58FA", -- strings, inherited class, markup code, diff inserted
+          base0D = "#8A42E3", -- Function, methods, headings
   base00 = "#ffffff", -- Default bg
   base01 = "#edeff1", -- Lighter bg (status bar, line number, folding mks)
   base02 = "#e1e3e5", -- Selection bg
@@ -52,12 +53,12 @@ M.base_16 = {
   base07 = "#24292e", -- Light bg (not often used)
   --base08 = "#5a32a3", -- Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
   base09 = "#b93a86", -- Integers, Boolean, Constants, XML Attributes, Markup Link Url
-  --base0A = "#b08800", -- Classes, Markup Bold, Search Text Background
-  --base0B = "#4c2889", -- Strings, Inherited Class, Markup Code, Diff Inserted
+  --base0a = "#b08800", -- classes, markup bold, search text background
+  --base0b = "#4c2889", -- strings, inherited class, markup code, diff inserted
   base0C = "#8263EB", -- Support, regex, escape chars
-  base0D = "#005cc5", -- Function, methods, headings
+  --base0D = "#005cc5", -- Function, methods, headings
   base0E = "#DE2C2E", -- Keywords
-  base0F = "#044289", -- Deprecated, open/close embedded tags
+  base0F = "#044200", -- Deprecated, open/close embedded tags
 }
 
 M.type = "light"
