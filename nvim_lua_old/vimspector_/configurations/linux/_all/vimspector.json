@@ -1,0 +1,16 @@
+{
+  "configurations": {
+    "Listen for XDebug": {
+      "adapter": "vscode-php-debug",
+      "filetypes": [ "php" ], // optional
+      "configuration": {
+        "name": "Listen for XDebug",
+        "type": "php",
+        "request": "launch",
+        "port": 9000,
+        "stopOnEntry": false
+      }
+    }
+  }
+}
+
