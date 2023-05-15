@@ -111,7 +111,7 @@ if [[ ! $(command -v nvim) || "$vim_version_compare" == "1" ]]; then
 #  sudo apt install -y ./nvim-linux64.deb build-essential
   rm nvim-linux64.deb*
 fi
-nvim -c 'Lazy sync' -c 'sleep 5' -c qa --headless
+#nvim -c 'Lazy sync' -c 'sleep 5' -c qa --headless
 #
 #
 #
