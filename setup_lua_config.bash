@@ -1,4 +1,5 @@
 #!/bin/bash
+exit
 full="$1"
 #export SLUA=""
 echo "$full"
