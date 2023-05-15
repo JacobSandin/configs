@@ -1,5 +1,4 @@
 #!/bin/bash
-exit
 full="$1"
 #export SLUA=""
 echo "$full"
@@ -62,10 +61,6 @@ if [[ ! "$PATH" == *"$HOME"* ]]; then
 fi
 #
 #
-# Update etckeeper if it exists so it does not interfere
-if [ $(command -v etckeeper) ]; then
-  sudo etckeeper commit -c "nvim lua install"
-fi
 
 sudo chown -R $EUID.$EUID $HOME
 #
@@ -116,6 +111,7 @@ if [[ ! $(command -v nvim) || "$vim_version_compare" == "1" ]]; then
 #  sudo apt install -y ./nvim-linux64.deb build-essential
   rm nvim-linux64.deb*
 fi
+nvim -c 'Lazy sync' -c 'sleep 5' -c qa --headless
 #
 #
 #
@@ -186,8 +182,8 @@ fi
 
 if [[ "$full" == "full" ]]; then
   #Python
-  if [[ ! $(command -v pip) ]]; then
-    sudo apt install -y pip
+  if [[ ! $(command -v pip3) ]]; then
+    sudo apt install -y pip3
   fi
   #Python
   if [[ ! $(command -v flake8) ]]; then
@@ -220,26 +216,26 @@ fi
 #fi
 
 # install plugins in vim
-if [[ ! -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim ]]; then
-  errorout=$(nvim -c PackerSync -c 'sleep 5' -c qa --headless 2>&1)
+#if [[ ! -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim ]]; then
+#  errorout=$(nvim -c 'Lazy sync' -c 'sleep 5' -c qa --headless 2>&1)
+#
+#  while [[ "$errorout" != "" ]]; do
+#    echo "$errorout"
+#    errorout=$(nvim -c PackerSync -c 'sleep 5' -c qa --headless 2>&1)
+#    if [[ -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && ! -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim/build ]]; then
+#      cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim
+#      make
+#      cd ~/
+#      break
+#    fi
+#  done
+#fi
 
-  while [[ "$errorout" != "" ]]; do
-    echo "$errorout"
-    errorout=$(nvim -c PackerSync -c 'sleep 5' -c qa --headless 2>&1)
-    if [[ -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && ! -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim/build ]]; then
-      cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim
-      make
-      cd ~/
-      break
-    fi
-  done
-fi
-
-if [[ -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && ! -f ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim/build/libfzf.so ]]; then
-  cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim
-  make
-  cd ~/
-fi
+#if [[ -d ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim && ! -f ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim/build/libfzf.so ]]; then
+#  cd ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim
+#  make
+#  cd ~/
+#fi
 
 #cd ~/utv/git/
 #git clone https://github.com/xdebug/vscode-php-debug.git
