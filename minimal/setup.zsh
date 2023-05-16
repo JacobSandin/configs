@@ -4,7 +4,7 @@
 # zsh -c "$(curl -fsSL https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/setup.zsh)"
 #
 
-for i in ranger zsh ripgrep xclip fuse bc unzip ranger ripgrep $(check-language-support -l sv); do
+for i in ranger zsh ripgrep xclip fuse bc unzip ranger ripgrep python3-venv $(check-language-support -l sv); do
   sudo apt-get install -y $i
 done
 
@@ -24,11 +24,11 @@ rm -f ~/.z*
 # Using wget to get no-cashe curl did not handle this well.
 wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/zshenv -O ~/.zshenv  
 wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/zshrc -O ~/.zshrc  
-wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/init.vim -O ~/.config/nvim/init.vim 
+#wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/init.vim -O ~/.config/nvim/init.vim 
 wget --no-cache https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/ranger_rc.conf -O ~/.config/ranger/rc.conf
 
-touch ~/.config/nvim/local-plugins.vim
-touch ~/.config/nvim/local.vim
+#touch ~/.config/nvim/local-plugins.vim
+#touch ~/.config/nvim/local.vim
 
 # Oh my zsh setup
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.config/zsh/oh-my-zsh

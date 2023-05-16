@@ -27,10 +27,13 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = overrides.mason
   },
-
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false
+  },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = overrides.treesitter,
+     opts = overrides.treesitter,
   },
 
   {

@@ -21,6 +21,11 @@ M.general = {
     ["<leader>nn"] = { "<cmd> set nu! <CR>", "Toggle line number" },
     ["<leader>nr"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
     ["<leader>ss"] = { "<cmd> source ~/.config/nvim/lua/custom/init.lua<CR>", "Reload nvim" },
+    ["<c-H>"] = { "<cmd>TmuxNavigateLeft<cr>", "TmuxNavigateLeft" },
+    ["<c-J>"] = { "<cmd>TmuxNavigateDown<cr>", "TmuxNavigateDown" },
+    ["<c-K>"] = { "<cmd>TmuxNavigateUp<cr>", "TmuxNavigateUp" },
+    ["<c-L>"] = { "<cmd>TmuxNavigateRight<cr>", "TmuxNavigateRight" },
+    --["<c-\>"] = { "<cmd>TmuxNavigatePrevious<cr>", "TmuxNavigatePrevious" },
   },
 }
 
