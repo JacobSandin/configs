@@ -135,12 +135,12 @@ fi
 if [[ ! -d ~/.config/nvim ]]; then
   mkdir -p ~/.config/nvim
 fi
-if [[ -d /srv/github/tools ]]; then
-  echo "updating /srv/github/tools/"
-  cd /srv/github/tools/
-  sudo -u root git pull
-  cd ~/
-fi
+#if [[ -d /srv/github/tools/.git ]]; then
+#  echo "updating /srv/github/tools/"
+#  cd /srv/github/tools/
+#  sudo -u root git pull
+#  cd ~/
+#fi
 # There are times when you do not want a new
 # set of files.
 #if [[ -d /srv/github/vufind ]]; then
