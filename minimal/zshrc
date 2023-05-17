@@ -4,6 +4,7 @@ export TERM=screen-256color
 #setxkbmap -layout se,se -variant ,dvorak -option grp:alt_shift_toggle
 #setxkbmap -layout se,se -variant ,dvorak_a5 -option grp:alt_shift_toggle
 setopt rmstarsilent #Set so that rm -f do not ask confirmation
+plugins=(git vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 
 ZSH_DISABLE_COMPFIX=true
 DISABLE_MAGIC_FUNCTIONS=true
@@ -15,7 +16,6 @@ export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.config/nvim/plugged/fzf/bi
 setopt histignorealldups sharehistory
 
 
-plugins=(git vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 
 # Use emacs keybindings even if our EDITOR is set to vi
 #bindkey -e
@@ -130,9 +130,6 @@ if type rg &> /dev/null; then
   export FZF_DEFAULT_OPTS='-m --height 100% --border'
 fi
 
-source ~/.config/zsh/oh-my-zsh/oh-my-zsh.sh
-
-
 if [ -f ~/.aliases ]; then
     source ~/.aliases
 fi
@@ -147,3 +144,4 @@ zstyle ':urlglobber' url-other-schema
 
 bindkey -s '^Z' 'fg^M'
 
+source ~/.config/zsh/oh-my-zsh/oh-my-zsh.sh
