@@ -104,6 +104,13 @@ local plugins = {
 --      },
 --    },
   },
+  { 
+    "p00f/nvim-ts-rainbow"
+  },
+  { 
+    'ggandor/lightspeed.nvim',
+    lazy = false,
+  },
   {
 --    "nvim-telescope/telescope.nvim",
 --    cmd = "Telescope",

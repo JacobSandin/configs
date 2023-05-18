@@ -42,7 +42,7 @@ HISTFILE=~/.config/zsh/history
 #PROMPT='%F{green}%n@%m:%B%F{blue}%~%f%b%# '
 
 PROMPT='%F{green}%n%f@%F{magenta}%m%f %F{blue}%B%~%b%f %# '
-RPROMPT='[%F{yellow}%?%f]'
+#RPROMPT='[%F{yellow}%?%f]'
 
 ZSH_CUSTOM=~/.config/zsh
 
