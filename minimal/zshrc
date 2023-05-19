@@ -89,6 +89,8 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # Aliases
 #alias ranger='source ranger' #To make ranger exit in current dir OBS did not work with paths in command line
 #alias ranger='ranger --choosedir=$HOME/rangerdir;cd "$(cat $HOME/rangerdir)"||sed "s/ .*//"'
+alias il='icmlog'
+alias ilc='icmlog -c'
 alias ssh='ssh -CY'
 alias ch='cd ~/'
 alias ce='ce /etc'
