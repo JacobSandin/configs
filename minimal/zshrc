@@ -101,7 +101,7 @@ alias vimdiff='nvim -d'
 alias vudiff='diff -qr /srv/github/vufind/ /usr/local/vufind/|sed "/cache/d;/solr/d;/vufind\/:/d;/\.git/d;/README/d;s/^Files/vim -d/g;s/and //g;s/ differ//g"|fzf'
 # bzip2 still best alternative I feel. alias bzip2='echo "==========================================\n\n WARNING! (bzip2) Använd lzma istället \n\n==========================================" 1>&2;'
 if [ $(command -v nvim) ]; then
-    export EDITOR='nvim'
+    export EDITOR='nvim'j
     alias vim=nvim
     alias vi=nvim
     alias vc="nvim ~/.config/nvim/init.vim"
@@ -152,16 +152,18 @@ source ~/.config/zsh/oh-my-zsh/oh-my-zsh.sh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/jacsan/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/jacsan/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/jacsan/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/jacsan/anaconda3/bin:$PATH"
-    fi
+if [ -f "/home/jacsan/anaconda3/bin/conda" ]; then
+  __conda_setup="$('/home/jacsan/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+  if [ $? -eq 0 ]; then
+      eval "$__conda_setup"
+  else
+      if [ -f "/home/jacsan/anaconda3/etc/profile.d/conda.sh" ]; then
+          . "/home/jacsan/anaconda3/etc/profile.d/conda.sh"
+      else
+          export PATH="/home/jacsan/anaconda3/bin:$PATH"
+      fi
+  fi
+  unset __conda_setup
 fi
-unset __conda_setup
 # <<< conda initialize <<<
 
