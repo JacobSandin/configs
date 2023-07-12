@@ -4,8 +4,11 @@ g.mapleader = ","
 g.maplocalleader = " "
 g.shell="/bin/zsh"
 
+local opt = vim.opt
 -- https://github.com/lukas-reineke/indent-blankline.nvim
-vim.opt.list = true
-vim.opt.listchars = ""
+opt.list = true
+opt.listchars = ""
+opt.timeoutlen = 120
+opt.ttimeoutlen = 120
 -- vim.opt.listchars:append "space:."
 -- vim.opt.listchars:append "eol:↴"
