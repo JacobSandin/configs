@@ -43,6 +43,13 @@ ripgrep_file="ripgrep_13.0.0_amd64.deb"
 
 
 #
+if [[ ! $(command -v zip) ]]; then
+  sudo apt install zip
+fi 
+if [[ ! $(command -v unzip) ]]; then
+  sudo apt install unzip
+fi 
+
 if [[ ! $(command -v make) ]]; then
   sudo apt install make gcc g++
 fi 
