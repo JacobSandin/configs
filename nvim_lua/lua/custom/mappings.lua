@@ -14,6 +14,7 @@ local M = {}
 --    m = { "<cmd>lua require('telescope.builtin').keymaps()<cr>", "Keymaps" },
 --    ["<leader>ch"] = { "<cmd> NvCheatsheet <CR>", "Mapping cheatsheet" },
 --
+
 M.general = {
   n = {
     -- line numbers
@@ -55,5 +56,38 @@ M.telescope = {
   },
 }
 -- more keybinds!
+
+M.gitsigns = {
+  n = {
+    -- Navigation through hunks
+    ["]"] = {
+      function()
+        if vim.wo.diff then
+          return "]c"
+        end
+        vim.schedule(function()
+          require("gitsigns").next_hunk()
+        end)
+        return "<Ignore>"
+      end,
+      "Jump to next hunk",
+      opts = { expr = true },
+    },
+
+    ["["] = {
+      function()
+        if vim.wo.diff then
+          return "[c"
+        end
+        vim.schedule(function()
+          require("gitsigns").prev_hunk()
+        end)
+        return "<Ignore>"
+      end,
+      "Jump to prev hunk",
+      opts = { expr = true },
+    },
+  },
+}
 
 return M
