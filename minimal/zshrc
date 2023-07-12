@@ -101,7 +101,7 @@ alias vimdiff='nvim -d'
 alias vudiff='diff -qr /srv/github/vufind/ /usr/local/vufind/|sed "/cache/d;/solr/d;/vufind\/:/d;/\.git/d;/README/d;s/^Files/vim -d/g;s/and //g;s/ differ//g"|fzf'
 # bzip2 still best alternative I feel. alias bzip2='echo "==========================================\n\n WARNING! (bzip2) Använd lzma istället \n\n==========================================" 1>&2;'
 if [ $(command -v nvim) ]; then
-    export EDITOR='nvim'j
+    export EDITOR='nvim'
     alias vim=nvim
     alias vi=nvim
     alias vc="nvim ~/.config/nvim/init.vim"
