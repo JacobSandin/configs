@@ -8,7 +8,7 @@ M.base_30 = {
 
   white = "#24292e",
   darker_black = "#f3f5f7",
-  black = "#ffffff", --  nvim bg
+  black = "#F0F0f0", --  nvim bg
   black2 = "#edeff1",
   one_bg = "#eaecee",
   one_bg2 = "#e1e3e5", -- StatusBar (filename)
@@ -43,7 +43,7 @@ M.base_16 = {
           base0A = "#005cc5", -- classes, markup bold, search text background
           base0B = "#3C58FA", -- strings, inherited class, markup code, diff inserted
           base0D = "#8A42E3", -- Function, methods, headings
-  base00 = "#ffffff", -- Default bg
+  base00 = "#f3f5f7", -- Default bg
   base01 = "#edeff1", -- Lighter bg (status bar, line number, folding mks)
   base02 = "#e1e3e5", -- Selection bg
   base03 = "#d7d9db", -- Comments, invisibles, line hl

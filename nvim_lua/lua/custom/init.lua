@@ -12,3 +12,4 @@ opt.timeoutlen = 120
 opt.ttimeoutlen = 120
 -- vim.opt.listchars:append "space:."
 -- vim.opt.listchars:append "eol:↴"
+vim.api.nvim_set_hl(0, 'CursorLine', { underline = true })
