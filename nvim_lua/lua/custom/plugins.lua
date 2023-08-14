@@ -2,6 +2,12 @@ local overrides = require("custom.configs.overrides")
 
 ---@type NvPluginSpec[]
 local plugins = {
+  {
+    "Exafunction/codeium.vim",
+    lazy = false,
+    enabled = true,
+
+  },
 
   -- Override plugin definition options
   {
@@ -47,10 +53,6 @@ local plugins = {
     config = function()
       require("better_escape").setup()
     end,
-  },
-  {
-    "Exafunction/codeium.vim",
-    lazy = false,
   },
     override = {
     ["nvim-telescope/telescope.nvim"] = {
