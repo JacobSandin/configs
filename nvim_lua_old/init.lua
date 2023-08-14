@@ -1,62 +1,21 @@
--- vim.cmd 'source ~/.config/nvim/init_old.vim'
-require "user.plugins"
-require "user.keymaps"
-require "user.settings"
-require "user.colorscheme"
-require "user.cmp"
-require "user.lsp"
-require "user.notify"
-require "user.telescope"
-require "user.treesitter"
-require "user.floaterm"
---require "user.dap"
-require "user.null-ls"
-require "user.barbar"
-require "user.lightspeed"
-require "user.vimspector"
--- require "user.autocommands"
--- require "user.colorscheme"
--- require "user.autopairs"
--- require "user.comment"
-require "user.nvim-tree"
-require "user.gitsigns"
--- require "user.bufferline"
--- require "user.lualine"
--- require "user.toggleterm"
--- require "user.project"
--- require "user.impatient"
--- require "user.indentline"
--- require "user.alpha"
--- require "user.whichkey"
--- require "user.quickscope"
--- require "user.hop"
--- require "user.matchup"
--- require "user.numb"
--- require "user.dial"
--- require "user.colorizer"
--- require "user.spectre"
--- require "user.zen-mode"
--- require "user.neoscroll"
--- require "user.todo-comments"
--- require "user.bookmark"
--- require "user.renamer"
--- require "user.symbol-outline"
--- require "user.git-blame"
--- require "user.gist"
--- require "user.gitlinker"
--- require "user.surround"
--- require "user.ts-context"
--- require "user.registers"
--- require "user.telescope-file-browser"
--- require "user.sniprun"
--- require "user.functions"
--- require "user.copilot"
--- require "user.gps"
--- require "user.illuminate"
--- require "user.dap"
--- require "user.lir"
--- require "user.jabs"
--- require "user.cybu"
--- require "user.winbar"
--- require "user.options"
--- require "user.nvim-webdev-icons"
+require "core"
+
+local custom_init_path = vim.api.nvim_get_runtime_file("lua/custom/init.lua", false)[1]
+
+if custom_init_path then
+  dofile(custom_init_path)
+end
+
+require("core.utils").load_mappings()
+
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+
+-- bootstrap lazy.nvim!
+if not vim.loop.fs_stat(lazypath) then
+  require("core.bootstrap").gen_chadrc_template()
+  require("core.bootstrap").lazy(lazypath)
+end
+
+dofile(vim.g.base46_cache .. "defaults")
+vim.opt.rtp:prepend(lazypath)
+require "plugins"
