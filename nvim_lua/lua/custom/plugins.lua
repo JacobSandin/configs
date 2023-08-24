@@ -147,6 +147,11 @@ local plugins = {
   -- }
   
   -- Only load whichkey after all the gui
+  { 
+    'vimwiki/vimwiki',
+    lazy = false,
+    enabled = true,
+  },
 }
 
 return plugins

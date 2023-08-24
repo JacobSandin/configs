@@ -108,7 +108,8 @@ if [[ ! $(command -v nvim) || "$vim_version_compare" == "1" ]]; then
   sudo apt install fuse
   rm nvim.appimage
   #wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-  wget https://github.com/neovim/neovim/releases/download/v0.8.3/nvim.appimage
+  wget https://github.com/neovim/neovim/releases/download/v0.9.1/nvim.appimage
+  #wget https://github.com/neovim/neovim/releases/download/v0.8.3/nvim.appimage
   sudo chmod 755 nvim.appimage
   sudo mv -f nvim.appimage /usr/bin/nvim
 #  sudo apt update -y
