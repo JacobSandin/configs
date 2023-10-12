@@ -35,8 +35,9 @@ setopt histignorealldups sharehistory
 #
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=10000
-SAVEHIST=10000
+HISTTIMEFORMAT="%Y-%m-%d %T
+HISTSIZE=100000
+SAVEHIST=100000
 HISTFILE=~/.config/zsh/history
 
 #PROMPT='%F{green}%n@%m:%B%F{blue}%~%f%b%# '
