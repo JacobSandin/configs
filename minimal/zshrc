@@ -35,8 +35,8 @@ setopt histignorealldups sharehistory
 #
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTTIMEFORMAT="%Y-%m-%d %T
-HISTSIZE=100000
+HISTTIMEFORMAT="%Y-%m-%d %T "
+HISTSIZE=100000 
 SAVEHIST=100000
 HISTFILE=~/.config/zsh/history
 
