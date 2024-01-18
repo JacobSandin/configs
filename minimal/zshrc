@@ -6,6 +6,7 @@ export TERM=screen-256color
 setopt rmstarsilent #Set so that rm -f do not ask confirmation
 plugins=(git vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 
+export HOSTNAME=`hostname`
 ZSH_DISABLE_COMPFIX=true
 DISABLE_MAGIC_FUNCTIONS=true
 RANGER_LOAD_DEFAULT_RC=FALSE

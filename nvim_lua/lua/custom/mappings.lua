@@ -21,6 +21,9 @@ M.general = {
     ["<leader>n"] = {" Toggle"}, -- Funkar inte trotts att ovan A fungerar
     ["<leader>nn"] = { "<cmd> set nu! <CR>", "Toggle line number" },
     ["<leader>nr"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
+    ["<leader>nm"] = {" Mouse"}, -- Funkar inte trotts att ovan A fungerar
+    ["<leader>nmy"] = { "<cmd> set mouse=a <CR>", "Mouse on" },
+    ["<leader>nmn"] = { "<cmd> set mouse= <CR>", "Mouse off" },
     ["<leader>ss"] = { "<cmd> source ~/.config/nvim/lua/custom/init.lua<CR>", "Reload nvim" },
     ["<c-H>"] = { "<cmd>TmuxNavigateLeft<cr>", "TmuxNavigateLeft" },
     ["<c-J>"] = { "<cmd>TmuxNavigateDown<cr>", "TmuxNavigateDown" },
