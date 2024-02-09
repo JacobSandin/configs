@@ -13,7 +13,7 @@ fi
 
 _shell="$(ps -p $$ --no-headers -o comm=)"
 if [[ $_shell != "zsh" ]]; then                                                                                                                  
-	    #zsh
+	    zsh
 fi
 
 if [ -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ]; then
