@@ -21,6 +21,10 @@ M.general = {
     ["<leader>n"] = {" Toggle"}, -- Funkar inte trotts att ovan A fungerar
     ["<leader>nn"] = { "<cmd> set nu! <CR>", "Toggle line number" },
     ["<leader>nr"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
+    ["<leader>cx"] = { "<cmd> lua require('cmp').setup.buffer { enabled = false }", "Toggle code complete popup off" },
+    ["<leader>cc"] = { "<cmd> lua require('cmp').setup.buffer { enabled = true }", "Toggle code complete popup on" },
+
+    -- mouse lua require('cmp').setup.buffer { enabled = false }
     ["<leader>nm"] = {" Mouse"}, -- Funkar inte trotts att ovan A fungerar
     ["<leader>nmy"] = { "<cmd> set mouse=a <CR>", "Mouse on" },
     ["<leader>nmn"] = { "<cmd> set mouse= <CR>", "Mouse off" },
