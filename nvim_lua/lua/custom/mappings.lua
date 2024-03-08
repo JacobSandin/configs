@@ -21,8 +21,9 @@ M.general = {
     ["<leader>n"] = {" Toggle"}, -- Funkar inte trotts att ovan A fungerar
     ["<leader>nn"] = { "<cmd> set nu! <CR>", "Toggle line number" },
     ["<leader>nr"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
-    ["<leader>cx"] = { "<cmd> lua require('cmp').setup.buffer { enabled = false }", "Toggle code complete popup off" },
-    ["<leader>cc"] = { "<cmd> lua require('cmp').setup.buffer { enabled = true }", "Toggle code complete popup on" },
+    ["<leader>nc"] = { "  Poppups code complete" },
+    ["<leader>ncx"] = { "<cmd> lua require('cmp').setup.buffer { enabled = false }", "Toggle code complete popup off" },
+    ["<leader>ncc"] = { "<cmd> lua require('cmp').setup.buffer { enabled = true }", "Toggle code complete popup on" },
 
     -- mouse lua require('cmp').setup.buffer { enabled = false }
     ["<leader>nm"] = {" Mouse"}, -- Funkar inte trotts att ovan A fungerar
@@ -67,7 +68,7 @@ M.telescope = {
 M.gitsigns = {
   n = {
     -- Navigation through hunks
-    ["]"] = {
+    ["ä"] = {
       function()
         if vim.wo.diff then
           return "]c"
@@ -81,7 +82,7 @@ M.gitsigns = {
       opts = { expr = true },
     },
 
-    ["["] = {
+    ["å"] = {
       function()
         if vim.wo.diff then
           return "[c"
