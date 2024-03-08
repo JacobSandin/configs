@@ -395,7 +395,7 @@ M.gitsigns = {
 
   n = {
     -- Navigation through hunks
-    ["]c"] = {
+    ["ä"] = {
       function()
         if vim.wo.diff then
           return "]c"
@@ -409,7 +409,7 @@ M.gitsigns = {
       opts = { expr = true },
     },
 
-    ["[c"] = {
+    ["å"] = {
       function()
         if vim.wo.diff then
           return "[c"
