@@ -35,9 +35,15 @@ curl -s https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/zsh
 #
 #
 echo "Updating neovim"
-wget -q -nv https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-sudo mv nvim.appimage /usr/bin/nvim
-sudo chmod 755 /usr/bin/nvim
+cd /opt
+wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+sudo tar -C /opt -xzf nvim-linux64.tar.gz
+rm -f /usr/bin/nvim
+ln -s /opt/nvim-linux64/bin/nvim /usr/bin/nvim
+rm nvim-linux64.tar.gz
+#wget -q -nv https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+#sudo mv nvim.appimage /usr/bin/nvim
+#sudo chmod 755 /usr/bin/nvim
 #
 if [ -d ~/utv/git/configs ]; then
 	echo "utv/git/configs dir exists. Updating.."
