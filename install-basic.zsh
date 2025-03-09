@@ -38,18 +38,21 @@ echo "Updating neovim"
 
 cd /opt
 sudo rm -f /opt/nvim-linux64.tar.gz
-sudo wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+sudo rm -f /opt/nvim-linux-x86_64.tar.gz
+sudo wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
 
 # Check if the file exists and matches the exact name
-if [ -f "nvim-linux64.tar.gz" ]; then
+if [ -f "nvim-linux-x86_64.tar.gz" ]; then
   sudo rm -fR /opt/nvim-linux64
-  sudo tar -C /opt -xzf nvim-linux64.tar.gz
+  sudo rm -fR /opt/nvim-linux-x86_64
+  sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
   sudo rm -f /usr/bin/nvim
-  sudo ln -s /opt/nvim-linux64/bin/nvim /usr/bin/nvim
-  sudo rm -f nvim-linux64.tar.gz
+  sudo ln -s /opt/nvim-linux-x86_64/bin/nvim /usr/bin/nvim
+  sudo rm -f nvim-linux-x86_64.tar.gz
 else
   echo "Error: File was not downloaded with the expected name."
 fi
+
 
 #wget -q -nv https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 #sudo mv nvim.appimage /usr/bin/nvim
