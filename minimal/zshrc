@@ -124,7 +124,7 @@ else
 fi
 # Replace sudo too keep variables and go to zsh
 u() {
-    command sudo -E zsh
+    command sudo -E PATH="/sbin:/usr/sbin:/usr/local/sbin:$PATH" zsh
 }
 
 
@@ -141,11 +141,11 @@ if [ -f ~/.aliases ]; then
 fi
 
 
-PATH="/home/jacsan/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/jacsan/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/jacsan/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/jacsan/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/jacsan/perl5"; export PERL_MM_OPT;
+PATH="$HOME/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 zstyle ':urlglobber' url-other-schema
 
 #bindkey -s '^Z' 'fg^M'
@@ -155,15 +155,15 @@ source ~/.config/zsh/oh-my-zsh/oh-my-zsh.sh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-if [ -f "/home/jacsan/anaconda3/bin/conda" ]; then
-  __conda_setup="$('/home/jacsan/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ -f "$HOME/anaconda3/bin/conda" ]; then
+  __conda_setup="$('$HOME/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
   if [ $? -eq 0 ]; then
       eval "$__conda_setup"
   else
-      if [ -f "/home/jacsan/anaconda3/etc/profile.d/conda.sh" ]; then
-          . "/home/jacsan/anaconda3/etc/profile.d/conda.sh"
+      if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
+          . "$HOME/anaconda3/etc/profile.d/conda.sh"
       else
-          export PATH="/home/jacsan/anaconda3/bin:$PATH"
+          export PATH="$HOME/anaconda3/bin:$PATH"
       fi
   fi
   unset __conda_setup
