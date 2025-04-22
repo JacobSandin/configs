@@ -1,6 +1,31 @@
-# This project: Project description
+# This project: Project Description
 - framework: python
 - build_command: pip install -r requirements.txt
+
+# This project: Configuration Management
+
+
+
+# Architecture Rules
+- Uses a modular architecture with environment-specific implementations
+- Follows object-oriented design principles
+- Configuration-driven approach to avoid hardcoding
+- Implements a unified logging system
+- Provides command-line interface with standard arguments
+- Use modular design with clear separation of concerns
+- Core functionality should be environment-agnostic
+- Environment-specific code should extend base classes
+- Configuration should be externalized and environment-aware
+- Network operations should be isolated in utility modules
+- Database operations should use parameterized queries
+- Database operations should be isolated in utility modules
+
+# Configuration Management
+- Use YAML for configuration files
+- Support environment-specific configuration files
+- Validate configurations before applying changes
+- Store sensitive information securely (not in code)
+- Support command-line overrides for configuration values
 
 # On startup
 - Test if https://github.com/JacobSandin/configs/blob/master/windsurf/windsurfrules exists
@@ -14,10 +39,11 @@
 - Use comments to explain the logic of the code
 - Write timestamp together with -JS at end of comment for when it was added
 
-# Incorperate logging
+# Incorporate logging
 - log through one function log((self, level, *messages, **kwargs))
 - log INFO level to console unless --quiet or --debug is specified
 - Use logging framework
+- Each logfile should be with name-YYYYMMDD-HHMMSS.log
 - DEBUG: Detailed information, typically useful for debugging purposes.
 - INFO: General information about the execution of the application.
 - WARNING: An indication that something unexpected or potentially problematic has occurred, but the application can still continue running.
@@ -40,7 +66,7 @@
 - Static files are also considered hardcoded and should be considerd a last resort
 - Do not hardcode values
 
-# Use of version controll
+# Use of version control
 - Use git for version control
 - Try to commit after every change
 - Make sure all tests pass before committing
@@ -52,19 +78,21 @@
 # Documentation
 - Always maintain README.md
 - Always update CHANGELOG.md
-
-# CHANGELOG Structure
-- Use version numbers in descending order (newest first)
-- Format versions as [x.y.z] with dates for released versions
-- Use [0.0.0] - Former Unreleased for features not yet in a release
-- Place unreleased changes at the bottom of the file
-- Group changes under headings: Added, Changed, Fixed, Removed
-- Each entry should be a single line starting with a hyphen
-- Increment version numbers according to semantic versioning principles
-- Use Markdown formatting for consistency
+- Both README.md and CHANGELOG.md should be updated before every commit
 
 # Command Line Behavior
 - Provide clear error messages when invalid arguments are provided
 - Use argparse for command line arguments
 - Use --quiet and --debug parameters
 
+# CHANGELOG Structure
+- Use version numbers in descending order (newest first)
+- Format versions as [x.y.zzz] with dates for released versions
+- Only increment zzz (last number) when making changes
+- x and y are incremented when user asks you too
+- Use [0.0.0] - Former Unreleased for features not yet in a release
+- Place unreleased changes at the bottom of the file
+- Group changes under headings: Added, Changed, Fixed, Removed
+- Each entry should be a single line starting with a hyphen
+- Increment version numbers according to semantic versioning principles
+- Use Markdown formatting for consistency
