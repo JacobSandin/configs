@@ -4,8 +4,6 @@
 
 # This project: Configuration Management
 
-
-
 # Architecture Rules
 - Uses a modular architecture with environment-specific implementations
 - Follows object-oriented design principles
