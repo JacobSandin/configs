@@ -1,9 +1,10 @@
-# This project
+# This project: Project description
 - framework: python
 - build_command: pip install -r requirements.txt
+
 # On startup
 - Test if https://github.com/JacobSandin/configs/blob/master/windsurf/windsurfrules exists
-- If it does, compare to local .windsurfrules in project, except header "This project"
+- If it does, compare to local .windsurfrules in project, except headers "This project:"
 - If it has changed, then ask user if they want to update .windsurfrules
 
 # Use of comments
