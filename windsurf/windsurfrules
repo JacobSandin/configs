@@ -53,6 +53,16 @@
 - Always maintain README.md
 - Always update CHANGELOG.md
 
+# CHANGELOG Structure
+- Use version numbers in descending order (newest first)
+- Format versions as [x.y.z] with dates for released versions
+- Use [0.0.0] - Former Unreleased for features not yet in a release
+- Place unreleased changes at the bottom of the file
+- Group changes under headings: Added, Changed, Fixed, Removed
+- Each entry should be a single line starting with a hyphen
+- Increment version numbers according to semantic versioning principles
+- Use Markdown formatting for consistency
+
 # Command Line Behavior
 - Provide clear error messages when invalid arguments are provided
 - Use argparse for command line arguments
