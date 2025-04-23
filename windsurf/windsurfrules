@@ -89,6 +89,12 @@
 - Always maintain README.md
 - Always update CHANGELOG.md
 - Both README.md and CHANGELOG.md should be updated before every commit
+- NEVER commit code changes without first updating documentation
+- Update README.md with any new features, scripts, or usage instructions
+- Update CHANGELOG.md with all changes made in the current commit
+- Documentation updates must be committed in the same commit as code changes
+- Run git add on documentation files before code files
+- Verify documentation changes before committing code changes
 
 # Command Line Behavior
 - Provide clear error messages when invalid arguments are provided
@@ -110,11 +116,13 @@
 # Pre-commit checklist
 - All project-specific sections have "This project:" prefix
 - Version format in CHANGELOG.md is [x.y.zzz] (three digits after second dot)
-- README.md is up to date
-- CHANGELOG.md is up to date with latest changes
-- All tests pass
+- README.md is up to date with latest features and changes
+- CHANGELOG.md is up to date with latest changes and correct version number
+- All tests pass with run_tests.py
 - No temporary files remain
 - Commit message is meaningful and descriptive
+- Documentation changes are staged before code changes
+- Documentation accurately reflects the latest code changes
 
 # Test commands you run
 - using "if test $status -eq 0" instead of "if [ $? -eq 0 ]"
