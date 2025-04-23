@@ -45,7 +45,7 @@
 - Prepend classes with comments
 - Prepend modules with comments
 - Use comments to explain the logic of the code
-- Write timestamp together with -JS at end of comment for when it was added
+- Write timestamp together with "- JS" at end of _any_ comment when it is added or changed
 
 # Incorporate logging
 - log through one function log((self, level, *messages, **kwargs))
