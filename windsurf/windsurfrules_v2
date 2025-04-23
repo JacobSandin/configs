@@ -141,7 +141,7 @@ configuration:
 startup:
   description: "Rules for checking and updating global configuration on project startup"
   process:
-    1: "Check if remote rules file exists at https://github.com/JacobSandin/configs/blob/master/windsurf/windsurfrules"
+    1: "Check if remote rules file exists at https://raw.githubusercontent.com/JacobSandin/configs/refs/heads/master/windsurf/windsurfrules_v2"
     2: "If remote file exists, download it and compare with local .windsurfrules file"
     3: "When comparing, ignore all sections that start with '# This project:'"
     4: "If any global sections (non-project-specific) have changed in the remote file"
