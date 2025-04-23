@@ -88,7 +88,7 @@
 - Format versions as [x.y.zzz] with dates for released versions
 - Only increment zzz (last number) when making changes
 - x and y are incremented when user asks you too
-- Use [0.0.0] - Former Unreleased for features not yet in a release
+- Use [0.0.000] - Former Unreleased for features not yet in a release
 - Place unreleased changes at the bottom of the file
 - Group changes under headings: Added, Changed, Fixed, Removed
 - Each entry should be a single line starting with a hyphen
