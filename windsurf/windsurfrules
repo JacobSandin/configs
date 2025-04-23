@@ -2,8 +2,6 @@
 - framework: python
 - build_command: pip install -r requirements.txt
 
-# This project: Configuration Management
-
 # Architecture Rules
 - Uses a modular architecture with environment-specific implementations
 - Follows object-oriented design principles
@@ -62,6 +60,8 @@
 - Ensure all tests pass with run_tests.py before considering a feature complete
 - Use a data-driven approach for organization subnet discovery instead of hardcoding values
 - Static files are also considered hardcoded and should be considerd a last resort
+- Make sure you are not editing tests to pass unless they have an verified error.
+- The base code should pass the tests not the tests pass the base code.
 - Do not hardcode values
 
 # Use of version control
@@ -85,7 +85,7 @@
 
 # CHANGELOG Structure
 - Use version numbers in descending order (newest first)
-- Format versions as [x.y.zzz] with dates for released versions
+- Format versions as [x.y.zzz] with dates for released versions (Example: [0.1.000] - 2025-04-23)
 - Only increment zzz (last number) when making changes
 - x and y are incremented when user asks you too
 - Use [0.0.000] - Former Unreleased for features not yet in a release
@@ -94,3 +94,13 @@
 - Each entry should be a single line starting with a hyphen
 - Increment version numbers according to semantic versioning principles
 - Use Markdown formatting for consistency
+
+# Pre-commit checklist
+- All project-specific sections have "This project:" prefix
+- Version format in CHANGELOG.md is [x.y.zzz] (three digits after second dot)
+- README.md is up to date
+- CHANGELOG.md is up to date with latest changes
+- All tests pass
+- No temporary files remain
+- Commit message is meaningful and descriptive
+
