@@ -1,0 +1,153 @@
+# WINDSURFRULES VERSION: 1.0.0
+# LAST UPDATED: 2025-04-23 -JS
+# PURPOSE: Configuration file for AI assistants working on this project
+
+# ===============================
+# THIS PROJECT: SPECIFIC SETTINGS
+# ===============================
+
+# This project: Project Description
+project:
+  name: [NAME]
+  description: [Description]
+  framework: python
+  build_command: pip install -r requirements.txt
+  project_specific_files:
+    - src/[projectpath]/__init__.py
+
+
+# ===============================
+# GLOBAL RULES: APPLY TO ALL PROJECTS
+# ===============================
+
+# Version Control Rules
+version_control:
+  version_format: semantic  # major.minor.patch
+  version_rules:
+    - increment_patch: for bug fixes and minor improvements
+    - increment_minor: for new features that don't break compatibility
+    - increment_major: for breaking changes
+    - update_all_files: [CHANGELOG.md, __init__.py]
+  git:
+    - commit_after_every_change
+    - ensure_tests_pass_before_commit
+    - clean_temporary_files
+    - remove_unneeded_files
+    - use_meaningful_commit_messages
+    - push_to_remote_repository
+
+# Architecture Rules
+architecture:
+  style: modular
+  principles:
+    - object_oriented_design
+    - configuration_driven
+    - separation_of_concerns
+    - environment_agnostic_core
+    - externalized_configuration
+    - isolated_network_operations
+    - parameterized_database_queries
+
+# Development Workflow
+workflow:
+  approach: test-driven-development
+  rules:
+    - create_failing_tests_first
+    - never_modify_tests_to_pass_code
+    - code_must_pass_tests
+    - verify_all_tests_pass_before_commit
+  structure:
+    new_features: src/ directory with proper module structure
+    tests: tests/ directory matching src/ structure
+  implementation:
+    - present_plan_for_approval
+    - ask_about_directory_for_new_files
+    - wait_for_confirmation_before_implementation
+    - verify_understanding_before_implementation
+
+# Code Quality Standards
+code_quality:
+  comments:
+    - prepend_functions_with_comments
+    - prepend_classes_with_comments
+    - prepend_modules_with_comments
+    - explain_logic_with_comments
+    - timestamp_with_initials: "- JS"
+  logging:
+    function: log(self, level, *messages, **kwargs)
+    console_level: INFO unless --quiet or --debug specified
+    file_naming: name-YYYYMMDD-HHMMSS.log
+    levels:
+      - DEBUG: Detailed debugging information
+      - INFO: General execution information
+      - WARNING: Unexpected but non-fatal issues
+      - ERROR: Execution-preventing issues
+      - CRITICAL: Application-terminating issues
+
+# Testing Requirements
+testing:
+  frameworks:
+    - pytest
+    - unittest
+    - unittest.mock
+  practices:
+    - test_driven_development
+    - no_sudo_tests
+    - data_driven_approach
+    - avoid_hardcoded_values
+    - avoid_static_files
+    - never_edit_tests_to_pass
+    - code_passes_tests_not_tests_pass_code
+
+# Documentation Standards
+documentation:
+  files:
+    - README.md
+    - CHANGELOG.md
+  rules:
+    - update_before_code_commits
+    - document_all_new_features
+    - document_all_changes
+    - stage_documentation_before_code
+    - verify_documentation_before_commit
+  changelog:
+    - newest_versions_first
+    - format: [x.y.zzz] - YYYY-MM-DD
+    - increment_zzz_for_changes
+    - increment_xy_only_when_asked
+    - unreleased_at_bottom
+
+# Communication Style
+communication:
+  style:
+    - precise_and_short_messages
+    - show_code_over_descriptions
+  command_line:
+    - clear_error_messages
+    - use_argparse
+    - support_quiet_and_debug_flags
+    - verify_command_output
+
+# Configuration Management
+configuration:
+  practices:
+    - use_yaml_for_config_files
+    - support_environment_specific_configs
+    - validate_before_applying
+    - store_sensitive_info_securely
+    - support_command_line_overrides
+
+# Startup Behavior
+startup:
+  description: "Rules for checking and updating global configuration on project startup"
+  process:
+    1: "Check if remote rules file exists at https://github.com/JacobSandin/configs/blob/master/windsurf/windsurfrules"
+    2: "If remote file exists, download it and compare with local .windsurfrules file"
+    3: "When comparing, ignore all sections that start with '# This project:'"
+    4: "If any global sections (non-project-specific) have changed in the remote file"
+    5: "Prompt user: 'Global windsurf rules have been updated. Would you like to update your local .windsurfrules file? (Only global sections will be updated, project-specific sections will be preserved)'"
+    6: "If user confirms, merge the global sections from remote file with project-specific sections from local file"
+  implementation_notes:
+    - "Project-specific sections are identified by headers starting with '# This project:'"
+    - "All other sections are considered global and should be synchronized across projects"
+    - "The merge should preserve all project-specific content while updating global rules"
