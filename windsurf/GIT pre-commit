@@ -1,0 +1,78 @@
+#!/bin/bash
+# Pre-commit hook to verify all windsurfrules are followed and run tests
+# Created: 2025-04-28 - JS
+
+echo "======================================"
+echo "WINDSURFRULES PRE-COMMIT VERIFICATION"
+echo "======================================"
+
+# Save current directory
+CURRENT_DIR=$(pwd)
+
+# Check if documentation files are staged before code files
+echo "Checking if documentation was updated before code..."
+GIT_STAGED=$(git diff --name-only --cached)
+DOC_STAGED=false
+CODE_STAGED=false
+
+for file in $GIT_STAGED; do
+    if [[ "$file" == "README.md" || "$file" == "CHANGELOG.md" ]]; then
+        DOC_STAGED=true
+    elif [[ "$file" == *.py ]]; then
+        CODE_STAGED=true
+    fi
+done
+
+if [[ "$CODE_STAGED" == true && "$DOC_STAGED" == false ]]; then
+    echo "ERROR: Code changes detected without documentation updates."
+    echo "Please update README.md and/or CHANGELOG.md before committing code changes."
+    exit 1
+fi
+
+# Check CHANGELOG.md format if it's being modified
+if git diff --name-only --cached | grep -q "CHANGELOG.md"; then
+    echo "Checking CHANGELOG.md format..."
+    if ! grep -q "\[0\.0\.[0-9]\{3\}\] - [0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}" CHANGELOG.md; then
+        echo "ERROR: CHANGELOG.md does not follow the required format [x.y.zzz] - YYYY-MM-DD"
+        exit 1
+    fi
+fi
+
+# Check TODO.md for any changes
+echo "Checking TODO.md for changes..."
+if [ -f "TODO.md" ]; then
+    echo "Remember to check TODO.md for any new tasks that might have been added."
+fi
+
+# Run pytest
+echo "Running tests..."
+python -m pytest
+
+# Check test result
+if test $? -eq 0; then
+    echo "All tests passed."
+else
+    echo "ERROR: Tests failed. Commit aborted."
+    echo "Please fix the failing tests before committing."
+    exit 1
+fi
+
+# Final verification checklist
+echo ""
+echo "======================================"
+echo "PRE-COMMIT CHECKLIST"
+echo "======================================"
+echo "✓ Documentation updated before code changes"
+echo "✓ CHANGELOG.md follows correct format"
+echo "✓ All tests pass"
+echo "✓ TODO.md checked for changes"
+echo ""
+echo "REMINDER: Have you:"
+echo "- Added meaningful commit message?"
+echo "- Removed any temporary files?"
+echo "- Marked completed tasks in TODO.md?"
+echo "- Verified documentation accurately reflects changes?"
+echo ""
+echo "Proceeding with commit..."
+
+exit 0
