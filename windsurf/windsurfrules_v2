@@ -1,5 +1,5 @@
-# WINDSURFRULES VERSION: 1.0.0
-# LAST UPDATED: 2025-04-23 -JS
+# WINDSURFRULES VERSION: 1.0.1
+# LAST UPDATED: 2025-04-28 -JS
 # PURPOSE: Configuration file for AI assistants working on this project
 
 # ===============================
@@ -46,6 +46,11 @@ architecture:
     - externalized_configuration
     - isolated_network_operations
     - parameterized_database_queries
+  implementation:
+    - Uses a modular architecture with environment-specific implementations
+    - Environment-specific code should extend base classes
+    - Implements a unified logging system
+    - Provides command-line interface with standard arguments
 
 # Development Workflow
 workflow:
@@ -75,6 +80,8 @@ workflow:
     4: "Implement code to make test pass"
     5: "Run all tests to ensure no regressions"
     6: "Commit implementation with message 'Implement [feature]'"
+  restrictions:
+    - Never modify files in *old*/ directories
 
 # Code Quality Standards
 code_quality:
@@ -148,12 +155,20 @@ documentation:
     - document_all_changes
     - stage_documentation_before_code
     - verify_documentation_before_commit
+    - NEVER commit code changes without first updating documentation
+    - Update README.md with any new features, scripts, or usage instructions
+    - Update CHANGELOG.md with all changes made in the current commit
+    - Documentation updates must be committed in the same commit as code changes
+    - Run git add on documentation files before code files
   changelog:
     - newest_versions_first
     - format: [x.y.zzz] - YYYY-MM-DD
     - increment_zzz_for_changes
     - increment_xy_only_when_asked
     - unreleased_at_bottom
+    - group_changes: [Added, Changed, Fixed, Removed]
+    - each_entry_hyphen_prefixed
+    - use_markdown_formatting
 
 # Communication Style
 communication:
@@ -189,3 +204,21 @@ startup:
     - "Project-specific sections are identified by headers starting with '# This project:'"
     - "All other sections are considered global and should be synchronized across projects"
     - "The merge should preserve all project-specific content while updating global rules"
+
+# Pre-commit checklist
+pre_commit:
+  checks:
+    - All project-specific sections have "This project:" prefix
+    - Version format in CHANGELOG.md is [x.y.zzz] (three digits after second dot)
+    - README.md is up to date with latest features and changes
+    - CHANGELOG.md is up to date with latest changes and correct version number
+    - All tests pass with run_tests.py
+    - No temporary files remain
+    - Commit message is meaningful and descriptive
+    - Documentation changes are staged before code changes
+    - Documentation accurately reflects the latest code changes
+
+# Shell Scripting Standards
+shell_scripting:
+  practices:
+    - using "if test $status -eq 0" instead of "if [ $? -eq 0 ]"
