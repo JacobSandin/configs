@@ -1,23 +1,57 @@
-# This project: Project description
+# This project: Project Description
 - framework: python
 - build_command: pip install -r requirements.txt
+
+# Architecture Rules
+- Uses a modular architecture with environment-specific implementations
+- Follows object-oriented design principles
+- Configuration-driven approach to avoid hardcoding
+- Implements a unified logging system
+- Provides command-line interface with standard arguments
+- Use modular design with clear separation of concerns
+- Core functionality should be environment-agnostic
+- Environment-specific code should extend base classes
+- Configuration should be externalized and environment-aware
+- Network operations should be isolated in utility modules
+- Database operations should use parameterized queries
+- Database operations should be isolated in utility modules
+
+# Configuration Management
+- Use YAML for configuration files
+- Support environment-specific configuration files
+- Validate configurations before applying changes
+- Store sensitive information securely (not in code)
+- Support command-line overrides for configuration values
 
 # On startup
 - Test if https://github.com/JacobSandin/configs/blob/master/windsurf/windsurfrules exists
 - If it does, compare to local .windsurfrules in project, except headers "This project:"
 - If it has changed, then ask user if they want to update .windsurfrules
 
+# AI Assistant Workflow
+- Always follow test-driven development (TDD) approach
+- Create failing tests first before implementing any feature
+- Never modify tests to pass code; code must pass tests
+- New features go in src/ directory with proper module structure
+- Tests go in tests/ directory matching the src/ structure
+- Never modify files in old_tests/ directory
+- Present implementation plan for approval before coding
+- Explicitly ask which directory to use for new files
+- Wait for confirmation before executing each implementation step
+- Verify understanding of these requirements before any implementation
+
 # Use of comments
 - Prepend functions with comments
 - Prepend classes with comments
 - Prepend modules with comments
 - Use comments to explain the logic of the code
-- Write timestamp together with -JS at end of comment for when it was added
+- Write timestamp together with "- JS" at end of _any_ comment when it is added or changed
 
-# Incorperate logging
+# Incorporate logging
 - log through one function log((self, level, *messages, **kwargs))
 - log INFO level to console unless --quiet or --debug is specified
 - Use logging framework
+- Each logfile should be with name-YYYYMMDD-HHMMSS.log
 - DEBUG: Detailed information, typically useful for debugging purposes.
 - INFO: General information about the execution of the application.
 - WARNING: An indication that something unexpected or potentially problematic has occurred, but the application can still continue running.
@@ -38,9 +72,11 @@
 - Ensure all tests pass with run_tests.py before considering a feature complete
 - Use a data-driven approach for organization subnet discovery instead of hardcoding values
 - Static files are also considered hardcoded and should be considerd a last resort
+- Make sure you are not editing tests to pass unless they have an verified error.
+- The base code should pass the tests not the tests pass the base code.
 - Do not hardcode values
 
-# Use of version controll
+# Use of version control
 - Use git for version control
 - Try to commit after every change
 - Make sure all tests pass before committing
@@ -52,19 +88,41 @@
 # Documentation
 - Always maintain README.md
 - Always update CHANGELOG.md
-
-# CHANGELOG Structure
-- Use version numbers in descending order (newest first)
-- Format versions as [x.y.z] with dates for released versions
-- Use [0.0.0] - Former Unreleased for features not yet in a release
-- Place unreleased changes at the bottom of the file
-- Group changes under headings: Added, Changed, Fixed, Removed
-- Each entry should be a single line starting with a hyphen
-- Increment version numbers according to semantic versioning principles
-- Use Markdown formatting for consistency
+- Both README.md and CHANGELOG.md should be updated before every commit
+- NEVER commit code changes without first updating documentation
+- Update README.md with any new features, scripts, or usage instructions
+- Update CHANGELOG.md with all changes made in the current commit
+- Documentation updates must be committed in the same commit as code changes
+- Run git add on documentation files before code files
+- Verify documentation changes before committing code changes
 
 # Command Line Behavior
 - Provide clear error messages when invalid arguments are provided
 - Use argparse for command line arguments
 - Use --quiet and --debug parameters
 
+# CHANGELOG Structure
+- Use version numbers in descending order (newest first)
+- Format versions as [x.y.zzz] with dates for released versions (Example: [0.1.000] - 2025-04-23)
+- Only increment zzz (last number) when making changes
+- x and y are incremented when user asks you too
+- Use [0.0.000] - Former Unreleased for features not yet in a release
+- Place unreleased changes at the bottom of the file
+- Group changes under headings: Added, Changed, Fixed, Removed
+- Each entry should be a single line starting with a hyphen
+- Increment version numbers according to semantic versioning principles
+- Use Markdown formatting for consistency
+
+# Pre-commit checklist
+- All project-specific sections have "This project:" prefix
+- Version format in CHANGELOG.md is [x.y.zzz] (three digits after second dot)
+- README.md is up to date with latest features and changes
+- CHANGELOG.md is up to date with latest changes and correct version number
+- All tests pass with run_tests.py
+- No temporary files remain
+- Commit message is meaningful and descriptive
+- Documentation changes are staged before code changes
+- Documentation accurately reflects the latest code changes
+
+# Test commands you run
+- using "if test $status -eq 0" instead of "if [ $? -eq 0 ]"

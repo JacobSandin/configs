@@ -1,0 +1,133 @@
+#!/bin/bash
+# Pre-commit hook to verify all windsurfrules are followed and run tests
+# Created: 2025-04-28 - JS
+
+echo "======================================"
+echo "WINDSURFRULES PRE-COMMIT VERIFICATION"
+echo "======================================"
+
+# Save current directory
+CURRENT_DIR=$(pwd)
+
+# Check for unstaged changes and untracked files
+echo "Checking for unstaged changes and untracked files..."
+
+# Check for unstaged changes
+if ! git diff --quiet; then
+    echo "ERROR: You have unstaged changes in your working directory."
+    echo "All changes must be either staged (with 'git add') or in .gitignore before committing."
+    echo "This ensures that all related changes are committed and tested together."
+    echo "Please stage your changes with 'git add' or add them to .gitignore."
+    exit 1
+fi
+
+# Check for untracked files
+UNTRACKED_FILES=$(git ls-files --others --exclude-standard)
+if [ -n "$UNTRACKED_FILES" ]; then
+    echo "ERROR: You have untracked files in your working directory:"
+    echo "$UNTRACKED_FILES"
+    echo "Please either add them to your commit with 'git add' or add them to .gitignore."
+    exit 1
+fi
+
+# Check if CHANGELOG.md is updated for code changes
+echo "Checking if CHANGELOG.md was updated for code changes..."
+GIT_STAGED=$(git diff --name-only --cached)
+CHANGELOG_STAGED=false
+CODE_STAGED=false
+NEW_FEATURE=false
+
+# Exclude these files from requiring CHANGELOG updates
+EXCLUDED_FILES=("CHANGELOG.md" "README.md" "TODO.md" ".gitignore")
+
+for file in $GIT_STAGED; do
+    if [[ "$file" == "CHANGELOG.md" ]]; then
+        CHANGELOG_STAGED=true
+    else
+        # Check if the file is in the excluded list
+        EXCLUDED=false
+        for excluded in "${EXCLUDED_FILES[@]}"; do
+            if [[ "$file" == "$excluded" ]]; then
+                EXCLUDED=true
+                break
+            fi
+        done
+        
+        # If not excluded, it's considered a code change
+        if [[ "$EXCLUDED" == false ]]; then
+            CODE_STAGED=true
+            # Check if this is a new file (potential new feature)
+            if ! git cat-file -e HEAD:"$file" 2>/dev/null; then
+                NEW_FEATURE=true
+            fi
+        fi
+    fi
+done
+
+# Always require CHANGELOG updates for any changes except documentation files
+if [[ "$CODE_STAGED" == true && "$CHANGELOG_STAGED" == false ]]; then
+    echo "ERROR: Code changes detected without CHANGELOG.md updates."
+    echo "Please update CHANGELOG.md to document your changes before committing."
+    exit 1
+fi
+
+# Recommend README update for new features but don't enforce
+if [[ "$NEW_FEATURE" == true ]]; then
+    if ! git diff --name-only --cached | grep -q "README.md"; then
+        echo "WARNING: New code files detected without README.md updates."
+        echo "Consider updating README.md if you've added new features or functionality."
+    fi
+fi
+
+# Check CHANGELOG.md format if it's being modified
+if git diff --name-only --cached | grep -q "CHANGELOG.md"; then
+    echo "Checking CHANGELOG.md format..."
+    if ! grep -q "\[0\.0\.[0-9]\{3\}\] - [0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}" CHANGELOG.md; then
+        echo "ERROR: CHANGELOG.md does not follow the required format [x.y.zzz] - YYYY-MM-DD"
+        exit 1
+    fi
+fi
+
+# Check TODO.md for any changes
+echo "Checking TODO.md for changes..."
+if [ -f "TODO.md" ]; then
+    echo "Remember to check TODO.md for any new tasks that might have been added."
+fi
+
+# Run pytest on staged changes
+echo "Running tests on staged changes..."
+
+# Run tests
+python -m pytest
+TEST_STATUS=$?
+
+
+
+# Check test result
+if test $TEST_STATUS -eq 0; then
+    echo "All tests passed."
+else
+    echo "ERROR: Tests failed. Commit aborted."
+    echo "Please fix the failing tests before committing."
+    exit 1
+fi
+
+# Final verification checklist
+echo ""
+echo "======================================"
+echo "PRE-COMMIT CHECKLIST"
+echo "======================================"
+echo "✓ Documentation updated before code changes"
+echo "✓ CHANGELOG.md follows correct format"
+echo "✓ All tests pass"
+echo "✓ TODO.md checked for changes"
+echo ""
+echo "REMINDER: Have you:"
+echo "- Added meaningful commit message?"
+echo "- Removed any temporary files?"
+echo "- Marked completed tasks in TODO.md?"
+echo "- Verified documentation accurately reflects changes?"
+echo ""
+echo "Proceeding with commit..."
+
+exit 0

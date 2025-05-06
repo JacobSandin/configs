@@ -1,0 +1,232 @@
+# WINDSURFRULES VERSION: 1.0.1
+# LAST UPDATED: 2025-04-28 -JS
+# PURPOSE: Configuration file for AI assistants working on this project
+
+# ===============================
+# THIS PROJECT: SPECIFIC SETTINGS
+# ===============================
+
+# This project: Project Description
+project:
+  name: [NAME]
+  description: [Description]
+  framework: python
+  build_command: pip install -r requirements.txt
+  project_specific_files:
+    - src/[projectpath]/__init__.py
+
+# ===============================
+# GLOBAL RULES: APPLY TO ALL PROJECTS
+# ===============================
+
+# Version Control Rules
+version_control:
+  version_format: semantic  # major.minor.patch
+  version_rules:
+    - increment_patch: for bug fixes and minor improvements
+    - increment_minor: for new features that don't break compatibility
+    - increment_major: for breaking changes
+    - update_all_files: [CHANGELOG.md, __init__.py]
+  git:
+    - commit_after_every_change
+    - ensure_tests_pass_before_commit
+    - clean_temporary_files
+    - remove_unneeded_files
+    - use_meaningful_commit_messages
+    - push_to_remote_repository
+
+# Task Management
+task_management:
+  todo_file: TODO.md
+  rules:
+    - check_todo_after_completing_tasks: "Always check the TODO.md file for changes after completing tasks, as the user might add things to it while you are working on other aspects of the project"
+    - update_todo_with_progress: "Mark completed tasks with [x] in the TODO.md file"
+    - add_new_tasks_to_todo: "Add any new tasks identified during development to the TODO.md file"
+
+# Architecture Rules
+architecture:
+  style: modular
+  principles:
+    - object_oriented_design
+    - configuration_driven
+    - separation_of_concerns
+    - environment_agnostic_core
+    - externalized_configuration
+    - isolated_network_operations
+    - parameterized_database_queries
+  implementation:
+    - Uses a modular architecture with environment-specific implementations
+    - Environment-specific code should extend base classes
+    - Implements a unified logging system
+    - Provides command-line interface with standard arguments
+
+# Development Workflow
+workflow:
+  approach: test-driven-development
+  rules:
+    - create_failing_tests_first
+    - never_modify_tests_to_pass_code
+    - code_must_pass_tests
+    - verify_all_tests_pass_before_commit
+    # New rules to enforce TDD
+    - run_tests_before_any_implementation
+    - document_test_first_approach_in_commits
+    - separate_test_commits_from_implementation
+    - update_tests_before_updating_code
+  structure:
+    new_features: src/ directory with proper module structure
+    tests: tests/ directory matching src/ structure
+  implementation:
+    - present_plan_for_approval
+    - ask_about_directory_for_new_files
+    - wait_for_confirmation_before_implementation
+    - verify_understanding_before_implementation
+  tdd_workflow:
+    1: "Write failing test for new feature or bug fix"
+    2: "Commit test with message 'TDD: Add test for [feature]'"
+    3: "Verify test fails for expected reason"
+    4: "Implement code to make test pass"
+    5: "Run all tests to ensure no regressions"
+    6: "Commit implementation with message 'Implement [feature]'"
+  restrictions:
+    - Never modify files in *old*/ directories
+
+# Code Quality Standards
+code_quality:
+  comments:
+    - prepend_functions_with_comments
+    - prepend_classes_with_comments
+    - prepend_modules_with_comments
+    - explain_logic_with_comments
+    - timestamp_with_initials: "- JS"
+  logging:
+    function: log(self, level, *messages, **kwargs)
+    console_level: INFO unless --quiet or --debug specified
+    file_naming: name-YYYYMMDD-HHMMSS.log
+    levels:
+      - DEBUG: Detailed debugging information
+      - INFO: General execution information
+      - WARNING: Unexpected but non-fatal issues
+      - ERROR: Execution-preventing issues
+      - CRITICAL: Application-terminating issues
+
+# Testing Requirements
+testing:
+  frameworks:
+    - pytest
+    - unittest
+    - unittest.mock
+  practices:
+    - test_driven_development
+    - no_sudo_tests
+    - data_driven_approach
+    - avoid_hardcoded_values
+    - avoid_static_files
+    - never_edit_tests_to_pass
+    - code_passes_tests_not_tests_pass_code
+  documentation:
+    - document_test_strategy_in_test_files
+    - include_test_coverage_in_changelog
+    - maintain_test_plan_document
+  test_naming:
+    - use_descriptive_test_names
+    - group_tests_by_feature
+    - name_format: test_<functionality>_<scenario>
+  test_verification:
+    - run_tests_before_commit: "python -m pytest"
+    - verify_test_coverage: "pytest --cov=src"
+    - fail_on_test_regression
+
+# Testing Enforcement
+testing_enforcement:
+  pre_commit_hooks:
+    - run_all_tests_before_commit
+    - block_commit_on_test_failure
+    - require_test_files_for_new_features
+  test_validation:
+    - verify_test_timestamp_newer_than_implementation
+    - require_test_coverage_minimum: 80%
+    - fail_build_on_test_regression
+  automation:
+    - setup_pre_commit_hook: "pytest || exit 1"
+    - add_test_coverage_report: "pytest --cov=src tests/"
+    - enforce_test_first_workflow
+
+# Documentation Standards
+documentation:
+  files:
+    - README.md
+    - CHANGELOG.md
+  rules:
+    - update_before_code_commits
+    - document_all_new_features
+    - document_all_changes
+    - stage_documentation_before_code
+    - verify_documentation_before_commit
+    - NEVER commit code changes without first updating documentation
+    - Update README.md with any new features, scripts, or usage instructions
+    - Update CHANGELOG.md with all changes made in the current commit
+    - Documentation updates must be committed in the same commit as code changes
+    - Run git add on documentation files before code files
+  changelog:
+    - newest_versions_first
+    - format: [x.y.zzz] - YYYY-MM-DD
+    - increment_zzz_for_changes
+    - increment_xy_only_when_asked
+    - unreleased_at_bottom
+    - group_changes: [Added, Changed, Fixed, Removed]
+    - each_entry_hyphen_prefixed
+    - use_markdown_formatting
+
+# Communication Style
+communication:
+  style:
+    - precise_and_short_messages
+    - show_code_over_descriptions
+  command_line:
+    - clear_error_messages
+    - use_argparse
+    - support_quiet_and_debug_flags
+    - verify_command_output
+
+# Configuration Management
+configuration:
+  practices:
+    - use_yaml_for_config_files
+    - support_environment_specific_configs
+    - validate_before_applying
+    - store_sensitive_info_securely
+    - support_command_line_overrides
+
+# Startup Behavior
+startup:
+  description: "Rules for checking and updating global configuration on project startup"
+  process:
+    1: "Check if remote rules file exists at https://raw.githubusercontent.com/JacobSandin/configs/refs/heads/master/windsurf/windsurfrules_v2"
+    2: "If remote file exists, download it and compare with local .windsurfrules file"
+    3: "When comparing, ignore all sections that start with '# This project:'"
+    4: "If any global sections (non-project-specific) have changed in the remote file"
+    5: "Prompt user: 'Global windsurf rules have been updated. Would you like to update your local .windsurfrules file? (Only global sections will be updated, project-specific sections will be preserved)'"
+    6: "If user confirms, merge the global sections from remote file with project-specific sections from local file"
+  implementation_notes:
+    - "Project-specific sections are identified by headers starting with '# This project:'"
+    - "All other sections are considered global and should be synchronized across projects"
+    - "The merge should preserve all project-specific content while updating global rules"
+
+# Pre-commit checklist
+pre_commit:
+  checks:
+    - All project-specific sections have "This project:" prefix
+    - Version format in CHANGELOG.md is [x.y.zzz] (three digits after second dot)
+    - README.md is up to date with latest features and changes
+    - CHANGELOG.md is up to date with latest changes and correct version number
+    - All tests pass with run_tests.py
+    - No temporary files remain
+    - Commit message is meaningful and descriptive
+    - Documentation changes are staged before code changes
+    - Documentation accurately reflects the latest code changes
+
+# Shell Scripting Standards
+shell_scripting:
+  practices:
+    - using "if test $status -eq 0" instead of "if [ $? -eq 0 ]"
