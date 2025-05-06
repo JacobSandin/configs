@@ -8,7 +8,11 @@ local plugins = {
  --    enabled = true,
  --
  --  },
-
+{
+  "vhyrro/luarocks.nvim",
+  priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
+  config = true,
+},
     {
       'Exafunction/windsurf.vim',
       event = 'BufEnter'
@@ -43,13 +47,22 @@ local plugins = {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-     opts = overrides.treesitter,
-  },
+    build = ":TSUpdate",
+    config = function () 
+      local configs = require("nvim-treesitter.configs")
 
-  {
-    "nvim-tree/nvim-tree.lua",
-    opts = overrides.nvimtree,
-  },
+      configs.setup({
+          ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html" },
+          sync_install = false,
+          highlight = { enable = true },
+          indent = { enable = true },  
+        })
+    end
+ },
+   {
+     "nvim-tree/nvim-tree.lua",
+     opts = overrides.nvimtree,
+   },
 
   -- Install a plugin
   {
