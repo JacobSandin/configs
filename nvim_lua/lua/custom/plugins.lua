@@ -2,12 +2,17 @@ local overrides = require("custom.configs.overrides")
 
 ---@type NvPluginSpec[]
 local plugins = {
-  {
-    "Exafunction/codeium.vim",
-    lazy = false,
-    enabled = true,
+ --  {
+ --    "Exafunction/codeium.vim",
+ --    lazy = false,
+ --    enabled = true,
+ --
+ --  },
 
-  },
+    {
+      'Exafunction/windsurf.vim',
+      event = 'BufEnter'
+    },
 
   -- Override plugin definition options
   {
