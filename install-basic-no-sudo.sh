@@ -61,7 +61,8 @@ rm -rf ~/bin/squashfs-root
 
 # Download Neovim 0.9.5 which has better compatibility with older systems
 #wget -O nvim.appimage.new https://github.com/neovim/neovim/releases/download/v0.9.5/nvim.appimage
-wget -O nvim.appimage.new https://github.com/neovim/neovim/releases/download/v0.10.4/nvim-linux-x86_64.appimage
+#wget -O nvim.appimage.new https://github.com/neovim/neovim/releases/download/v0.10.4/nvim-linux-x86_64.appimage
+wget -O nvim.appimage.new https://github.com/neovim/neovim/releases/download/v0.11.5/nvim-linux-x86_64.appimage
 chmod +x nvim.appimage.new
 
 # Extract the AppImage contents (works without FUSE)
