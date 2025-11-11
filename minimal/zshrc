@@ -103,6 +103,8 @@ alias ht='history -f|fzf --tac --no-sort'
 alias e='exit'
 alias vimdiff='nvim -d'
 alias vudiff='diff -qr /srv/github/vufind/ /usr/local/vufind/|sed "/cache/d;/solr/d;/vufind\/:/d;/\.git/d;/README/d;s/^Files/vim -d/g;s/and //g;s/ differ//g"|fzf'
+alias svndiff='f(){ f=$1; svn cat "$f" > /tmp/svn-old.$$; nvim -d /tmp/svn-old.$$ "$f"; }; f'
+
 # bzip2 still best alternative I feel. alias bzip2='echo "==========================================\n\n WARNING! (bzip2) Använd lzma istället \n\n==========================================" 1>&2;'
 if [ $(command -v nvim) ]; then
     export EDITOR='nvim'
