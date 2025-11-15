@@ -1,0 +1,24 @@
+{
+  "title": "Map ≤ to | (Swedish keyboard)",
+  "rules": [
+    {
+      "description": "Remap Shift + < (≤) to |",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "non_us_backslash",
+            "modifiers": { "mandatory": ["shift"] }
+          },
+          "to": [
+            {
+              "key_code": "7",
+              "modifiers": ["option"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

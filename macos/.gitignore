@@ -1,0 +1,32 @@
+# SSH keys and credentials
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+.ssh/
+ssh/
+
+# History files
+*_history
+.lesshst
+.viminfo
+
+# Tokens and credentials
+*token*
+*secret*
+*password*
+.conda/aau_token
+.rest-client/
+
+# OS files
+.DS_Store
+.Trash/
+
+# Cache directories
+.cache/
+.codeium/
+
+# Backup files
+*.backup
+*.bak
+*~

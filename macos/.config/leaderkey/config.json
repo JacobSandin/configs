@@ -1,0 +1,82 @@
+{
+  "actions" : [
+    {
+      "key" : "t",
+      "type" : "application",
+      "value" : "/Applications/kitty.app"
+    },
+    {
+      "key" : "b",
+      "type" : "application",
+      "value" : "/Applications/Brave Browser.app"
+    },
+    {
+      "key" : "e",
+      "type" : "application",
+      "value" : "/Applications/Windsurf.app"
+    },
+    {
+      "key" : "s",
+      "type" : "application",
+      "value" : "/Applications/Slack.app"
+    },
+    {
+      "key" : "m",
+      "type" : "application",
+      "value" : "/System/Applications/Mail.app"
+    },
+    {
+      "key" : "a",
+      "type" : "group",
+      "iconPath" : "/Applications/AeroSpace.app",
+      "actions" : [
+        {
+          "key" : "w",
+          "type" : "command",
+          "value" : "/opt/homebrew/bin/aerospace workspace W"
+        },
+        {
+          "key" : "e",
+          "type" : "command",
+          "value" : "/opt/homebrew/bin/aerospace workspace E"
+        },
+        {
+          "key" : "t",
+          "type" : "command",
+          "value" : "/opt/homebrew/bin/aerospace workspace T"
+        },
+        {
+          "key" : "q",
+          "type" : "command",
+          "value" : "/opt/homebrew/bin/aerospace workspace Q"
+        },
+        {
+          "key" : "r",
+          "type" : "command",
+          "value" : "/opt/homebrew/bin/aerospace workspace R"
+        },
+        {
+          "key" : "s",
+          "type" : "command",
+          "value" : "/opt/homebrew/bin/aerospace workspace S"
+        },
+        {
+          "key" : "y",
+          "type" : "command",
+          "value" : "/opt/homebrew/bin/aerospace workspace Y"
+        },
+        {
+          "key" : "a",
+          "type" : "command",
+          "value" : "/opt/homebrew/bin/aerospace workspace A"
+        }
+      ]
+    },
+    {
+      "key" : "l",
+      "type" : "command",
+      "value" : "pmset displaysleepnow"
+    }
+  ],
+  "type" : "group"
+}
