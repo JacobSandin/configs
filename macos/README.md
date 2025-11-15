@@ -16,10 +16,7 @@ macos/
     ├── karabiner/     # Karabiner-Elements key remapping
     ├── kitty/         # Kitty terminal emulator
     ├── leaderkey/     # LeaderKey launcher
-    ├── nvim/          # Neovim configuration
-    ├── ranger/        # Ranger file manager
-    ├── sketchybar/    # Sketchybar menu bar
-    └── tmux.conf      # Tmux configuration
+    └── sketchybar/    # Sketchybar menu bar
 ```
 
 ## Setup Tools
@@ -32,8 +29,21 @@ macos/
 
 ## Installation
 
-1. Clone this repository
-2. Create symlinks to your home directory:
+### Quick Install (Recommended)
+
+```bash
+cd ~/utv/git/configs/macos
+./install.sh
+```
+
+The install script will:
+- Backup your existing config files to `~/.dotfiles-backup-TIMESTAMP/`
+- Create symlinks from your home directory to this repo
+- Reload all configurations automatically
+
+### Manual Installation
+
+If you prefer to install manually:
 
 ```bash
 # Home directory files
@@ -47,18 +57,19 @@ ln -sf ~/utv/git/configs/macos/.config/aerospace ~/.config/aerospace
 ln -sf ~/utv/git/configs/macos/.config/karabiner ~/.config/karabiner
 ln -sf ~/utv/git/configs/macos/.config/kitty ~/.config/kitty
 ln -sf ~/utv/git/configs/macos/.config/leaderkey ~/.config/leaderkey
-ln -sf ~/utv/git/configs/macos/.config/tmux.conf ~/.config/tmux.conf
 ln -sf ~/utv/git/configs/macos/.config/sketchybar ~/.config/sketchybar
 ```
 
-3. Install required tools via Homebrew:
+### Install Required Tools
+
+Install tools via Homebrew:
 
 ```bash
 brew install --cask aerospace karabiner-elements kitty leader-key
-brew install sketchybar tmux
+brew install sketchybar
 ```
 
-4. Reload configurations:
+Then reload configurations:
 ```bash
 aerospace reload-config
 # Restart Karabiner-Elements from menu bar
