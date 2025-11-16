@@ -54,6 +54,7 @@ create_symlink "$DOTFILES_DIR/.config/karabiner" "$HOME/.config/karabiner"
 create_symlink "$DOTFILES_DIR/.config/kitty" "$HOME/.config/kitty"
 create_symlink "$DOTFILES_DIR/.config/leaderkey" "$HOME/.config/leaderkey"
 create_symlink "$DOTFILES_DIR/.config/sketchybar" "$HOME/.config/sketchybar"
+create_symlink "$DOTFILES_DIR/.config/yazi" "$HOME/.config/yazi"
 
 echo ""
 echo "🔄 Reloading configurations..."
