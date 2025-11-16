@@ -6,7 +6,8 @@
 # after-startup-command previously started JankyBorders. Commented out to avoid hangs.
 after-startup-command = [
     "exec-and-forget /bin/zsh -lc '/opt/homebrew/bin/borders active_color=0xffffff00 inactive_color=0xff808080 width=15.0 radius=10.0'",
-    "exec-and-forget sketchybar"
+    "exec-and-forget sketchybar",
+    "exec-and-forget /bin/bash ~/.config/aerospace/reassign-windows-on-startup.sh"
 ]
 #after-startup-command = []
 
@@ -95,6 +96,10 @@ if.app-id = 'com.exafunction.windsurf'
 run = 'move-node-to-workspace E'
 
 [[on-window-detected]]
+if.app-id = 'com.sublimetext.4'
+run = 'move-node-to-workspace E'
+
+[[on-window-detected]]
 if.app-id = 'net.kovidgoyal.kitty'
 run = 'move-node-to-workspace T'
 
@@ -107,7 +112,7 @@ if.app-id = 'com.tinyspeck.slackmacgap'
 run = 'move-node-to-workspace S'
 
 [[on-window-detected]]
-if.app-id = 'com.apple.w'
+if.app-id = 'com.apple.mail'
 run = 'move-node-to-workspace R'
 
 [[on-window-detected]]
@@ -271,6 +276,9 @@ run = 'move-node-to-workspace A'
     
     # Reset all windows in current workspace to tiling
     cmd-alt-ctrl-t = ['exec-and-forget /bin/bash ~/.config/aerospace/reset-all-to-tiling.sh', 'mode main']
+    
+    # Reassign all windows to correct workspaces based on app-id
+    cmd-alt-ctrl-a = ['exec-and-forget /bin/bash ~/.config/aerospace/reassign-all-windows.sh', 'mode main']
 
     # down = 'volume down'
     # up = 'volume up'
