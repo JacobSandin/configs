@@ -7,37 +7,31 @@ local opt = vim.opt
 -- This enables yank/paste to work through SSH and tmux using OSC52 escape sequences
 -- Works with Kitty terminal and modern terminals that support OSC52
 
--- Use system clipboard via OSC52
--- NeoVim 0.10+ has built-in OSC52 support
-if vim.fn.has('nvim-0.10') == 1 then
-  -- Modern NeoVim with native OSC52 support
-  vim.g.clipboard = {
-    name = 'OSC 52',
-    copy = {
-      ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
-      ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
-    },
-    paste = {
-      ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
-      ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
-    },
-  }
-else
-  -- Fallback for older NeoVim versions
-  -- Use tmux's set-clipboard which will handle OSC52
-  vim.g.clipboard = {
-    name = 'tmux',
-    copy = {
-      ['+'] = 'tmux load-buffer -',
-      ['*'] = 'tmux load-buffer -',
-    },
-    paste = {
-      ['+'] = 'tmux save-buffer -',
-      ['*'] = 'tmux save-buffer -',
-    },
-    cache_enabled = 1,
-  }
+-- Enable unnamedplus to use system clipboard
+opt.clipboard = "unnamedplus"
+
+-- OSC52 clipboard provider
+-- This function sends OSC52 escape sequences to copy text
+local function copy_osc52(lines, _)
+  local text = table.concat(lines, '\n')
+  local encoded = vim.base64.encode(text)
+  -- Send OSC52 sequence: ESC]52;c;BASE64\BEL
+  io.stdout:write(string.format('\027]52;c;%s\007', encoded))
 end
 
--- Enable clipboard
-opt.clipboard = "unnamedplus"
+local function paste_osc52()
+  return {}  -- Paste not supported via OSC52, use tmux buffer
+end
+
+-- Set up custom clipboard provider
+vim.g.clipboard = {
+  name = 'OSC52',
+  copy = {
+    ['+'] = copy_osc52,
+    ['*'] = copy_osc52,
+  },
+  paste = {
+    ['+'] = paste_osc52,
+    ['*'] = paste_osc52,
+  },
+}
