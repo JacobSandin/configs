@@ -143,6 +143,25 @@ if [ -f ~/.aliases ]; then
     source ~/.aliases
 fi
 
+# OSC52 clipboard copy - works through SSH and tmux
+# Replaces xclip functionality using OSC52 escape sequences
+osc52-copy() {
+  local data
+  if [ -t 0 ]; then
+    # If stdin is a terminal, read from arguments
+    data="$*"
+  else
+    # If stdin is piped, read from pipe
+    data=$(cat)
+  fi
+  
+  # Encode as base64 and send OSC52 sequence
+  local encoded=$(printf "%s" "$data" | base64 | tr -d '\n')
+  printf "\033]52;c;%s\a" "$encoded"
+}
+
+# Alias for convenience (like xclip)
+alias clip='osc52-copy'
 
 PATH="$HOME/bin:$HOME/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
