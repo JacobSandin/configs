@@ -1,0 +1,16 @@
+# Yazi keybindings
+# See: https://yazi-rs.github.io/docs/configuration/keymap
+
+[manager]
+prepend_keymap = [
+	# Tab navigation
+	{ on = "<Tab>", run = "tab_switch 1 --relative", desc = "Switch to next tab" },
+	{ on = "<S-Tab>", run = "tab_switch -1 --relative", desc = "Switch to previous tab" },
+	
+	# Alternative: use numbers to switch to specific tabs
+	{ on = "1", run = "tab_switch 0", desc = "Switch to tab 1" },
+	{ on = "2", run = "tab_switch 1", desc = "Switch to tab 2" },
+	{ on = "3", run = "tab_switch 2", desc = "Switch to tab 3" },
+	{ on = "4", run = "tab_switch 3", desc = "Switch to tab 4" },
+	{ on = "5", run = "tab_switch 4", desc = "Switch to tab 5" },
+]
