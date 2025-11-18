@@ -26,51 +26,86 @@
       "value" : "/System/Applications/Mail.app"
     },
     {
-      "key" : "a",
-      "type" : "group",
-      "iconPath" : "/Applications/AeroSpace.app",
       "actions" : [
         {
           "key" : "w",
+          "label" : "Workspace W",
           "type" : "command",
           "value" : "/opt/homebrew/bin/aerospace workspace W"
         },
         {
           "key" : "e",
+          "label" : "Workspace E",
           "type" : "command",
           "value" : "/opt/homebrew/bin/aerospace workspace E"
         },
         {
           "key" : "t",
+          "label" : "Workspace T",
           "type" : "command",
           "value" : "/opt/homebrew/bin/aerospace workspace T"
         },
         {
           "key" : "q",
+          "label" : "Workspace Q",
           "type" : "command",
           "value" : "/opt/homebrew/bin/aerospace workspace Q"
         },
         {
           "key" : "r",
+          "label" : "Workspace R",
           "type" : "command",
           "value" : "/opt/homebrew/bin/aerospace workspace R"
         },
         {
           "key" : "s",
+          "label" : "Workspace S",
           "type" : "command",
           "value" : "/opt/homebrew/bin/aerospace workspace S"
         },
         {
           "key" : "y",
+          "label" : "Workspace Y",
           "type" : "command",
           "value" : "/opt/homebrew/bin/aerospace workspace Y"
         },
         {
           "key" : "a",
+          "label" : "Workspace A",
           "type" : "command",
           "value" : "/opt/homebrew/bin/aerospace workspace A"
+        },
+        {
+          "actions" : [
+            {
+              "key" : "m",
+              "label" : "Monitor workspace sort",
+              "type" : "command",
+              "value" : " /bin/bash ~/.config/aerospace/move-workspaces-to-secondary.sh"
+            },
+            {
+              "key" : "t",
+              "label" : "Reset tiling",
+              "type" : "command",
+              "value" : "/bin/bash ~/.config/aerospace/reset-all-to-tiling.sh"
+            },
+            {
+              "key" : "a",
+              "label" : "Sort windows",
+              "type" : "command",
+              "value" : "/bin/bash ~/.config/aerospace/reassign-all-windows.sh"
+            }
+          ],
+          "iconPath" : "/System/Applications/System Settings.app",
+          "key" : "g",
+          "label" : "Service",
+          "type" : "group"
         }
-      ]
+      ],
+      "iconPath" : "/Applications/AeroSpace.app",
+      "key" : "a",
+      "label" : "Aerospace",
+      "type" : "group"
     },
     {
       "key" : "l",
