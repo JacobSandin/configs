@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Wait for AeroSpace to fully start
-sleep 2
+# Wait for AeroSpace and apps to fully start
+# Increased from 2 to 5 seconds to ensure all startup apps have launched
+sleep 5
 
 # Get all window IDs and reassign them based on app-id
 tmp_file=$(mktemp)
@@ -32,8 +33,7 @@ while IFS='|' read -r window_id app_id <&3; do
             aerospace move-node-to-workspace --window-id "$window_id" R > /dev/null 2>&1
             ;;
         *)
-            # All other windows go to workspace A
-            aerospace move-node-to-workspace --window-id "$window_id" A > /dev/null 2>&1
+            # Unknown apps stay in their current workspace
             ;;
     esac
 done

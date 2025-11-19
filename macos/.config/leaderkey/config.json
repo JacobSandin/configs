@@ -81,19 +81,19 @@
               "key" : "m",
               "label" : "Monitor workspace sort",
               "type" : "command",
-              "value" : " /bin/bash ~/.config/aerospace/move-workspaces-to-secondary.sh"
+              "value" : "/bin/bash $HOME/.config/aerospace/move-workspaces-to-secondary.sh"
             },
             {
               "key" : "t",
               "label" : "Reset tiling",
               "type" : "command",
-              "value" : "/bin/bash ~/.config/aerospace/reset-all-to-tiling.sh"
+              "value" : "/bin/bash $HOME/.config/aerospace/reset-all-to-tiling.sh"
             },
             {
               "key" : "a",
               "label" : "Sort windows",
               "type" : "command",
-              "value" : "/bin/bash ~/.config/aerospace/reassign-all-windows.sh"
+              "value" : "/bin/bash $HOME/.config/aerospace/reassign-all-windows.sh"
             }
           ],
           "iconPath" : "/System/Applications/System Settings.app",

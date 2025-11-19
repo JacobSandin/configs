@@ -42,8 +42,7 @@ while IFS='|' read -r window_id app_id app_name <&3; do
             aerospace move-node-to-workspace --window-id "$window_id" R > /dev/null 2>&1
             ;;
         *)
-            echo "  → Moving $app_name (ID: $window_id) to workspace A"
-            aerospace move-node-to-workspace --window-id "$window_id" A > /dev/null 2>&1
+            echo "  ℹ️  Keeping $app_name (ID: $window_id) in current workspace"
             ;;
     esac
 done

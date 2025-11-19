@@ -4,6 +4,7 @@
 # You can use it to add commands that run after AeroSpace startup.
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 # after-startup-command previously started JankyBorders. Commented out to avoid hangs.
+# Note: reassign-windows-on-startup.sh waits 5 seconds before reassigning to ensure apps have launched
 after-startup-command = [
     "exec-and-forget /bin/zsh -lc '/opt/homebrew/bin/borders active_color=0xffffff00 inactive_color=0xff808080 width=15.0 radius=10.0'",
     "exec-and-forget sketchybar",
@@ -119,9 +120,8 @@ run = 'move-node-to-workspace R'
 if.app-id = 'com.apple.MobileSMS'
 run = 'move-node-to-workspace R'
 
-# Default: all other windows go to workspace A  
-[[on-window-detected]]
-run = 'move-node-to-workspace A'
+# Note: Windows without specific rules will stay in their current workspace
+# Use Hyper+G → A to manually reassign all windows if needed
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
