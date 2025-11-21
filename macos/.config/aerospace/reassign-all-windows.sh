@@ -1,7 +1,19 @@
 #!/bin/bash
 
 # Reassign all windows to their correct workspaces based on app-id
-echo "🔄 Reassigning all windows to correct workspaces..."
+# Usage: reassign-all-windows.sh [--quiet]
+#   --quiet: Run silently (for startup), default: verbose with feedback
+
+QUIET=false
+if [[ "$1" == "--quiet" ]]; then
+    QUIET=true
+    # Wait for AeroSpace and apps to fully start when running at startup
+    sleep 5
+fi
+
+if [[ "$QUIET" == false ]]; then
+    echo "🔄 Reassigning all windows to correct workspaces..."
+fi
 
 # Use temp file to avoid pipe subshell issues
 tmp_file=$(mktemp)
@@ -18,35 +30,38 @@ while IFS='|' read -r window_id app_id app_name <&3; do
     
     case "$app_id" in
         "com.brave.Browser")
-            echo "  → Moving $app_name (ID: $window_id) to workspace W"
+            [[ "$QUIET" == false ]] && echo "  → Moving $app_name (ID: $window_id) to workspace W"
             aerospace move-node-to-workspace --window-id "$window_id" W > /dev/null 2>&1
             ;;
         "com.exafunction.windsurf"|"com.sublimetext.4")
-            echo "  → Moving $app_name (ID: $window_id) to workspace E"
+            [[ "$QUIET" == false ]] && echo "  → Moving $app_name (ID: $window_id) to workspace E"
             aerospace move-node-to-workspace --window-id "$window_id" E > /dev/null 2>&1
             ;;
         "net.kovidgoyal.kitty")
-            echo "  → Moving $app_name (ID: $window_id) to workspace T"
+            [[ "$QUIET" == false ]] && echo "  → Moving $app_name (ID: $window_id) to workspace T"
             aerospace move-node-to-workspace --window-id "$window_id" T > /dev/null 2>&1
             ;;
         "com.sequel-ace.sequel-ace")
-            echo "  → Moving $app_name (ID: $window_id) to workspace Q"
+            [[ "$QUIET" == false ]] && echo "  → Moving $app_name (ID: $window_id) to workspace Q"
             aerospace move-node-to-workspace --window-id "$window_id" Q > /dev/null 2>&1
             ;;
         "com.tinyspeck.slackmacgap")
-            echo "  → Moving $app_name (ID: $window_id) to workspace S"
+            [[ "$QUIET" == false ]] && echo "  → Moving $app_name (ID: $window_id) to workspace S"
             aerospace move-node-to-workspace --window-id "$window_id" S > /dev/null 2>&1
             ;;
         "com.apple.mail"|"com.apple.MobileSMS")
-            echo "  → Moving $app_name (ID: $window_id) to workspace R"
+            [[ "$QUIET" == false ]] && echo "  → Moving $app_name (ID: $window_id) to workspace R"
             aerospace move-node-to-workspace --window-id "$window_id" R > /dev/null 2>&1
             ;;
         *)
-            echo "  ℹ️  Keeping $app_name (ID: $window_id) in current workspace"
+            [[ "$QUIET" == false ]] && echo "  → Moving $app_name (ID: $window_id) to workspace A (fallback)"
+            aerospace move-node-to-workspace --window-id "$window_id" A > /dev/null 2>&1
             ;;
     esac
 done
 exec 3<&-
 
 rm -f "$tmp_file"
-echo "✅ Done! Processed $count windows."
+if [[ "$QUIET" == false ]]; then
+    echo "✅ Done! Processed $count windows."
+fi

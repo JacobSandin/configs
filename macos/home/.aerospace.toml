@@ -4,11 +4,11 @@
 # You can use it to add commands that run after AeroSpace startup.
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 # after-startup-command previously started JankyBorders. Commented out to avoid hangs.
-# Note: reassign-windows-on-startup.sh waits 5 seconds before reassigning to ensure apps have launched
+# Note: reassign-all-windows.sh with --quiet waits 5 seconds before reassigning to ensure apps have launched
 after-startup-command = [
     "exec-and-forget /bin/zsh -lc '/opt/homebrew/bin/borders active_color=0xffffff00 inactive_color=0xff808080 width=15.0 radius=10.0'",
     "exec-and-forget sketchybar",
-    "exec-and-forget /bin/bash ~/.config/aerospace/reassign-windows-on-startup.sh"
+    "exec-and-forget /bin/bash ~/.config/aerospace/reassign-all-windows.sh --quiet"
 ]
 #after-startup-command = []
 
@@ -84,43 +84,56 @@ automatically-unhide-macos-hidden-apps = false
 #     9 = 'secondary'
 
 # Force all new windows to tiling layout by default
-[[on-window-detected]]
-run = 'layout tiling'
+# Removed global rule - now using explicit layout tiling in each app-specific rule
 
 [[on-window-detected]]
 #if.app-name = 'com.brave.Browser'
 if.app-id = 'com.brave.Browser'
-run = 'move-node-to-workspace W'
+run = ['layout tiling', 'move-node-to-workspace W']
 
 [[on-window-detected]]
 if.app-id = 'com.exafunction.windsurf'
-run = 'move-node-to-workspace E'
+run = ['layout tiling', 'move-node-to-workspace E']
 
 [[on-window-detected]]
 if.app-id = 'com.sublimetext.4'
-run = 'move-node-to-workspace E'
+run = ['layout tiling', 'move-node-to-workspace E']
 
 [[on-window-detected]]
 if.app-id = 'net.kovidgoyal.kitty'
-run = 'move-node-to-workspace T'
+run = ['layout tiling', 'move-node-to-workspace T']
 
 [[on-window-detected]]
 if.app-id = 'com.sequel-ace.sequel-ace'
-run = 'move-node-to-workspace Q'
+run = ['layout tiling', 'move-node-to-workspace Q']
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
-run = 'move-node-to-workspace S'
+run = ['layout tiling', 'move-node-to-workspace S']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.mail'
-run = 'move-node-to-workspace R'
+run = ['layout tiling', 'move-node-to-workspace R']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.MobileSMS'
-run = 'move-node-to-workspace R'
+run = ['layout tiling', 'move-node-to-workspace R']
 
-# Note: Windows without specific rules will stay in their current workspace
+# Minecraft - disable AeroSpace management (floating layout)
+[[on-window-detected]]
+if.app-id = 'com.mojang.minecraftlauncher'
+run = 'layout floating'
+
+# Minecraft game (runs as Java)
+[[on-window-detected]]
+if.window-title-regex-substring = 'Minecraft.*'
+run = 'layout floating'
+
+# Fallback rule for all other apps - set to tiling and move to workspace A
+[[on-window-detected]]
+run = ['layout tiling', 'move-node-to-workspace A']
+
+# Note: Windows without specific rules will be moved to workspace A
 # Use Hyper+G → A to manually reassign all windows if needed
 
 # 'main' binding mode declaration
