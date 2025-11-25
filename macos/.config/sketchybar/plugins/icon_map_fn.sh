@@ -143,6 +143,9 @@ function icon_map() {
   "Code" | "Code - Insiders")
     icon_result=":code:"
     ;;
+  "Windsurf")
+    icon_result=":code:"
+    ;;
   "Linear")
     icon_result=":linear:"
     ;;

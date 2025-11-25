@@ -129,6 +129,15 @@ run = 'layout floating'
 if.window-title-regex-substring = 'Minecraft.*'
 run = 'layout floating'
 
+# Path of Exile - disable AeroSpace management (floating layout)
+[[on-window-detected]]
+if.app-id = 'com.GGG.PathofExile'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.window-title-regex-substring = 'Path of Exile'
+run = 'layout floating'
+
 # Fallback rule for all other apps - set to tiling and move to workspace A
 [[on-window-detected]]
 run = ['layout tiling', 'move-node-to-workspace A']

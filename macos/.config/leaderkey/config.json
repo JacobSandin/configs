@@ -94,6 +94,12 @@
               "label" : "Sort windows",
               "type" : "command",
               "value" : "/bin/bash $HOME/.config/aerospace/reassign-all-windows.sh"
+            },
+            {
+              "iconPath" : "scribble",
+              "key" : "s",
+              "type" : "command",
+              "value" : "brew services restart sketchybar"
             }
           ],
           "iconPath" : "/System/Applications/System Settings.app",
