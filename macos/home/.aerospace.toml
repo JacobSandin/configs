@@ -7,7 +7,7 @@
 # Note: reassign-all-windows.sh with --quiet waits 5 seconds before reassigning to ensure apps have launched
 after-startup-command = [
     "exec-and-forget /bin/zsh -lc '/opt/homebrew/bin/borders active_color=0xffffff00 inactive_color=0xff808080 width=15.0 radius=10.0'",
-    "exec-and-forget sketchybar",
+    "exec-and-forget /bin/bash -c 'killall sketchybar; sleep 0.5; sketchybar'",
     "exec-and-forget /bin/bash ~/.config/aerospace/reassign-all-windows.sh --quiet"
 ]
 #after-startup-command = []

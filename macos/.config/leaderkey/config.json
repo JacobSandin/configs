@@ -98,8 +98,9 @@
             {
               "iconPath" : "scribble",
               "key" : "s",
+              "label" : "Reset sketchybar",
               "type" : "command",
-              "value" : "brew services restart sketchybar"
+              "value" : "/opt/homebrew/bin/brew services restart sketchybar"
             }
           ],
           "iconPath" : "/System/Applications/System Settings.app",

@@ -42,6 +42,7 @@ create_symlink "$DOTFILES_DIR/home/.zshrc" "$HOME/.zshrc"
 create_symlink "$DOTFILES_DIR/home/.bash_profile" "$HOME/.bash_profile"
 create_symlink "$DOTFILES_DIR/home/.gitconfig" "$HOME/.gitconfig"
 create_symlink "$DOTFILES_DIR/home/.aerospace.toml" "$HOME/.aerospace.toml"
+create_symlink "$DOTFILES_DIR/home/.hammerspoon" "$HOME/.hammerspoon"
 
 echo ""
 echo "⚙️  Installing .config directory files..."
@@ -55,6 +56,14 @@ create_symlink "$DOTFILES_DIR/.config/kitty" "$HOME/.config/kitty"
 create_symlink "$DOTFILES_DIR/.config/leaderkey" "$HOME/.config/leaderkey"
 create_symlink "$DOTFILES_DIR/.config/sketchybar" "$HOME/.config/sketchybar"
 create_symlink "$DOTFILES_DIR/.config/yazi" "$HOME/.config/yazi"
+
+echo ""
+echo "🖥️  Installing Windsurf settings..."
+
+# Ensure Windsurf User directory exists
+mkdir -p "$HOME/Library/Application Support/Windsurf/User"
+
+create_symlink "$DOTFILES_DIR/.config/windsurf/keybindings.json" "$HOME/Library/Application Support/Windsurf/User/keybindings.json"
 
 echo ""
 echo "🔄 Reloading configurations..."
@@ -74,6 +83,11 @@ if pgrep -x "sketchybar" &> /dev/null; then
     sketchybar --reload && echo "  ✅ Sketchybar reloaded"
 fi
 
+# Reload Hammerspoon
+if pgrep -x "Hammerspoon" &> /dev/null; then
+    hs -c "hs.reload()" && echo "  ✅ Hammerspoon reloaded"
+fi
+
 echo ""
 echo "✨ Installation complete!"
 echo ""
@@ -81,6 +95,7 @@ echo "📌 Next steps:"
 echo "  1. Restart your terminal to load new .zshrc"
 echo "  2. Restart Kitty if you have it open"
 echo "  3. Restart LeaderKey from menu bar"
+echo "  4. Launch Hammerspoon and grant Accessibility permissions"
 echo ""
 echo "🔙 Backups saved to: $BACKUP_DIR"
 echo "   (You can delete this folder if everything works)"
