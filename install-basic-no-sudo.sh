@@ -46,6 +46,10 @@ sed -i "s|/home/jacsan|\$HOME|g" ~/.zshrc.temp
 # Move the modified file to .zshrc
 mv ~/.zshrc.temp ~/.zshrc
 
+# Create symlink for .zshenv (uppdateras via git pull)
+rm -f ~/.zshenv
+ln -sf ~/utv/git/configs/minimal/zshenv ~/.zshenv
+
 # Create local directories if they don't exist
 mkdir -p ~/bin
 
@@ -100,13 +104,24 @@ if [ -d ~/utv/git/configs ]; then
     cd ~/utv/git/configs
     git pull
 else
-    echo "Cloning configs and updating nvim link"
-    rm -rf ~/.config/nvim; rm -rf ~/.local/share/nvim
+    echo "Cloning configs..."
     mkdir -p ~/utv/git; cd ~/utv/git
     git clone https://github.com/JacobSandin/configs
-    # Use your home directory instead of hardcoded path
-    ln -s ~/utv/git/configs/nvim_lua ~/.config/nvim
 fi
+
+# Setup NvChad with custom config
+echo "Setting up NvChad..."
+rm -rf ~/.config/nvim
+rm -rf ~/.local/state/nvim
+rm -rf ~/.local/share/nvim
+
+git clone https://github.com/NvChad/starter ~/.config/nvim
+
+ln -sf ~/utv/git/configs/nvchad_config/init.lua ~/.config/nvim/init.lua
+ln -sf ~/utv/git/configs/nvchad_config/lua/mappings.lua ~/.config/nvim/lua/mappings.lua
+ln -sf ~/utv/git/configs/nvchad_config/lua/chadrc.lua ~/.config/nvim/lua/chadrc.lua
+ln -sf ~/utv/git/configs/nvchad_config/lua/options.lua ~/.config/nvim/lua/options.lua
+
 cd ~/
 
 # Install lazygit without sudo

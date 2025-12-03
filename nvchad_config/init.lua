@@ -35,3 +35,20 @@ require "autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+-- Förbättrad diff-kontrast och visual selection
+local function setup_custom_highlights()
+  -- Diff-färger
+  vim.api.nvim_set_hl(0, "DiffAdd", { bg = "#d0f0d0", fg = "#005500", bold = true })
+  vim.api.nvim_set_hl(0, "DiffChange", { bg = "#e0e8ff", fg = "#000080" })
+  vim.api.nvim_set_hl(0, "DiffDelete", { bg = "#ffd0d0", fg = "#880000", bold = true })
+  vim.api.nvim_set_hl(0, "DiffText", { bg = "#b0c8ff", fg = "#000080", bold = true })
+  -- Markerad text (visual selection)
+  vim.api.nvim_set_hl(0, "Visual", { bg = "#b0d0ff", fg = "#000000" })
+end
+
+-- Kör vid uppstart (efter att NvChad laddat temat)
+vim.defer_fn(setup_custom_highlights, 0)
+
+-- Kör även vid temaändringar
+vim.api.nvim_create_autocmd("ColorScheme", { callback = setup_custom_highlights })

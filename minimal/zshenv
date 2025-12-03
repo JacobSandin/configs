@@ -9,36 +9,19 @@ if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
         fi
       #echo "Updating environment JacobSandin"
       /usr/bin/wget --quiet --no-cache --no-cookies https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/zshrc -O ~/.zshrc >/dev/null 2>/dev/null &
-      /usr/bin/wget --quiet --no-cache --no-cookies https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/zshenv -O ~/.zshenv >/dev/null 2>/dev/null
+      # zshenv uppdateras via git pull av configs-repot, inte här (undviker problem med self-modification)
       #/usr/bin/wget --quiet --no-cache --no-cookies https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/init.vim -O ~/.config/nvim/init.vim >/dev/null 2>/dev/null &
         /usr/bin/wget --quiet --no-cache --no-cookies https://raw.githubusercontent.com/JacobSandin/configs/master/minimal/ranger_rc.conf -O ~/.config/ranger/rc.conf 2>/dev/null &
       
       if [[ ! -L ~/.tmux.conf ]]; then
-        rm ~/.tmux.conf
-        ln -s ~/utv/git/config/tmux/tmux.conf .tmux.conf
+        rm -f ~/.tmux.conf
+        ln -s ~/utv/git/configs/tmux/tmux.conf ~/.tmux.conf
       fi
       
-      
-#      cd ~/.config/zsh/oh-my-zsh
-#      git pull --quiet >/dev/null 2>/dev/null &
-#      cd ~/.config/zsh/plugins/zsh-autosuggestions
-#      git pull --quiet >/dev/null 2>/dev/null &
-#      cd ~/.config/zsh/plugins/zsh-syntax-highlighting
-#      git pull --quiet >/dev/null 2>/dev/null &
-#      cd ~/
-        #rm ~/.config/nvim/local-plugins.vim 2>/dev/null
-        #touch ~/.config/nvim/local-plugin.vim
-        #touch ~/.config/nvim/local.vim
-        #Does not work with vscode 
-        #nvim -E -s -u "$HOME/.config/nvim/init.vim" +PlugInstall +qall -es &
-        #nvim -E -s -u "$HOME/.config/nvim/init.vim" +PlugClean +qall -es &
-    fi  
-    wget --quiet -O ~/tmp.sh --no-cache --no-cookies https://raw.githubusercontent.com/JacobSandin/configs/master/setup_lua_config.bash
-    if [[ -f ~/tmp.sh ]]; then
-      bash ~/tmp.sh
-      rm ~/tmp.sh
+      # Update configs repo if it exists
+      if [[ -d ~/utv/git/configs ]]; then
+        (cd ~/utv/git/configs && git pull --quiet >/dev/null 2>/dev/null &)
+      fi
     fi
-    export SLUA="DONE"
-    #source ~/.zshrc
 fi
 
