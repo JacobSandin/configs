@@ -7,12 +7,15 @@ local opt = vim.opt
 -- This enables yank/paste to work through SSH and tmux using OSC52 escape sequences
 -- Works with Kitty terminal and modern terminals that support OSC52
 
--- Enable unnamedplus to use system clipboard
+-- Enable unnamedplus to use system clipboard by default
 opt.clipboard = "unnamedplus"
 
--- OSC52 clipboard provider
--- This function sends OSC52 escape sequences to copy text
+-- Local cache for clipboard content (since OSC52 can't read back)
+local clipboard_cache = {}
+
+-- OSC52 clipboard provider with local cache
 local function copy_osc52(lines, _)
+  clipboard_cache = lines
   local text = table.concat(lines, '\n')
   local encoded = vim.base64.encode(text)
   -- Send OSC52 sequence: ESC]52;c;BASE64\BEL
@@ -20,7 +23,7 @@ local function copy_osc52(lines, _)
 end
 
 local function paste_osc52()
-  return {}  -- Paste not supported via OSC52, use tmux buffer
+  return clipboard_cache
 end
 
 -- Set up custom clipboard provider
