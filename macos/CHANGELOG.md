@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2026-01-14] - Kitty & Leaderkey Updates
+
+### Changed
+- **kitty.conf** - Disable close confirmation dialog (`confirm_os_window_close 0`)
+- **kitty.conf** - Quit app when last window closed (`macos_quit_when_last_window_closed yes`)
+- **kitty.conf** - Add explicit Home/End key mappings for proper terminal behavior
+
+### Added
+- **leaderkey/config.json** - New shortcut `l` under System to reload borders
+
+---
+
 ## [2024-11-16] - Window Management Improvements
 
 ### Added

@@ -101,6 +101,13 @@
               "label" : "Reset sketchybar",
               "type" : "command",
               "value" : "/opt/homebrew/bin/brew services restart sketchybar"
+            },
+            {
+              "iconPath" : "square.and.at.rectangle",
+              "key" : "l",
+              "label" : "Reload borders",
+              "type" : "command",
+              "value" : "killall borders; /opt/homebrew/bin/borders active_color=0xffffff00 inactive_color=0xff808080 width=15.0 radius=10.0"
             }
           ],
           "iconPath" : "/System/Applications/System Settings.app",
