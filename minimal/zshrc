@@ -1,6 +1,7 @@
 [[ $- != *i* ]] && return
 DISABLE_AUTO_TITLE="true"       # Remove echo of command on next line
-export TERM=screen-256color
+# Only set TERM if not in VSCode/Windsurf terminal
+[[ -z "$VSCODE_INJECTION" && "$TERM_PROGRAM" != "vscode" ]] && export TERM=screen-256color
 #enable dvorak with alt+shift
 #setxkbmap -layout se,se -variant ,dvorak -option grp:alt_shift_toggle
 #setxkbmap -layout se,se -variant ,dvorak_a5 -option grp:alt_shift_toggle
@@ -171,6 +172,11 @@ PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 zstyle ':urlglobber' url-other-schema
 
 #bindkey -s '^Z' 'fg^M'
+
+# Enable shell integration for Windsurf/VSCode
+if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+  . "$(code --locate-shell-integration-path zsh 2>/dev/null)" 2>/dev/null || true
+fi
 
 source ~/.config/zsh/oh-my-zsh/oh-my-zsh.sh
 

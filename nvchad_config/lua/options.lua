@@ -3,6 +3,16 @@
 
 local opt = vim.opt
 
+-- Persistent undo - remember undo history between sessions
+opt.undofile = true
+opt.undodir = vim.fn.stdpath("data") .. "/undodir"
+
+-- Create undodir if it doesn't exist
+local undodir = vim.fn.stdpath("data") .. "/undodir"
+if vim.fn.isdirectory(undodir) == 0 then
+  vim.fn.mkdir(undodir, "p")
+end
+
 -- Clipboard configuration for OSC52
 -- This enables yank/paste to work through SSH and tmux using OSC52 escape sequences
 -- Works with Kitty terminal and modern terminals that support OSC52
