@@ -159,7 +159,8 @@ osc52-copy() {
   # Build OSC52 sequence
   local osc=$'\e]52;c;'"$encoded"$'\a'
   
-  if [[ -n "$TMUX" ]]; then
+  # Check if we're in tmux OR behind tmux (ssh from tmux sets TERM=screen*)
+  if [[ -n "$TMUX" || "$TERM" =~ ^screen || "$TERM" =~ ^tmux ]]; then
     # Wrap in tmux DCS passthrough
     print -n $'\ePtmux;\e'"$osc"$'\e\\'
   else
