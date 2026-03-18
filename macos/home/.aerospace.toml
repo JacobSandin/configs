@@ -119,6 +119,11 @@ run = ['layout tiling', 'move-node-to-workspace R']
 if.app-id = 'com.apple.MobileSMS'
 run = ['layout tiling', 'move-node-to-workspace R']
 
+# Telavox Desktop - always float (bugs out with tiling)
+[[on-window-detected]]
+if.app-id = 'se.telavox.desktop'
+run = 'layout floating'
+
 # Minecraft - disable AeroSpace management (floating layout)
 [[on-window-detected]]
 if.app-id = 'com.mojang.minecraftlauncher'
