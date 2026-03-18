@@ -146,6 +146,7 @@ fi
 
 # OSC52 clipboard copy - works through SSH and tmux
 # Replaces xclip functionality using OSC52 escape sequences
+# Requires tmux 3.3+ with: set -g allow-passthrough on
 osc52-copy() {
   local data
   if [ -t 0 ]; then
@@ -154,18 +155,11 @@ osc52-copy() {
     data=$(cat)
   fi
   
-  local encoded=$(printf "%s" "$data" | base64 | tr -d '\n')
-  
-  # Build OSC52 sequence
-  local osc=$'\e]52;c;'"$encoded"$'\a'
-  
-  # Check if we're in tmux OR behind tmux (ssh from tmux sets TERM=screen*)
-  if [[ -n "$TMUX" || "$TERM" =~ ^screen || "$TERM" =~ ^tmux ]]; then
-    # Wrap in tmux DCS passthrough
-    print -n $'\ePtmux;\e'"$osc"$'\e\\'
-  else
-    print -n "$osc"
-  fi
+  # Encode and send OSC52 - tmux passes through with allow-passthrough
+  printf '%s' "$data" | base64 | tr -d '\n' | {
+    read encoded
+    print -n $'\e]52;c;'"$encoded"$'\a'
+  }
 }
 
 # Alias for convenience (like xclip)
