@@ -145,7 +145,7 @@ if [ -f ~/.aliases ]; then
 fi
 
 # OSC52 clipboard copy - works through SSH and tmux
-# Requires tmux 3.3+ with: set -g allow-passthrough on
+# Requires tmux with: set-window-option -g allow-passthrough all
 osc52-copy() {
   local data
   if [ -t 0 ]; then
@@ -157,12 +157,10 @@ osc52-copy() {
   local encoded=$(printf '%s' "$data" | base64 | tr -d '\n')
   local osc=$'\e]52;c;'"$encoded"$'\a'
   
-  # Behind tmux (nested SSH) needs DCS wrapper, direct tmux uses allow-passthrough
-  if [[ -z "$TMUX" && "$TERM" =~ ^screen ]]; then
-    # Nested SSH through tmux - need DCS passthrough
+  # Use DCS wrapper when in tmux or behind tmux (TERM=screen*)
+  if [[ -n "$TMUX" || "$TERM" =~ ^screen || "$TERM" =~ ^tmux ]]; then
     print -n $'\ePtmux;\e'"$osc"$'\e\\'
   else
-    # Direct (in tmux with allow-passthrough, or no tmux at all)
     print -n "$osc"
   fi
 }
